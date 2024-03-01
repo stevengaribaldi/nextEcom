@@ -29,7 +29,7 @@ const perks = [
   },
   {
     name: 'For the Planet',
-    Icon: Leaf,
+   Icon: Leaf,
     description:
       "We've partnered with One Tree Planted to plant a tree for every purchase made on our platform.",
   },

@@ -10,7 +10,7 @@ const Navbar = () => {
       <header className="relative bg-white">
         <MaxWidthWrapper>
           <div className="border-b border-gray-200">
-            <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
               {/* TODO MOBILE NAV */}
 
               <div className="ml-0 flex lg:ml-0">

@@ -33,7 +33,8 @@
                     // "storage.type.tsx" // For TSX
                 ],
                 "settings": {
-                    "foreground": "#fb7900b1"
+                    "foreground": "#fb7900b1",
+                    "fontStyle": "bold"
                 }
             },
             {
@@ -42,13 +43,13 @@
                     "foreground": "#828a8e", // Example color
                 }
             },
-            {
-                "scope": "support.class.component", // For React components, if available
-                "settings": {
-                    "foreground": "#139bdf", // Example color
-                    "fontStyle": "italic bold"
-                }
-            },
+            // {
+            //     "scope": "support.class.component", // For React components, if available
+            //     "settings": {
+            //         "foreground": "#139bdf", // Example color
+            //         "fontStyle": "italic bold"
+            //     }
+            // },
             {
                 "scope": "variable.other.readwrite.alias.tsx",
                 "settings": {
@@ -71,21 +72,19 @@
             {
                 "scope": "support.class", // Example scope for types like `HTMLDivElement`
                 "settings": {
-                    "foreground": "#d1d5d6" // Example: SteelBlue color
+                    "foreground": "#25ceaa",
+                    "fontStyle": "italic"
                 }
             },
             {
                 "scope": [
-                    // "storage.type",
                     "entity.name.type.class",
-                    // "constant.language",
+                    "constant.language",
                     "storage.type.ts",
-                    // "storage.type",
                     "keyword.operator.expression.typeof",
                     "entity.name.type.enum",
                     "entity.name.type.interface",
                     "storage.type.interface",
-                    "storage.type.type",
                     "keyword.operator.expression.typeof.ts",
                     "storage.type.ts",
                     "storage.type.interface.ts",
@@ -98,18 +97,18 @@
                 ],
                 "settings": {
                     "foreground": "#00ffc8",
-                    "fontStyle": "italic"
+                    // "fontStyle": "italic"
                 }
             },
             {
                 "scope": [
                     "variable.other.readwrite",
                     "variable.other.constant",
-                    "constant.language",
+                    // "constant.language",
                 ],
                 "settings": {
                     "foreground": "#326de4",
-                    // "fontStyle": "italic" // Applies underline to function names
+                    "fontStyle": "italic" // Applies underline to function names
                 }
             },
             {

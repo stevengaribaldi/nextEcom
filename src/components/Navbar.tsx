@@ -9,14 +9,14 @@ import Cart from './Cart';
 const Navbar = () => {
   const user = null;
   return (
-    <div className=" sticky z-50 top-0 inset-x-0 h-16">
+    <div className="bg-black sticky z-50 top-0 inset-x-0 h-16">
       <header className="relative bg-black">
         <MaxWidthWrapper>
           <div className="border-b border-gray-200">
             <div className="flex items-center">
               {/* TODO MOBILE NAV */}
 
-              <div className="ml-4 flex lg:ml-0">
+              <div className="ml-0 flex lg:ml-0">
                 <Link href="/">
                   <Image src="/sila.svg" alt={''} width={60} height={60} />
                 </Link>
@@ -31,7 +31,7 @@ const Navbar = () => {
                       href="/signin"
                       className="
                       hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]
-                       px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
+                      px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
                     >
                       Sign in
                     </Link>
@@ -45,8 +45,7 @@ const Navbar = () => {
                     <Link
                       href="/register"
                       className="
-                      hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]
-                        px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
+                      hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
                     >
                       Register
                     </Link>
@@ -63,7 +62,7 @@ const Navbar = () => {
                     </div>
                   )}
                   <div className="ml-4 flow-root lg:ml-6 size-9">
-                    <Cart itemCount={8} />
+                    <Cart />
                   </div>
                 </div>
               </div>

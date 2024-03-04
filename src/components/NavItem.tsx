@@ -22,12 +22,13 @@ const NavItem = ({ isAnyOpen, category, handleOpen, isOpen }: NavItemProps) => {
           className="gap-1.5 hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]
                        px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
           onClick={handleOpen}
-          variant={isOpen ? 'secondary' : 'ghost'}
+          variant={isOpen ? 'secondaryglow' : 'ghostnoglow'}
         >
           {category.label}{' '}
           <ChevronDown
-            className={cn('h-4 w-4 transition-all text-muted-foreground', {
-              '-rotate-180': isOpen,
+            className={cn('h-4 w-4 rounded-full transition-all', {
+              'animate-pulse text-gray-400 duration-3000': !isOpen,
+              'text-white -rotate-180': isOpen, // Change color when open
             })}
           />
         </Button>

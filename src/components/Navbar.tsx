@@ -9,8 +9,8 @@ import Cart from './Cart';
 const Navbar = () => {
   const user = null;
   return (
-    <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
-      <header className="relative bg-white">
+    <div className=" sticky z-50 top-0 inset-x-0 h-16">
+      <header className="relative bg-black">
         <MaxWidthWrapper>
           <div className="border-b border-gray-200">
             <div className="flex items-center">
@@ -18,7 +18,7 @@ const Navbar = () => {
 
               <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
-                  <Image src="/silla.svg" alt={''} width={60} height={60} />
+                  <Image src="/sila.svg" alt={''} width={60} height={60} />
                 </Link>
               </div>
               <div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">

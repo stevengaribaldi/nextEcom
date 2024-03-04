@@ -19,7 +19,8 @@ const NavItem = ({ isAnyOpen, category, handleOpen, isOpen }: NavItemProps) => {
     <div className="flex">
       <div className="relative flex items-center">
         <Button
-          className="gap-1.5 text-gray-900"
+          className="gap-1.5 hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]
+                       px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
           onClick={handleOpen}
           variant={isOpen ? 'secondary' : 'ghost'}
         >

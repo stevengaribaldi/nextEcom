@@ -23,7 +23,7 @@ const NavItems = () => {
     [];
   return (
     <div>
-      <div className="flex h-full gap-4" ref={navRef}>
+      <div className="flex h-full gap-8" ref={navRef}>
         {PRODUCT_CATEGORIES.map((category, i) => {
           const handleOpen = () => {
             if (activeIndex === i) {

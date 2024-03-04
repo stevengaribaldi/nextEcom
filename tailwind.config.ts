@@ -18,7 +18,31 @@ const config = {
       },
     },
     extend: {
+      extend: {
+        spacing: {
+          '0.1': '0.025rem', // 0.4px if 1rem = 16px
+          '0.2': '0.05rem', // 0.8px if 1rem = 16px
+          '0.3': '0.075rem', // 1.2px if 1rem = 16px
+          '0.5': '0.125rem', // 2px if 1rem = 16px
+          '1.5': '0.375rem', // 6px if 1rem = 16px
+          '1.6': '1.6rem', // 6px if 1rem = 16px
+          '1.7': '1.7rem', // 6px if 1rem = 16px
+          '1.8': '1.8rem', // 6px if 1rem = 16px
+
+          // Add other custom spacing values as needed
+        },
+      },
+      boxShadow: {
+        'blue-lg':
+          '0 10px 15px -3px rgba(59, 130, 246, 0.5), 0 4px 6px -2px rgba(59, 130, 246, 0.25)', // Example bluish hue
+        'strong-blue-lg':
+          '0 10px 15px -3px rgba(29, 78, 216, 0.7), 0 4px 6px -2px rgba(29, 78, 216, 0.5)',
+        'light-blue-lg':
+          '0 10px 15px -3px rgba(147, 197, 253, 0.5), 0 4px 6px -2px rgba(147, 197, 253, 0.3)',
+        black: '0 2px 4px 0 rgba(0, 0, 0, 1)',
+      },
       colors: {
+        'custom-red': '#fd1111',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

@@ -1,8 +1,10 @@
+'use client';
 import Link from 'next/link';
 import MaxWidthWrapper from './MaxWidthWrapper';
 import { Icons } from './Icons';
 import NavItems from './NavItems';
 import Image from 'next/image';
+import Cart from './Cart';
 
 const Navbar = () => {
   const user = null;
@@ -24,7 +26,41 @@ const Navbar = () => {
               </div>
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  {user ? null : <Link href="/sign-ing">Sign in</Link>}
+                  {user ? null : (
+                    <Link
+                      href="/signin"
+                      className="shadow-black shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(22,78,142,0.9)] px-8 py-2 bg-[#1907de] rounded-md text-white font-light transition duration-200 ease-linear"
+                    >
+                      Sign in
+                    </Link>
+                  )}
+                  {user ? null : (
+                    <span className="h-6 w-px gray-200" aria-hidden="true" />
+                  )}
+                  {user ? (
+                    <p></p>
+                  ) : (
+                    <Link
+                      href="/register"
+                      className="shadow-black shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(22,78,142,0.9)] px-8 py-2 bg-[#1907de] rounded-md text-white font-light transition duration-200 ease-linear"
+                    >
+                      Register
+                    </Link>
+                  )}
+                  {user ? (
+                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                  ) : null}
+                  {user ? null : (
+                    <div className="flex lg:ml-6">
+                      <span
+                        className="h-6 w-px bg-gray-200"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  )}
+                  <div className="ml-4 flow-root lg:ml-6 size-9">
+                    <Cart itemCount={8} />
+                  </div>
                 </div>
               </div>
             </div>

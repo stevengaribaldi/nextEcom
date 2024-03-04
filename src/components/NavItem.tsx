@@ -55,7 +55,7 @@ const NavItem = ({ isAnyOpen, category, handleOpen, isOpen }: NavItemProps) => {
                       key={item.name}
                       className="group relative text-base sm:text-sm"
                     >
-                      <div className="relative aspect-video overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                      <div className="relative aspect-video overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-100 ring-1 ring-gray-50 shadow-light-blue-lg">
                         <Image
                           src={item.imageSrc}
                           alt="product category image"

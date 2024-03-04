@@ -14,7 +14,7 @@ const perks = [
     name: 'Instant Download',
     Icon: ArrowDownToLine,
     description:
-      'Get your Verified Digital™ assets delivered instantly to your email.',
+      'Get your  Yahfedra Digital™ assets delivered instantly to your email.',
   },
   {
     name: 'Guaranteed Quality',
@@ -29,7 +29,7 @@ const perks = [
   },
   {
     name: 'For the Planet',
-   Icon: Leaf,
+    Icon: Leaf,
     description:
       "We've partnered with One Tree Planted to plant a tree for every purchase made on our platform.",
   },
@@ -49,17 +49,23 @@ const perks = [
 export default function Home() {
   return (
     <>
-      <MaxWithWrapper>
+      <MaxWithWrapper >
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="text-4xl font-bold tracking-tight text-grey-900 sm:text-6xl">
             The Market Place
-            <span className="text-blue-600"> digital assests</span>.
+            <span className="text-red-500"> digital assests</span>
           </h1>
           <p className="mt-6 text-lg max-w-prose text-muted-foreground">
-            Verified Digital™{' '}
+            Yahfedra Digital™{' '}
           </p>
-          <div className="flex flex-col sm:flow-row gap-4 mt-6">
-            <Link href="/products" className={buttonVariants()}>
+          <div className="flex flex-col sm:flow-row gap-4 mt-6 ">
+            <Link
+              href="/products"
+              className={
+                (buttonVariants(),
+                "shadow-black hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(22,78,142,0.9)] px-8 py-2 bg-[#1907de] rounded-md text-white font-light transition duration-200 ease-linear")
+              }
+            >
               {' '}
               Browser Trending
             </Link>
@@ -68,7 +74,7 @@ export default function Home() {
         </div>
         {/* TODO list products */}
       </MaxWithWrapper>
-      <section className="border-t border-gray-200 bg-gray-50 ">
+      <section className="border-t border-gray-200 ">
         <MaxWithWrapper className="py-20">
           <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
             {perks.map((perk) => (
@@ -77,7 +83,7 @@ export default function Home() {
                 className="text-center md:flex md:item-start md:text-left lg:block lg:text-center"
               >
                 <div className="md:flex-shrink-0 flex justify-center">
-                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-blue-100 text-blue-900">
+                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-blue-900 text-white">
                     {<perk.Icon className="w-1/3" />}
                   </div>
                 </div>
@@ -85,7 +91,7 @@ export default function Home() {
                   <h3 className="text-base font-semibold text-gray-900">
                     {perk.name}
                   </h3>
-                  <p className="mt-3 text-sm text-muted-foreground">
+                  <p className="mt-3 text-sm text-muted-foreground text-gray-900">
                     {perk.description}
                   </p>
                 </div>
@@ -97,3 +103,5 @@ export default function Home() {
     </>
   );
 }
+
+

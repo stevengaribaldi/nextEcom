@@ -74,6 +74,7 @@ export default function Home() {
         </div>
         {/* TODO list products */}
       </MaxWithWrapper>
+       
       <section className="border-t border-gray-200 ">
         <MaxWithWrapper className="py-20">
           <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">

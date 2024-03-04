@@ -20,16 +20,14 @@ const config = {
     extend: {
       extend: {
         spacing: {
-          '0.1': '0.025rem', // 0.4px if 1rem = 16px
-          '0.2': '0.05rem', // 0.8px if 1rem = 16px
-          '0.3': '0.075rem', // 1.2px if 1rem = 16px
-          '0.5': '0.125rem', // 2px if 1rem = 16px
-          '1.5': '0.375rem', // 6px if 1rem = 16px
-          '1.6': '1.6rem', // 6px if 1rem = 16px
-          '1.7': '1.7rem', // 6px if 1rem = 16px
-          '1.8': '1.8rem', // 6px if 1rem = 16px
-
-          // Add other custom spacing values as needed
+          '0.1': '0.025rem',
+          '0.2': '0.05rem',
+          '0.3': '0.075rem',
+          '0.5': '0.125rem',
+          '1.5': '0.375rem',
+          '1.6': '1.6rem',
+          '1.7': '1.7rem',
+          '1.8': '1.8rem',
         },
       },
       boxShadow: {

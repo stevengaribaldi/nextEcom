@@ -16,7 +16,7 @@ const Navbar = () => {
             <div className="flex items-center">
               {/* TODO MOBILE NAV */}
 
-              <div className="ml-0 flex lg:ml-0">
+              <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
                   <Image src="/silla.svg" alt={''} width={60} height={60} />
                 </Link>
@@ -29,20 +29,24 @@ const Navbar = () => {
                   {user ? null : (
                     <Link
                       href="/signin"
-                      className="shadow-black shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(22,78,142,0.9)] px-8 py-2 bg-[#1907de] rounded-md text-white font-light transition duration-200 ease-linear"
+                      className="
+                      hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]
+                       px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
                     >
                       Sign in
                     </Link>
                   )}
                   {user ? null : (
-                    <span className="h-6 w-px gray-200" aria-hidden="true" />
+                    <span className="h-6 w-px bg-gray-300" aria-hidden="true" />
                   )}
                   {user ? (
                     <p></p>
                   ) : (
                     <Link
                       href="/register"
-                      className="shadow-black shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(22,78,142,0.9)] px-8 py-2 bg-[#1907de] rounded-md text-white font-light transition duration-200 ease-linear"
+                      className="
+                      hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]
+                        px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
                     >
                       Register
                     </Link>
@@ -53,7 +57,7 @@ const Navbar = () => {
                   {user ? null : (
                     <div className="flex lg:ml-6">
                       <span
-                        className="h-6 w-px bg-gray-200"
+                        className="h-6 w-px bg-gray-300"
                         aria-hidden="true"
                       />
                     </div>

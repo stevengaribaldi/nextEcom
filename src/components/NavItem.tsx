@@ -27,7 +27,7 @@ const NavItem = ({ isAnyOpen, category, handleOpen, isOpen }: NavItemProps) => {
           {category.label}{' '}
           <ChevronDown
             className={cn('h-4 w-4 rounded-full transition-all', {
-              'animate-pulse text-gray-400 duration-3000': !isOpen,
+              'animate-pulse text-gray-300 duration-2500': !isOpen,
               'text-white -rotate-180': isOpen, // Change color when open
             })}
           />

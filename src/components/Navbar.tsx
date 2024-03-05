@@ -61,7 +61,7 @@ const Navbar = () => {
                       />
                     </div>
                   )}
-                  <div className="ml-4 flow-root lg:ml-6 size-9">
+                  <div className="ml-4 flow-root lg:ml-6 size-9 ">
                     <Cart />
                   </div>
                 </div>

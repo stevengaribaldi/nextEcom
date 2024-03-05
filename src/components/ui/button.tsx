@@ -23,6 +23,7 @@ const buttonVariants = cva(
         secondaryglow:
           ' hover:bg-black shadow-[0_6px_20px_rgba(0,118,255,23%)] bg-black',
       },
+      
       size: {
         default: 'h-10 px-4 py-2',
         sm: 'h-9 rounded-md px-3',

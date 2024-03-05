@@ -5,6 +5,7 @@ import { Icons } from './Icons';
 import NavItems from './NavItems';
 import Image from 'next/image';
 import Cart from './Cart';
+import { Separator } from './ui/separator';
 
 const Navbar = () => {
   const user = null;
@@ -12,7 +13,7 @@ const Navbar = () => {
     <div className="bg-black sticky z-50 top-0 inset-x-0 h-16">
       <header className="relative bg-black">
         <MaxWidthWrapper>
-          <div className="border-b border-gray-200">
+          <div className=" border-gray-200">
             <div className="flex items-center">
               {/* TODO MOBILE NAV */}
 
@@ -70,6 +71,7 @@ const Navbar = () => {
           </div>
         </MaxWidthWrapper>
       </header>
+      <Separator />
     </div>
   );
 };

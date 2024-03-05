@@ -9,6 +9,8 @@ import {
   Undo2,
 } from 'lucide-react';
 import Link from 'next/link';
+import { Separator } from '../components/ui/separator';
+
 const perks = [
   {
     name: 'Instant Download',
@@ -49,33 +51,47 @@ const perks = [
 export default function Home() {
   return (
     <>
-      <MaxWithWrapper >
-        <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-          <h1 className="text-4xl font-bold tracking-tight text-grey-900 sm:text-6xl">
-            The Market Place
-            <span className="text-red-500"> digital assests</span>
-          </h1>
-          <p className="mt-6 text-lg max-w-prose text-muted-foreground">
-            Yahfedra Digital™{' '}
-          </p>
-          <div className="flex flex-col sm:flow-row gap-4 mt-6 ">
-            <Link
-              href="/products"
-              className={
-                (buttonVariants(),
-                "shadow-black hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(22,78,142,0.9)] px-8 py-2 bg-[#1907de] rounded-md text-white font-light transition duration-200 ease-linear")
-              }
-            >
-              {' '}
-              Browser Trending
-            </Link>
-            <Button variant="ghost">Our quality promise &rarr;</Button>
+      <>
+        <Separator />
+        <section className="border-t border-gray-200 bg-black">
+          <div className="bg-black -mx-96 ">
+            <MaxWithWrapper className="">
+              <section className="border-t border-gray-200 ">
+                <div className="bg-black -mx-96 ">
+                  <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
+                    <h1 className="text-4xl tracking-tight text-gray-100 sm:text-6xl">
+                      The Marketplace
+                      <span className="text-red-500 font-bold">
+                        {' '}
+                        digital assests
+                      </span>
+                    </h1>
+                    <p className="mt-6 text-lg max-w-prose text-muted-foreground">
+                      Yahfedra Digital™{' '}
+                    </p>
+                    <div className="flex flex-col sm:flow-row gap-4 mt-6 ">
+                      <Link
+                        href="/products"
+                        className={
+                          (buttonVariants(),
+                          'shadow-black lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(22,78,142,0.9)] px-8 py-2 bg-[#1907de] rounded-md text-white font-light transition duration-200 ease-linear')
+                        }
+                      >
+                        Browser Trending
+                      </Link>
+                      <Button variant="ghost">
+                        Our quality promise &rarr;
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+                {/* TODO list products */}
+              </section>
+            </MaxWithWrapper>
           </div>
-        </div>
-        {/* TODO list products */}
-      </MaxWithWrapper>
-       
-      <section className="border-t border-gray-200 ">
+        </section>
+      </>
+      <section className="border-t border-gray-200 bg-black">
         <MaxWithWrapper className="py-20">
           <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
             {perks.map((perk) => (
@@ -104,5 +120,3 @@ export default function Home() {
     </>
   );
 }
-
-

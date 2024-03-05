@@ -51,7 +51,10 @@
             //     }
             // },
             {
-                "scope": "variable.other.readwrite.alias.tsx",
+                "scope": [
+                    "variable.other.readwrite.alias.tsx",
+                    "variable.other.readwrite.alias.ts"
+                ],
                 "settings": {
                     "foreground": "#139bdf" // Example: change to your preferred color
                 }
@@ -80,13 +83,13 @@
                 "scope": [
                     "entity.name.type.class",
                     "constant.language",
-                    "storage.type.ts",
+                    // "storage.type.ts",
                     "keyword.operator.expression.typeof",
                     "entity.name.type.enum",
                     "entity.name.type.interface",
                     "storage.type.interface",
                     "keyword.operator.expression.typeof.ts",
-                    "storage.type.ts",
+                    // "storage.type.ts",
                     "storage.type.interface.ts",
                     "entity.name.type.ts",
                     "entity.name.type,",

@@ -37,4 +37,5 @@ export const getPayloadClient = async ({ InitOptions }: Args = {}) => {
     console.log('cached promise error', e);
     throw e;
   }
+  return cached.client;
 };

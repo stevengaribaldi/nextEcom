@@ -65,6 +65,18 @@
 .custom-glows:hover {
   filter: drop-shadow(0 6px 20px rgba(0,118,255,0.45));
 }
+@keyframes step-spin {
+
+  0%, 20% { transform: rotate(45deg);  }
+
+}
+
+
+
+
+.continuous-step-spin {
+  animation: step-spin 0.1s ;
+}
 
 /* @keyframes pulse {
   0%, 100% {

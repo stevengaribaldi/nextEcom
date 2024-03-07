@@ -1,4 +1,6 @@
 'use client';
+import React, { useState, useEffect } from 'react';
+
 import Link from 'next/link';
 import MaxWidthWrapper from './MaxWidthWrapper';
 import { Icons } from './Icons';
@@ -8,18 +10,38 @@ import Cart from './Cart';
 import { Separator } from './ui/separator';
 
 const Navbar = () => {
+  const [isRotating, setIsRotating] = useState(false);
+
+  useEffect(() => {
+    const toggleRotation = () => {
+      setIsRotating((prev) => !prev);
+    };
+
+    document.addEventListener('click', toggleRotation);
+
+    return () => document.removeEventListener('click', toggleRotation);
+  }, [isRotating]);
+
   const user = null;
   return (
-    <div className="bg-black sticky z-50 top-0 inset-x-0 h-16">
+    <div className="bg-black sticky z-50 top-0 inset-x-0 h-0">
       <header className="relative bg-black">
         <MaxWidthWrapper>
-          <div className=" border-gray-200">
-            <div className="flex items-center">
+          <div className=" ">
+            <div className="flex items-center ">
               {/* TODO MOBILE NAV */}
 
-              <div className="ml-0 flex lg:ml-0">
+              <div
+                className={`ml-0 flex lg:ml-0 ${isRotating ? 'continuous-step-spin' : ''}`}
+              >
                 <Link href="/">
-                  <Image src="/sila.svg" alt={''} width={60} height={60} />
+                  <Image
+                    src="/8wheel.svg"
+                    alt={''}
+                    width={90}
+                    height={90}
+                    className="-rotate-180  "
+                  />
                 </Link>
               </div>
               <div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">

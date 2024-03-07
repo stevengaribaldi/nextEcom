@@ -27,8 +27,8 @@ const Cart = () => {
             <div className="relative flex items-center justify-center h-20 w-20 text-pink-100 group-hover:text-rose-100  custom-glow">
               <ShoppingCart
                 className="absolute font-extralight text-lg "
-                style={{ top: '-10px' }}
-                size={58}
+                style={{ top: '-7px' }}
+                size={50}
               ></ShoppingCart>
               <span
                 style={{ right: 'calc(1.5rem + 0.04rem)' }}

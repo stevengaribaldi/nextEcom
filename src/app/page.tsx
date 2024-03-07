@@ -59,7 +59,7 @@ export default function Home() {
               <section className="border-t border-gray-200 ">
                 <div className="bg-black -mx-96 ">
                   <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-                    <h1 className="text-4xl tracking-tight font-light  text-blue-100 sm:text-6xl ">
+                    <h1 className="text-4xl tracking-tight font-light text-gray-400 sm:text-6xl ">
                       The Marketplace For <br />
                       <span className="text-pink-100  font-bold">
                         {' '}
@@ -103,7 +103,7 @@ export default function Home() {
                 className="text-center md:flex md:item-start md:text-left lg:block lg:text-center"
               >
                 <div className="md:flex-shrink-0 flex justify-center">
-                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-blue-200  text-black">
+                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-blue-100  text-black">
                     {<perk.Icon className="w-1/3" />}
                   </div>
                 </div>

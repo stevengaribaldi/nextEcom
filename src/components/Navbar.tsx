@@ -30,23 +30,24 @@ const Navbar = () => {
                   {user ? null : (
                     <Link
                       href="/signin"
-                      className="
-                      hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]
-                      px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
+                      className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                      hover:shadow-[0_6px_20px_rgba(0,118,255,45%)]
+                       px-8 py-2 rounded-md text-pink-100   font-extralight text-lg  transition duration-200 ease-linear"
                     >
                       Sign in
                     </Link>
                   )}
                   {user ? null : (
-                    <span className="h-6 w-px bg-gray-300" aria-hidden="true" />
+                    <span className="h-6 w-px bg-pink-100" aria-hidden="true" />
                   )}
                   {user ? (
                     <p></p>
                   ) : (
                     <Link
                       href="/register"
-                      className="
-                      hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
+                      className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                      hover:shadow-[0_6px_20px_rgba(0,118,255,45%)]
+                       px-8 py-2 rounded-md text-pink-100   font-extralight text-lg  transition duration-200 ease-linear"
                     >
                       Register
                     </Link>
@@ -71,7 +72,7 @@ const Navbar = () => {
           </div>
         </MaxWidthWrapper>
       </header>
-      <Separator />
+      <section className="border-t border-gray-800"> </section>
     </div>
   );
 };

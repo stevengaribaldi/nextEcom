@@ -59,6 +59,13 @@
     @apply bg-background text-foreground;
   }
 }
+.custom-glow:hover {
+  filter: drop-shadow(0 6px 20px rgba(0,118,255,0.50));
+}
+.custom-glows:hover {
+  filter: drop-shadow(0 6px 20px rgba(0,118,255,0.45));
+}
+
 /* @keyframes pulse {
   0%, 100% {
     transform: scale(1);

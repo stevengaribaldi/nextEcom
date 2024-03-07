@@ -53,20 +53,20 @@ export default function Home() {
     <>
       <>
         <Separator />
-        <section className="border-t border-gray-200 bg-black">
+        <section className="border-t border-gray-800 bg-black">
           <div className="bg-black -mx-96 ">
             <MaxWithWrapper className="">
               <section className="border-t border-gray-200 ">
                 <div className="bg-black -mx-96 ">
                   <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-                    <h1 className="text-4xl tracking-tight text-gray-100 sm:text-6xl">
-                      The Marketplace
-                      <span className="text-red-500 font-bold">
+                    <h1 className="text-4xl tracking-tight font-light  text-blue-100 sm:text-6xl ">
+                      The Marketplace For <br />
+                      <span className="text-pink-100  font-bold">
                         {' '}
-                        digital assests
+                        Digital Assests
                       </span>
                     </h1>
-                    <p className="mt-6 text-lg max-w-prose text-muted-foreground">
+                    <p className="mt-6  max-w-prose text-muted-foreground  text-gray-100 text-sm">
                       Yahfedra Digital™{' '}
                     </p>
                     <div className="flex flex-col sm:flow-row gap-4 mt-6 ">
@@ -74,12 +74,15 @@ export default function Home() {
                         href="/products"
                         className={
                           (buttonVariants(),
-                          'shadow-black lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 shadow-[0_4px_14px_0_rgb(0,118,255,39%)] hover:shadow-[0_6px_20px_rgba(0,118,255,23%)] hover:bg-[rgba(22,78,142,0.9)] px-8 py-2 bg-[#1907de] rounded-md text-white font-light transition duration-200 ease-linear')
+                          'shadow-black lg:flex lg:flex-1 lg:items-center text-lg lg:justify-end lg:space-x-6   hover:bg-cutom-darkneutral  hover:shadow-[0_6px_20px_rgba(0,118,255,45%)]  hover:ring-1 ring-pink-300 hover:ring-opacity-10  px-10 py-2  rounded-md text-pink-100 font-extralight justify-center transition duration-200 ease-linear')
                         }
                       >
                         Browser Trending
                       </Link>
-                      <Button variant="ghost">
+                      <Button
+                        className="text-pink-100 font-extralight text-lg"
+                        variant="ghost"
+                      >
                         Our quality promise &rarr;
                       </Button>
                     </div>
@@ -91,7 +94,7 @@ export default function Home() {
           </div>
         </section>
       </>
-      <section className="border-t border-gray-200 bg-black">
+      <section className="border-t border-gray-800 bg-black">
         <MaxWithWrapper className="py-20">
           <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
             {perks.map((perk) => (
@@ -100,15 +103,13 @@ export default function Home() {
                 className="text-center md:flex md:item-start md:text-left lg:block lg:text-center"
               >
                 <div className="md:flex-shrink-0 flex justify-center">
-                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-blue-900 text-white">
+                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-blue-200  text-black">
                     {<perk.Icon className="w-1/3" />}
                   </div>
                 </div>
                 <div className="mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6">
-                  <h3 className="text-base font-semibold text-gray-900">
-                    {perk.name}
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground text-gray-900">
+                  <h3 className="text-base  text-white">{perk.name}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground text-blue-200">
                     {perk.description}
                   </p>
                 </div>

@@ -24,15 +24,15 @@ const Cart = () => {
       <div className="relative flex items-center justify-center flex-col">
         <Sheet>
           <SheetTrigger className="group">
-            <div className="relative flex items-center justify-center h-20 w-20">
+            <div className="relative flex items-center justify-center h-20 w-20 text-pink-100 group-hover:text-rose-100  custom-glow">
               <ShoppingCart
-                className="absolute text-gray-400 group-hover:text-gray-100"
+                className="absolute font-extralight text-lg "
                 style={{ top: '-10px' }}
                 size={58}
               ></ShoppingCart>
               <span
                 style={{ right: 'calc(1.5rem + 0.04rem)' }}
-                className="text-sm absolute top-1.5 right-6 h-5 w-6 rounded-full text-gray-100  flex items-center justify-center "
+                className="text-sm absolute top-1.5 right-6 h-5 w-6 rounded-full text-pink-100 font-extralight  flex items-center group-hover:text-pink-200 custom-glows justify-center "
               >
                 {itemCount}
               </span>
@@ -71,16 +71,15 @@ const Cart = () => {
                     </div>
                   </div>
                   <SheetFooter>
-                          <div>
-                            <Separator />
-                          </div>
+                    <div>
+                      <Separator />
+                    </div>
                     <SheetTrigger
                       asChild
                       className="w-full items-center flex justify-center"
                     >
                       <Link href="/cart">
                         <button className="bg-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9  text-white inline-block">
-
                           <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
                             <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                           </span>

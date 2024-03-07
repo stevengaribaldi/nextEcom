@@ -39,6 +39,14 @@ const config = {
         black: '0 2px 4px 0 rgba(0, 0, 0, 1)',
       },
       colors: {
+        'custom-darkerblue': '#e0e0e0',
+        'custom-darkestblue': '#1c1917',
+        'custom-darkneutral': '#18181b',
+        'cutom-darkneutral': '#000000',
+        'custom-lighterblue': '#475569',
+        'super-lighterblue': '#7dd3fc',
+        limegreen: '#34d399',
+
         'custom-red': '#fd1111',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

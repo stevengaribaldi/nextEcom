@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { PRODUCT_CATEGORIES } from './config';
 import NavItem from './NavItem';
-import { useOnClickOutside } from '@/app/hooks/use-on-click-outside';
+import { useOnClickOutside } from '@/hooks/use-on-click-outside';
 
 const NavItems = () => {
   const [activeIndex, setActiveIndex] = useState<null | number>(null);

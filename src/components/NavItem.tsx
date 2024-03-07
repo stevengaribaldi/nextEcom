@@ -19,16 +19,18 @@ const NavItem = ({ isAnyOpen, category, handleOpen, isOpen }: NavItemProps) => {
     <div className="flex">
       <div className="relative flex items-center">
         <Button
-          className="gap-1.5 hover:shadow-[0_6px_20px_rgba(0,118,255,23%)]
-                       px-8 py-2 rounded-md text-gray-500 font-light transition duration-200 ease-linear"
+          className="gap-1.5 hover:shadow-[0_6px_20px_rgba(0,118,255,45%)]
+                               hover:ring-1 ring-pink-300 hover:ring-opacity-10
+font-extralight text-lg
+                       px-8 py-2 rounded-md text-pink-100  transition duration-200 ease-linear"
           onClick={handleOpen}
           variant={isOpen ? 'secondaryglow' : 'ghostnoglow'}
         >
           {category.label}{' '}
           <ChevronDown
             className={cn('h-4 w-4 rounded-full transition-all', {
-              'animate-pulse text-gray-300 duration-2500': !isOpen,
-              'text-white -rotate-180': isOpen, // Change color when open
+              'animate-pulse text-gray-100 duration-2500': !isOpen,
+              'text-white -rotate-180 font-extralight': isOpen, // Change color when open
             })}
           />
         </Button>

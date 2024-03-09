@@ -23,8 +23,8 @@ const Navbar = () => {
   }, []); // Removed `isRotating` from the dependency array
   const user = null;
   return (
-    <div className="bg-black sticky z-50 top-0 inset-x-0 h-0">
-      <header className="relative bg-black">
+    <div className=" sticky z-50 top-0 inset-x-0 h-0">
+      <header className="relative ">
         <MaxWidthWrapper>
           <div className=" ">
             <div className="flex items-center">

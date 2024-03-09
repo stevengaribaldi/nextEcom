@@ -52,11 +52,11 @@ export default function Home() {
   return (
     <>
       <>
-        <Separator />
-        <section className="border-t border-gray-800 bg-black">
+        {/* <Separator /> */}
+        <section className=" bg-black">
           <div className="bg-black -mx-96 ">
             <MaxWithWrapper className="">
-              <section className="border-t border-gray-200 ">
+              <section >
                 <div className="bg-black -mx-96 ">
                   <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
                     <h1 className="text-4xl tracking-tight font-light text-gray-400 sm:text-6xl ">

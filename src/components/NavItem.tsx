@@ -15,6 +15,7 @@ interface NavItemProps {
 }
 
 const NavItem = ({ isAnyOpen, category, handleOpen, isOpen }: NavItemProps) => {
+
   return (
     <div className="flex">
       <div className="relative flex items-center">
@@ -30,7 +31,7 @@ font-extralight text-lg
           <ChevronDown
             className={cn('h-4 w-4 rounded-full transition-all', {
               'animate-pulse text-gray-100 duration-2500': !isOpen,
-              'text-white -rotate-180 font-extralight': isOpen, // Change color when open
+              'text-white -rotate-180 font-extralight': isOpen, 
             })}
           />
         </Button>
@@ -59,7 +60,7 @@ font-extralight text-lg
                       key={item.name}
                       className="group relative text-base sm:text-sm"
                     >
-                      <div className="relative aspect-video overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-100 ring-1 ring-gray-50 shadow-light-blue-lg">
+                      <div className="relative aspect-video overflow-hidden rounded-lg ring-2 ring-rose-900 ring-opacity-10 shadow-light-blue-lg hover:ring-2 hover:ring-slate-400 hover:ring-opacity-90">
                         <Image
                           src={item.imageSrc}
                           alt="product category image"

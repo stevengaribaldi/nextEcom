@@ -78,6 +78,11 @@
   animation: step-spin 0.4s ;
 
 }
+.fade-effect {
+  transition: opacity 3s ease-out;
+  opacity: 0;
+}
+
 
 /* @keyframes pulse {
   0%, 100% {

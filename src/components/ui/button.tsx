@@ -21,7 +21,7 @@ const buttonVariants = cva(
 
         link: 'text-primary underline-offset-4 hover:underline',
         secondaryglow:
-          ' hover:bg-cutom-darkneutral shadow-[0_6px_20px_rgba(0,118,255,45%)] bg-cutom-darkneutral ring-1 ring-pink-300 ring-opacity-10',
+          ' hover:bg-cutom-darkneutral shadow-[0_6px_20px_rgba(0,118,255,5%)] bg-cutom-darkneutral ring-1 ring-pink-300 ring-opacity-10',
       },
 
       size: {

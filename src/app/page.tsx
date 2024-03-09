@@ -74,7 +74,7 @@ export default function Home() {
                         href="/products"
                         className={
                           (buttonVariants(),
-                          'shadow-black lg:flex lg:flex-1 lg:items-center text-lg lg:justify-end lg:space-x-6   hover:bg-cutom-darkneutral  hover:shadow-[0_6px_20px_rgba(0,118,255,45%)]  hover:ring-1 ring-pink-300 hover:ring-opacity-10  px-10 py-2  rounded-md text-pink-100 font-extralight justify-center transition duration-200 ease-linear')
+                          'shadow-black lg:flex lg:flex-1 lg:items-center text-lg lg:justify-end lg:space-x-6   hover:bg-cutom-darkneutral  hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]  hover:ring-1 ring-pink-300 hover:ring-opacity-10  px-10 py-2  rounded-md text-pink-100 font-extralight justify-center transition duration-200 ease-linear')
                         }
                       >
                         Browser Trending

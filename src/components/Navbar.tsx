@@ -10,7 +10,7 @@ import Cart from './Cart';
 import { Separator } from './ui/separator';
 
 const Navbar = () => {
-  const [isRotating, setIsRotating] = useState(false);
+  const [isRotating, setIsRotating] = useState(true);
 
   useEffect(() => {
     const toggleRotation = () => {
@@ -20,15 +20,14 @@ const Navbar = () => {
     document.addEventListener('click', toggleRotation);
 
     return () => document.removeEventListener('click', toggleRotation);
-  }, [isRotating]);
-
+  }, []); // Removed `isRotating` from the dependency array
   const user = null;
   return (
     <div className="bg-black sticky z-50 top-0 inset-x-0 h-0">
       <header className="relative bg-black">
         <MaxWidthWrapper>
           <div className=" ">
-            <div className="flex items-center ">
+            <div className="flex items-center">
               {/* TODO MOBILE NAV */}
 
               <div
@@ -53,7 +52,7 @@ const Navbar = () => {
                     <Link
                       href="/signin"
                       className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
-                      hover:shadow-[0_6px_20px_rgba(0,118,255,45%)]
+                      hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
                        px-8 py-2 rounded-md text-pink-100   font-extralight text-lg  transition duration-200 ease-linear"
                     >
                       Sign in
@@ -68,7 +67,7 @@ const Navbar = () => {
                     <Link
                       href="/register"
                       className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
-                      hover:shadow-[0_6px_20px_rgba(0,118,255,45%)]
+                      hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
                        px-8 py-2 rounded-md text-pink-100   font-extralight text-lg  transition duration-200 ease-linear"
                     >
                       Register

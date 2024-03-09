@@ -9,4 +9,3 @@ export const Icons = {
     </svg>
   ),
 };
-// public\sila.svg

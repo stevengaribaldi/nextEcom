@@ -19,7 +19,7 @@ const NavItem = ({ isAnyOpen, category, handleOpen, isOpen }: NavItemProps) => {
     <div className="flex">
       <div className="relative flex items-center">
         <Button
-          className="gap-1.5 hover:shadow-[0_6px_20px_rgba(0,118,255,45%)]
+          className="gap-1.5 hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
                                hover:ring-1 ring-pink-300 hover:ring-opacity-10
 font-extralight text-lg
                        px-8 py-2 rounded-md text-pink-100  transition duration-200 ease-linear"

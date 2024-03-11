@@ -1,8 +1,17 @@
 'use client';
 import { buttonVariants } from '@/components/ui/button';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+
 const Page = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Form submitted');
+  };
   return (
     <>
       <div className="bg-black container relative flex pt-20 flex-col items-center justify-center lg:px-0">
@@ -45,10 +54,27 @@ const Page = () => {
             </Link>
           </div>
           <div className="grid gap-6">
-            <form onSubmit={}>
-              <div className="grid gap-2">
+            <form my-8 onSubmit={handleSubmit}>
+              <div className="grid gap-2 ">
                 <div className="grid gap-1 py-2">
-                  
+                  <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
+                    <LabelInputContainer className="mb-4 ">
+                      <Label className='' htmlFor="email">Email Address</Label>
+                      <Input
+                        id="email"
+                        placeholder="projectmayhem@fc.com"
+                        type="email"
+                      />
+                    </LabelInputContainer>
+                    <LabelInputContainer className="mb-4">
+                      <Label htmlFor="password">Password</Label>
+                      <Input
+                        id="password"
+                        placeholder="••••••••"
+                        type="password"
+                      />
+                    </LabelInputContainer>
+                  </div>
                 </div>
               </div>
             </form>
@@ -59,4 +85,26 @@ const Page = () => {
   );
 };
 
+const BottomGradient = () => {
+  return (
+    <>
+      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+    </>
+  );
+};
+
+const LabelInputContainer = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <div className={cn('flex flex-col space-y-2 w-full', className)}>
+      {children}
+    </div>
+  );
+};
 export default Page;

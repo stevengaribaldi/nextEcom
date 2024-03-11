@@ -112,7 +112,7 @@ const Page = () => {
                       type="submit"
                     >
                       <TextGenerateEffect
-                        words="Sign in"
+                        words="Sign-in"
                         isValid={isValid}
                         className="your-custom-class"
                       />

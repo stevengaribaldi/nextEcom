@@ -56,7 +56,7 @@ export default function Home() {
         <section className=" bg-black">
           <div className="bg-black -mx-96 ">
             <MaxWithWrapper className="">
-              <section >
+              <section>
                 <div className="bg-black -mx-96 ">
                   <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
                     <h1 className="text-4xl tracking-tight font-light text-gray-400 sm:text-6xl ">
@@ -74,13 +74,13 @@ export default function Home() {
                         href="/products"
                         className={
                           (buttonVariants(),
-                          'shadow-black lg:flex lg:flex-1 lg:items-center text-lg lg:justify-end lg:space-x-6   hover:bg-cutom-darkneutral  hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]  hover:ring-1 ring-pink-300 hover:ring-opacity-10  px-10 py-2  rounded-md text-pink-100 font-extralight justify-center transition duration-200 ease-linear')
+                          'shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] lg:flex lg:flex-1 lg:items-center text-lg lg:justify-end lg:space-x-6   hover:bg-cutom-darkneutral  hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]  hover:ring-1 ring-pink-300 hover:ring-opacity-10  px-10 py-2  rounded-md text-pink-100 font-extralight justify-center transition duration-200 ease-linear')
                         }
                       >
                         Browser Trending
                       </Link>
                       <Button
-                        className="text-pink-100 font-extralight text-lg"
+                        className=" bg-accent text-accent-foreground font-extralight text-lg shadow-[0px_1px_0px_0px_var(--white)_inset,0px_0px_1px_0px_var(--white)_inset]"
                         variant="ghost"
                       >
                         Our quality promise &rarr;

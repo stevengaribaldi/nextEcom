@@ -20,7 +20,7 @@ const Navbar = () => {
     document.addEventListener('click', toggleRotation);
 
     return () => document.removeEventListener('click', toggleRotation);
-  }, []); 
+  }, []);
   const user = null;
   return (
     <div className=" sticky z-50 top-0 inset-x-0 h-0">

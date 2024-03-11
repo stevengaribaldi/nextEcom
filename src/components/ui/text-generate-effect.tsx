@@ -27,6 +27,7 @@ export const TextGenerateEffect = ({
         animate(
           'span',
           { opacity: 0.5, color: '#A0AEC0' },
+          { duration: 0.5, delay: stagger(0.05) },
         );
         wasValidRef.current = false;
       }
@@ -38,7 +39,11 @@ export const TextGenerateEffect = ({
         className="mt-0 text-2xl leading-snug tracking-wide text-white "
       >
         {wordsArray.map((words, idx) => (
-          <span key={`${words}-${idx}`} className="opacity-0 inline-block">
+          <span
+            key={`${words}-${idx}`}
+            style={{ color: '#A0AEC0', opacity: 0.5 }}
+            className="inline-block"
+          >
             {words}
           </span>
         ))}

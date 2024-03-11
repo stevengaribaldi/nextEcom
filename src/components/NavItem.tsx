@@ -31,7 +31,7 @@ font-extralight text-lg
           <ChevronDown
             className={cn('h-4 w-4 rounded-full transition-all', {
               'animate-pulse text-gray-100 duration-2500': !isOpen,
-              'text-white -rotate-180 font-extralight': isOpen, 
+              'text-white -rotate-180 font-extralight': isOpen,
             })}
           />
         </Button>

@@ -50,7 +50,7 @@ const Navbar = () => {
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {user ? null : (
                     <Link
-                      href="/signin"
+                      href="/sign-in"
                       className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
                        px-8 py-2 rounded-md text-pink-100   font-extralight text-lg  transition duration-200 ease-linear"

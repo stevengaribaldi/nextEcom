@@ -86,6 +86,7 @@ const Cart = () => {
                           <div className="relative flex space-x-2 justify-center items-center z-10 rounded-full bg-black py-0.5 px-4 ring-gray/10 ">
                             <span>Proceed to checkout</span>
                             <svg
+                              className="animate-pulse text-gray-100 duration-3000"
                               fill="none"
                               height="16"
                               viewBox="0 0 24 24"

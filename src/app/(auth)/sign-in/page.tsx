@@ -6,34 +6,23 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  AuthCredentialsValidator,
+  TAuthCredentialsValidator,
+} from '@/lib/validators/account-credentials-validator';
 const Page = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isValid, setIsValid] = useState(false);
-  const singUp = 'sing up';
-  // Function to validate email and password fields
-  const validateFields = () => {
-    const emailRegex = /\S+@\S+\.\S+/; // Simple regex for basic email validation
-    const isEmailValid = emailRegex.test(email);
-    const isPasswordValid = password.length > 0; // Simple check to ensure password is not empty
-    return isEmailValid && isPasswordValid;
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<TAuthCredentialsValidator>({
+    resolver: zodResolver(AuthCredentialsValidator),
+  });
 
-  // Use useEffect to continuously check the validity of the fields
-  useEffect(() => {
-    setIsValid(validateFields());
-  }, [email, password]); // Depend on email and password state
+  const onSumbit = ({ email, password }: TAuthCredentialsValidator) => {};
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // You can further handle the form submission here
-    if (isValid) {
-      console.log('Form data is valid and can be submitted.');
-    } else {
-      console.log('Form data is not valid.');
-    }
-  };
   return (
     <>
       <div className="bg-black container relative flex pt-20 flex-col items-center justify-center lg:px-0">
@@ -76,7 +65,7 @@ const Page = () => {
             </Link>
           </div>
           <div className="grid gap-6">
-            <form my-8 onSubmit={handleSubmit}>
+            <form my-8 onSubmit={handleSubmit(onSumbit)}>
               <div className="grid gap-2 ">
                 <div className="grid gap-1 py-2">
                   <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
@@ -85,24 +74,26 @@ const Page = () => {
                         Email Address
                       </Label>
                       <Input
-                        className={cn({
-                          'focus-visible:bg-red-900': false,
-                        })}
+                        {...register('email')}
+                        // className={cn({
+                        //   'focus-visible:ring-red-900': errors.email,
+                        // })}
                         id="email"
                         placeholder="projectmayhem@fc.com"
                         type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </LabelInputContainer>
                     <LabelInputContainer className="mb-4">
                       <Label htmlFor="password">Password</Label>
                       <Input
+                        {...register('password')}
+                        // className={cn( {
+
+                        //   'focus-visible:bg-red-900': errors.password,
+                        // })}
                         id="password"
                         placeholder="••••••••"
                         type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </LabelInputContainer>
 

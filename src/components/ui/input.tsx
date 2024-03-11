@@ -1,7 +1,6 @@
-// Input component extends from shadcnui - https://ui.shadcn.com/docs/components/input
 'use client';
 import * as React from 'react';
-import  { useState } from 'react';
+import { useState } from 'react';
 
 import { cn } from '@/lib/utils';
 import { useMotionTemplate, useMotionValue, motion } from 'framer-motion';
@@ -11,7 +10,7 @@ export interface InputProps
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
-    const radius = 200; // change this to increase the rdaius of the hover effect
+    const radius = 80; // change this to increase the rdaius of the hover effect
     const [visible, setVisible] = React.useState(false);
 
     let mouseX = useMotionValue(0);
@@ -29,7 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           background: useMotionTemplate`
         radial-gradient(
           ${visible ? radius + 'px' : '0px'} circle at ${mouseX}px ${mouseY}px,
-          var(--blue-500),
+          var(--blue-400),
           transparent 80%
         )
       `,
@@ -44,7 +43,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           className={cn(
             `flex h-10 w-full border-none  bg-neutral-800  text-white  rounded-md px-3 py-2 text-sm file:border-0 file:bg-transparent
           file:text-sm file:font-medium placeholder-text-neutral-900
-          focus-visible:outline-none focus-within:file: focus-visible:ring-[3px]  focus-visible:ring-slate-500 ring-black
+          focus-visible:outline-none focus-within:file: focus-visible:ring-[1px]  focus-visible:ring-blue-500 ring-black
            disabled:cursor-not-allowed disabled:opacity-50
            shadow-[0px_0px_0px_0px_var(--blue-900)]
          focus:shadow-[0px_0px_1px_1px_var(--blue-700)]

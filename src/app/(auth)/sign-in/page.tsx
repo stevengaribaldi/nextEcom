@@ -1,6 +1,6 @@
 'use client';
-import { buttonVariants } from '@/components/ui/button';
-
+import React, { useState, useEffect } from 'react';
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
@@ -8,9 +8,31 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 
 const Page = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isValid, setIsValid] = useState(false);
+  const singUp = 'sing up';
+  // Function to validate email and password fields
+  const validateFields = () => {
+    const emailRegex = /\S+@\S+\.\S+/; // Simple regex for basic email validation
+    const isEmailValid = emailRegex.test(email);
+    const isPasswordValid = password.length > 0; // Simple check to ensure password is not empty
+    return isEmailValid && isPasswordValid;
+  };
+
+  // Use useEffect to continuously check the validity of the fields
+  useEffect(() => {
+    setIsValid(validateFields());
+  }, [email, password]); // Depend on email and password state
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted');
+    // You can further handle the form submission here
+    if (isValid) {
+      console.log('Form data is valid and can be submitted.');
+    } else {
+      console.log('Form data is not valid.');
+    }
   };
   return (
     <>
@@ -59,11 +81,18 @@ const Page = () => {
                 <div className="grid gap-1 py-2">
                   <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
                     <LabelInputContainer className="mb-4 ">
-                      <Label className='' htmlFor="email">Email Address</Label>
+                      <Label className="" htmlFor="email">
+                        Email Address
+                      </Label>
                       <Input
+                        className={cn({
+                          'focus-visible:bg-red-900': false,
+                        })}
                         id="email"
                         placeholder="projectmayhem@fc.com"
                         type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </LabelInputContainer>
                     <LabelInputContainer className="mb-4">
@@ -72,8 +101,24 @@ const Page = () => {
                         id="password"
                         placeholder="••••••••"
                         type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </LabelInputContainer>
+
+                    <button
+                      className=" relative group/btn   w-full text-white rounded-md h-10
+                      font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]"
+                      type="submit"
+                    >
+                      <TextGenerateEffect
+                        words="Sign in"
+                        isValid={isValid}
+                        className="your-custom-class"
+                      />
+
+                      {isValid && <BottomGradient />}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -88,8 +133,8 @@ const Page = () => {
 const BottomGradient = () => {
   return (
     <>
-      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+      <span className="block duration-500 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
     </>
   );
 };

@@ -13,8 +13,7 @@ import {
 import { Separator } from './ui/separator';
 import { formatPrice } from '@/lib/utils';
 import Link from 'next/link';
-import { buttonVariants } from './ui/button';
-import Image from 'next/image';
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 
 const Cart = () => {
   const itemCount = 8;

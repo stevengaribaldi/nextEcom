@@ -21,7 +21,9 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
-  const onSumbit = ({ email, password }: TAuthCredentialsValidator) => {};
+  const onSumbit = ({ email, password }: TAuthCredentialsValidator) => {
+    //
+  };
 
   return (
     <>

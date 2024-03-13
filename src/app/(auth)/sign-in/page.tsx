@@ -12,6 +12,7 @@ import {
   AuthCredentialsValidator,
   TAuthCredentialsValidator,
 } from '@/lib/validators/account-credentials-validator';
+import { trpc } from '@/trpc/client';
 const Page = () => {
   const {
     register,
@@ -20,7 +21,8 @@ const Page = () => {
   } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
-
+  // const { data } = trpc.anyApiRoute.useQuery();
+  // console.log(data);
   const onSumbit = ({ email, password }: TAuthCredentialsValidator) => {
     //
   };
@@ -67,7 +69,7 @@ const Page = () => {
             </Link>
           </div>
           <div className="grid gap-6">
-            <form my-8 onSubmit={handleSubmit(onSumbit)}>
+            <form  onSubmit={handleSubmit(onSumbit)}>
               <div className="grid gap-2 ">
                 <div className="grid gap-1 py-2">
                   <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">

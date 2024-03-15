@@ -10,7 +10,7 @@ export const authRouter = router({
       const { email, password } = input;
       const payload = await getPayloadClient();
 
-      //checks if user exsits
+      // check if user already exists
       const { docs: users } = await payload.find({
         collection: 'users',
         where: {
@@ -19,11 +19,18 @@ export const authRouter = router({
           },
         },
       });
+
       if (users.length !== 0) throw new TRPCError({ code: 'CONFLICT' });
 
       await payload.create({
         collection: 'users',
-        data: {},
+        data: {
+          email,
+          password,
+          role: 'user',
+        },
       });
+
+      return { success: true, sentToEmail: email };
     }),
 });

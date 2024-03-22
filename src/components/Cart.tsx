@@ -14,6 +14,7 @@ import { Separator } from './ui/separator';
 import { formatPrice } from '@/lib/utils';
 import Link from 'next/link';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
+import { BiCartAdd } from 'react-icons/bi';
 
 const Cart = () => {
   const itemCount = 8;
@@ -23,9 +24,12 @@ const Cart = () => {
       <div className="relative flex items-center justify-center flex-col">
         <Sheet>
           <SheetTrigger className="group">
-            <div className="relative flex items-center justify-center h-20 w-20 text-pink-100  group-hover:text-rose-100  custom-glow">
+            <div
+              className="relative flex items-center justify-center h-20 w-20 text-pink-100  group-hover:text-rose-100  custom-glow
+             hover:-translate-y-0.3 transform   font-extralight text-lg  transition duration-200 ease-linear"
+            >
               <ShoppingCart
-                className="absolute font-extralight text-lg "
+                className="absolute font-extralight text-lg  "
                 style={{ top: '-7px' }}
                 size={50}
               ></ShoppingCart>
@@ -70,16 +74,15 @@ const Cart = () => {
                     </div>
                   </div>
                   <SheetFooter>
-                    <div>
-                    </div>
+                    <div></div>
                     <SheetTrigger
                       asChild
                       className="w-full items-center flex justify-center"
                     >
                       <Link href="/cart">
-                        <button className="bg-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9 text-gray-300 hover:text-sky-100  inline-block">
+                        <button className="bg-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9 text-gray-400 hover:text-sky-100  inline-block">
                           <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
-                            <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-10 transition-opacity duration-500 group-hover:opacity-100" />
+                            <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_65%)] opacity-10 transition-opacity duration-500 group-hover:opacity-100" />
                           </span>
                           <div className="relative flex space-x-2 justify-center items-center z-10 rounded-full bg-black py-0.5 px-4 ring-gray/10 ">
                             <span>Proceed to checkout</span>
@@ -100,7 +103,7 @@ const Cart = () => {
                               />
                             </svg>
                           </div>
-                          <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-cyan-400/0 via-cyan-400/90 to-cyan-400/0 transition-opacity duration-500 group-hover:opacity-30" />
+                          <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-cyan-700/0 via-cyan-400/90 to-cyan-400/0 transition-opacity duration-500 group-hover:opacity-30" />
                         </button>
                       </Link>
                     </SheetTrigger>

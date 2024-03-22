@@ -60,11 +60,11 @@
   }
 }
 .custom-glow:hover {
-  filter: drop-shadow(0 6px 20px rgba(5, 106, 222, 0.1));
+  filter: drop-shadow(0 1px 5px rgba(4, 11, 136, 0.1));
 }
-.custom-glows:hover {
-  filter: drop-shadow(0 6px 20px rgba(0,118,255,0.5));
-}
+/* .custom-glows:hover {
+  filter: drop-shadow(0 1px 20px rgba(0,118,255,0.1));
+} */
 @keyframes step-spin {
 
   0%, 20% { transform: rotate(-45deg);  }

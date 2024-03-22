@@ -14,8 +14,7 @@ import { Separator } from './ui/separator';
 import { formatPrice } from '@/lib/utils';
 import Link from 'next/link';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
-import { BiCartAdd } from 'react-icons/bi';
-
+import Image from 'next/image';
 const Cart = () => {
   const itemCount = 8;
   const fee = 1;
@@ -24,26 +23,43 @@ const Cart = () => {
       <div className="relative flex items-center justify-center flex-col">
         <Sheet>
           <SheetTrigger className="group">
-            <div
-              className="relative flex items-center justify-center h-20 w-20 text-pink-100  group-hover:text-rose-100  custom-glow
-             hover:-translate-y-0.3 transform   font-extralight text-lg  transition duration-200 ease-linear"
-            >
-              <ShoppingCart
-                className="absolute font-extralight text-lg  "
-                style={{ top: '-7px' }}
-                size={50}
-              ></ShoppingCart>
-              <span
-                style={{ right: 'calc(1.5rem + 0.04rem)' }}
-                className="text-sm absolute top-1.5 right-6 h-5 w-6 rounded-full text-pink-100 font-extralight  flex items-center group-hover:text-pink-200 custom-glows justify-center "
+            <div className="relative flex  items-center justify-center h-10 w-32 text-pink-100  custom-glow ml-20   ">
+              <div
+                className="relative flex hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
+ w-full h-full transition-transform hover:ring-1 mb-1  hover:ring-gray-800 rounded-lg overflow-hidden
+  ring-opacity-90"
               >
-                {itemCount}
-              </span>
+                <div className="absolute flex flex-col  font-extralight text-lg transition duration-3000 ease-linear border-transparent">
+                  <div className=" mt-1.5 ml-4 ">
+                    <Image
+                      src="/cart.svg"
+                      alt=""
+                      width={42}
+                      style={{ padding: '1px' }}
+                      height={40}
+                      className="   "
+                    />
+                  </div>
+                </div>
+                <span
+                  style={{ right: 'calc(1.5rem + 0.41rem)' }}
+                  className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-pink-100 font-extralight flex items-center justify-center
+                   transition-transform duration-2500 ease-linear hover:scale-90"
+                >
+                  {itemCount}
+                </span>
+                <span
+                  style={{ right: 'calc(1.5rem + 0.1rem)' }}
+                  className="text-xl absolute top-6 right-10 h-0 w-8  rounded-full text-pink-100 font-extralight flex items-center justify-center "
+                >
+                  Cart
+                </span>
+              </div>
             </div>
           </SheetTrigger>
           <SheetContent className="flex flex-col bg-black w-[400px] sm:w-[290px] text-gray-100 ">
             <SheetHeader className="space-y-2.5 items-center pr-6 text-gray-100 ">
-              <SheetTitle className="text-gray-100">
+              <SheetTitle className="text-gray-100 w-">
                 {' '}
                 Cart({itemCount})
               </SheetTitle>

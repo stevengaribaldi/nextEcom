@@ -1,7 +1,7 @@
 'use client';
 
 import { trpc } from '@/trpc/client';
-import { XCircle } from 'lucide-react';
+import { Loader2, XCircle } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,7 +13,7 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
   const { data, isLoading, isError } = trpc.auth.verifyEmail.useQuery({
     token,
   });
-  if (false) {
+  if (isError) {
     return (
       <div className="flex flex-col items-center gap-2">
         <XCircle size={50} className="h-9 text-red-600"></XCircle>
@@ -27,7 +27,7 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
       </div>
     );
   }
-  if (true) {
+  if (data?.success) {
     return (
       <div className="flex h-full flex-col items-center justify-center">
         <div className="relative mb-4 h-60  w-60 text-muted-foreground">
@@ -55,14 +55,16 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
       </div>
     );
   }
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center gap-2">
+        <Loader2 size={50} className="animate-spin h-9 text-zinc-300"></Loader2>
+        <h1 className="font-semibold text-2xl h-9 text-gray-300"> Verifying</h1>
+        <p className="text-muted-foreground text-sm text-gray-100">
+          This won&apos;t take long.
+        </p>
+      </div>
+    );
+  }
 };
 export default VerifyEmail;
-
-<Link
-  href="/sign-in"
-  className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
-                      hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
-                       px-8 py-2 rounded-md text-pink-100 hover:-translate-y-1 transform   font-extralight text-lg  transition duration-200 ease-linear border-blue-900"
->
-  Sign in
-</Link>;

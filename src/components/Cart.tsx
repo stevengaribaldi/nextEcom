@@ -23,7 +23,7 @@ const Cart = () => {
       <div className="relative flex items-center justify-center flex-col">
         <Sheet>
           <SheetTrigger className="group">
-            <div className="relative flex  items-center justify-center h-10 w-32 text-pink-100  custom-glow ml-20   ">
+            <div className="relative flex transform translate-x-11 items-center justify-center h-10 w-32 text-pink-100  custom-glow  ">
               <div
                 className="relative flex hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
  w-full h-full transition-transform hover:ring-1 mb-1  hover:ring-gray-800 rounded-lg overflow-hidden
@@ -43,14 +43,14 @@ const Cart = () => {
                 </div>
                 <span
                   style={{ right: 'calc(1.5rem + 0.41rem)' }}
-                  className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-pink-100 font-extralight flex items-center justify-center
+                  className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-cyan-300 font-bold flex items-center justify-center
                    transition-transform duration-2500 ease-linear hover:scale-90"
                 >
                   {itemCount}
                 </span>
                 <span
                   style={{ right: 'calc(1.5rem + 0.1rem)' }}
-                  className="text-xl absolute top-6 right-10 h-0 w-8  rounded-full text-pink-100 font-extralight flex items-center justify-center "
+                  className="absolute top-6 right-10 h-0 w-8  rounded-full text-pink-100 font-extralight text-lg flex items-center justify-center "
                 >
                   Cart
                 </span>

@@ -3,7 +3,9 @@ export const AuthCredentialsValidator = z.object({
   email: z.string().email(),
   password: z
     .string()
-    .min(10, { message: 'Password must be at least 3 characters long.' }),
+    .min(8, { message: 'Password must be at least 8 characters long.' }),
 });
 
-export type TAuthCredentialsValidator = z.infer<typeof AuthCredentialsValidator>;
+export type TAuthCredentialsValidator = z.infer<
+  typeof AuthCredentialsValidator
+>;

@@ -21,8 +21,8 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
           {' '}
           There was a problem
         </h1>
-        <p className="text-muted-foreground text-sm text-gray-100">
-          This token is not vaild or has expired. Please try again
+        <p className="text-gray-400 font-extralight text-center ">
+           Token is not vaild or has expired. Please try again
         </p>
       </div>
     );
@@ -41,16 +41,16 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
         <h3 className="font-semibold text-2xl text-white">
           You&apos;re all set!{' '}
         </h3>
-        <p className="text.muted-foreground text-center mt-2">
-          Thak you for verifying your email.{' '}
+        <p className="text-gray-400 font-extralight text-center mt-2">
+          Thank you for verifying your email.{' '}
         </p>
         <Link
-          href="/sign-in"
+          href="/login"
           className="ring-1 mt-9  ring-blue-500 ring-opacity-10 group-hover:ring-sky hover:ring-opacity-10 group-hover:border-blue-400
                       hover:shadow-[0_1px_10px_rgba(3,219,252,6%)]
                        px-8 py-2 rounded-md text-pink-100 hover:-translate-y-1 transform   font-extralight text-lg  transition duration-3000 ease-linear"
         >
-          Sign in
+          Log in
         </Link>
       </div>
     );

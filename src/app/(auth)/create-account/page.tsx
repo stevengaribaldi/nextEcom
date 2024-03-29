@@ -17,7 +17,6 @@ import { toast } from 'sonner';
 import { ZodError } from 'zod';
 import { useRouter } from 'next/navigation';
 
-
 const Page = () => {
   const {
     register,
@@ -27,33 +26,33 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
-    const router = useRouter();
+  const router = useRouter();
 
-   const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
-     onError: (err) => {
-       if (err.data?.code === 'CONFLICT') {
-         toast.error('This email is already in use. Sign in instead?');
+  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({
+    onError: (err) => {
+      if (err.data?.code === 'CONFLICT') {
+        toast.error('This email is already in use. Log in instead?');
 
-         return;
-       }
+        return;
+      }
 
-       if (err instanceof ZodError) {
-         toast.error(err.issues[0].message);
+      if (err instanceof ZodError) {
+        toast.error(err.issues[0].message);
 
-         return;
-       }
+        return;
+      }
 
-       toast.error('Something went wrong. Please try again.');
-     },
-     onSuccess: ({ sentToEmail }) => {
-       toast.success(`Verification email sent to ${sentToEmail}.`);
-       router.push('/verify-email?to=' + sentToEmail);
-     },
-   });
+      toast.error('Something went wrong. Please try again.');
+    },
+    onSuccess: ({ sentToEmail }) => {
+      toast.success(`Verification email sent to ${sentToEmail}.`);
+      router.push('/verify-email?to=' + sentToEmail);
+    },
+  });
 
-   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
-     mutate({ email, password });
-   };
+  const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
+    mutate({ email, password });
+  };
 
   return (
     <>
@@ -70,13 +69,13 @@ const Page = () => {
             <h1 className="text-2xl font-bold text-zinc-500">
               Create an account
             </h1>
-            <Link href="/sign-in">
+            <Link href="/login">
               <button className="mt-4 bg-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9  text-gray-300 hover:text-white inline-block">
                 <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
                   <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-5 transition-opacity duration-500 group-hover:opacity-100" />
                 </span>
                 <div className=" relative flex space-x-2 justify-center items-center z-10 rounded-full bg-black py-0.5 px-4 ring-gray/10 ">
-                  <span> Already have an account? Sign in</span>
+                  <span> Already have an account? log in</span>
                   <svg
                     className="animate-pulse text-gray-100 duration-2500 "
                     fill="none"
@@ -108,19 +107,25 @@ const Page = () => {
                         Email Address
                       </Label>
                       <Input
-                        {...register('email')}
-                        // className={cn({
-                        //   'focus-visible:ring-red-900': errors.email,
-                        // })}
+                        {...register('email', {
+                          required: 'Invalid email',
+                        })}
                         id="email"
-                        placeholder="projectmayhem@fc.com"
+                        placeholder="projectmayhem@example.com"
                         type="email"
                       />
+                      {errors?.email && (
+                        <p className="text-sm text-red-300">
+                          {errors.email.message}
+                        </p>
+                      )}
                     </LabelInputContainer>
                     <LabelInputContainer className="mb-4">
                       <Label htmlFor="password">Password</Label>
                       <Input
-                        {...register('password')}
+                        {...register('password', {
+                          required: 'Password is required.',
+                        })}
                         // className={cn( {
 
                         //   'focus-visible:bg-red-900': errors.password,
@@ -129,15 +134,20 @@ const Page = () => {
                         placeholder="••••••••"
                         type="password"
                       />
+                      {errors?.password && (
+                        <p className="text-sm text-red-400">
+                          {errors.password.message}
+                        </p>
+                      )}
                     </LabelInputContainer>
 
                     <button
-                      className=" relative group/btn   w-full text-white  rounded-md h-10
+                      className=" relative group/btn w-full text-white  rounded-md h-10
                       font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]"
                       type="submit"
                     >
                       <TextGenerateEffect
-                        words="Sign-in"
+                        words="Create Account"
                         isValid={isValid}
                         className="your-custom-class"
                       />

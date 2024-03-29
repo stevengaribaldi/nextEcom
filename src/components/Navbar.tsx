@@ -43,19 +43,19 @@ const Navbar = () => {
                   />
                 </Link>
               </div>
-              <div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">
+              <div className="hidden z-50 lgr:ml-8 lg:block lg:self-stretch">
                 <NavItems />
               </div>
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                   {user ? null : (
                     <Link
-                      href="/sign-in"
+                      href="/login"
                       className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
                        px-8 py-2 rounded-md text-pink-100   font-extralight text-lg  transition duration-200 ease-linear"
                     >
-                      Sign in
+                      Log in
                     </Link>
                   )}
                   {user ? null : (
@@ -65,12 +65,12 @@ const Navbar = () => {
                     <p></p>
                   ) : (
                     <Link
-                      href="/register"
+                      href="/create-account"
                       className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(0,118,255,5%)] mr-8
                        px-8 py-2 rounded-md text-pink-100   font-extralight text-lg  transition duration-200 ease-linear"
                     >
-                      Register
+                      Create account
                     </Link>
                   )}
                   {user ? (

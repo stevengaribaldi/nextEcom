@@ -70,6 +70,14 @@
   0%, 20% { transform: rotate(-45deg);  }
 
 }
+.click-effect {
+  transform: translateY(-4px); /* Tailwind's hover:-translate-y-1 equivalent */
+  transition: transform 400ms ease; /* Apply the transition you want */
+color:azure;
+  background-color: yellow; /* Background color */
+
+}
+
 
 @keyframes onAutoFillStart { from {} to {} }
 @keyframes onAutoFillCancel { from {} to {} }

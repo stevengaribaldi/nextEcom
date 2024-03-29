@@ -12,26 +12,26 @@ export const TextGenerateEffect = ({
   className?: string;
 }) => {
   const [scope, animate] = useAnimate();
-  const wordsArray = words.split('');
+  const wordsArray = words.split('  ');
   const wasValidRef = useRef(false);
 
-    useEffect(() => {
-      if (isValid) {
-        animate(
-          'span',
-          { opacity: 1, color: '#FFFFFF' },
-          { duration: 0.5, delay: stagger(0.05) },
-        );
-        wasValidRef.current = true;
-      } else if (wasValidRef.current) {
-        animate(
-          'span',
-          { opacity: 0.5, color: '#A0AEC0' },
-          { duration: 0.5, delay: stagger(0.05) },
-        );
-        wasValidRef.current = false;
-      }
-    }, [isValid, animate]);
+  useEffect(() => {
+    if (isValid) {
+      animate(
+        'span',
+        { opacity: 1, color: '#FFFFFF' },
+        { duration: 0.5, delay: stagger(0.05) },
+      );
+      wasValidRef.current = true;
+    } else if (wasValidRef.current) {
+      animate(
+        'span',
+        { opacity: 0.5, color: '#A0AEC0' },
+        { duration: 0.5, delay: stagger(0.05) },
+      );
+      wasValidRef.current = false;
+    }
+  }, [isValid, animate]);
   return (
     <div className={cn('font-bold', className)}>
       <div

@@ -66,7 +66,7 @@ export default function Home() {
                         Digital Assests
                       </span>
                     </h1>
-                    <p className="mt-6  max-w-prose text-muted-foreground  text-gray-100 text-sm">
+                    <p className="mt-6  max-w-prose text-muted-foreground  text-pink-300 text-sm">
                       Yahfedra Digital™{' '}
                     </p>
                     <div className="flex flex-col sm:flow-row gap-4 mt-6 ">

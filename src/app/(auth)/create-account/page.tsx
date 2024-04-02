@@ -13,7 +13,7 @@ import {
   TAuthCredentialsValidator,
 } from '@/lib/validators/account-credentials-validator';
 import { trpc } from '@/trpc/client';
-import { toast } from 'sonner';
+import { Toaster, toast } from 'sonner';
 import { ZodError } from 'zod';
 import { useRouter } from 'next/navigation';
 
@@ -98,6 +98,8 @@ const Page = () => {
             </Link>
           </div>
           <div className="grid gap-6">
+            <Toaster position="top-center" richColors />
+
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className=" -mt-1 grid gap-2 ">
                 <div className="grid gap-1 py-2">

@@ -13,11 +13,11 @@ import {
   TAuthCredentialsValidator,
 } from '@/lib/validators/account-credentials-validator';
 import { trpc } from '@/trpc/client';
-import { toast } from 'sonner';
+import { Toaster, toast } from 'sonner';
 import { ZodError } from 'zod';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-
+import { ArrowRight, Loader2 } from 'lucide-react';
 const Page = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -38,15 +38,17 @@ const Page = () => {
   } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
-
   const { mutate: logIn, isLoading } = trpc.auth.logIn.useMutation({
-    onSuccess: () => {
-      toast.success('Logged in successfully');
+    onSuccess: async () => {
+      toast.success('Signed in successfully');
+
       router.refresh();
+
       if (origin) {
         router.push(`/${origin}`);
         return;
       }
+
       if (isSeller) {
         router.push('/sell');
         return;
@@ -56,8 +58,7 @@ const Page = () => {
     },
     onError: (err) => {
       if (err.data?.code === 'UNAUTHORIZED') {
-        toast.error('Invalid email or password');
-        return;
+        toast.error('Invalid email or password.');
       }
     },
   });
@@ -109,11 +110,14 @@ const Page = () => {
               </button>
             </Link>
           </div>
+          <Toaster position="top-center" richColors />
           <div className="grid gap-6">
+            {' '}
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className=" -mt-1 grid gap-2 ">
+              <div className="grid gap-2">
+                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 <div className="grid gap-1 py-2">
-                  <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
+                  <div className="max-w-Fmd w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
                     <LabelInputContainer className="mb-4  ">
                       <Label className=" font-light " htmlFor="email">
                         Email Address
@@ -122,16 +126,20 @@ const Page = () => {
                         {...register('email', {
                           required: 'Invalid email',
                         })}
+                        className={cn({
+                          'focus-visible:bg-red-900': errors.email,
+                        })}
                         id="email"
                         placeholder="projectmayhem@example.com"
                         type="email"
                       />
                       {errors?.email && (
-                        <p className="text-sm text-red-300">
+                        <p className="text-sm text-red-500">
                           {errors.email.message}
                         </p>
                       )}
                     </LabelInputContainer>
+
                     <LabelInputContainer className="mb-4">
                       <Label className=" font-light" htmlFor="password">
                         Password
@@ -140,22 +148,22 @@ const Page = () => {
                         {...register('password', {
                           required: 'Password is required.',
                         })}
-                        // className={cn( {
-
-                        //   'focus-visible:bg-red-900': errors.password,
-                        // })}
+                        className={cn({
+                          'focus-visible:bg-red-900': errors.password,
+                        })}
                         id="password"
                         placeholder="••••••••"
                         type="password"
                       />
                       {errors?.password && (
-                        <p className="text-sm text-red-400">
+                        <p className="text-sm text-red-500">
                           {errors.password.message}
                         </p>
                       )}
                     </LabelInputContainer>
 
                     <button
+                      disabled={isLoading}
                       className=" relative group/btn w-full text-white  rounded-md h-10
                       font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]"
                       type="submit"
@@ -165,7 +173,6 @@ const Page = () => {
                         isValid={isValid}
                         className="font-bold text-lg"
                       />
-
                       {isValid && <BottomGradient />}
                     </button>
                   </div>

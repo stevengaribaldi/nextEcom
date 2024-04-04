@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
-import Navbar from '@/components/Navbar';
+import NarbarServer from '@/components/NarbarServer';
 import Providers from '@/components/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -23,7 +23,7 @@ export default function RootLayout({
       >
         <main className="relative flex flex-col min-h-screen bg-black">
           <Providers>
-            <Navbar></Navbar>
+            <NarbarServer></NarbarServer>
 
             <div className="flex-grow flex-1">{children}</div>
           </Providers>

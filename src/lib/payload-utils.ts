@@ -1,7 +1,8 @@
 import { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adapters/request-cookies';
 import { NextRequest } from 'next/server';
 import { User } from '../payload-types';
-export const getSererSideUser = async (
+
+export const getServerSideUser = async (
   cookies: NextRequest['cookies'] | ReadonlyRequestCookies,
 ) => {
   const token = cookies.get('payload-token')?.value;
@@ -9,5 +10,6 @@ export const getSererSideUser = async (
     headers: { Authorization: `JWT ${token}` },
   });
 
-  const { user } = (await meRes.json()) as { user: User };
+  const { user } = (await meRes.json()) as { user: User | null };
+  return { user };
 };

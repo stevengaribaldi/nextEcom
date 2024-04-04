@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-
 import Link from 'next/link';
 import MaxWidthWrapper from './MaxWidthWrapper';
 import { Icons } from './Icons';
@@ -8,8 +7,12 @@ import NavItems from './NavItems';
 import Image from 'next/image';
 import Cart from './Cart';
 import { Separator } from './ui/separator';
+import { getServerSideUser } from '@/lib/payload-utils';
+import { cookies } from 'next/headers';
+import UserAccountNav from './UserAccountNav';
+import { User } from '@/payload-types';
 
-const Navbar = () => {
+const Navbar = ({ user }: { user: User }) => {
   const [isRotating, setIsRotating] = useState(true);
 
   useEffect(() => {
@@ -21,7 +24,7 @@ const Navbar = () => {
 
     return () => document.removeEventListener('click', toggleRotation);
   }, []);
-  const user = null;
+
   return (
     <div className=" sticky z-50 top-0 inset-x-0 h-0">
       <header className="relative ">
@@ -62,7 +65,7 @@ const Navbar = () => {
                     <span className="h-6 w-px bg-pink-100" aria-hidden="true" />
                   )}
                   {user ? (
-                    <p></p>
+                    <UserAccountNav user={user} />
                   ) : (
                     <Link
                       href="/create-account"

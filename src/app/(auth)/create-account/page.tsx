@@ -16,6 +16,7 @@ import { trpc } from '@/trpc/client';
 import { Toaster, toast } from 'sonner';
 import { ZodError } from 'zod';
 import { useRouter } from 'next/navigation';
+import { Loader2 } from 'lucide-react';
 
 const Page = () => {
   const {
@@ -64,8 +65,9 @@ const Page = () => {
               alt={''}
               width={200}
               height={200}
-              // className="-rotate-180"
+              className={` ${isLoading && 'animate-spin'}`}
             />
+
             <h1 className="text-2xl font-bold text-zinc-500">
               Create an account
             </h1>

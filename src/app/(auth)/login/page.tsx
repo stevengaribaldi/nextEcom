@@ -17,7 +17,8 @@ import { Toaster, toast } from 'sonner';
 import { ZodError } from 'zod';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
+
 const Page = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -30,7 +31,9 @@ const Page = () => {
 
   const continueAsBuyer = () => {
     router.replace('/login', undefined);
+    router.refresh();
   };
+
   const {
     register,
     handleSubmit,
@@ -46,15 +49,20 @@ const Page = () => {
 
       if (origin) {
         router.push(`/${origin}`);
+        router.refresh();
+
         return;
       }
 
       if (isSeller) {
         router.push('/sell');
+        router.refresh();
+
         return;
       }
 
       router.push('/');
+      router.refresh();
     },
     onError: (err) => {
       if (err.data?.code === 'UNAUTHORIZED') {
@@ -77,7 +85,7 @@ const Page = () => {
               alt={''}
               width={200}
               height={200}
-              // className="-rotate-180"
+              className={` ${isLoading && 'animate-spin'}`}
             />
             <h1 className="text-2xl text-zinc-500">
               Log in to your account {isSeller ? 'seller' : ''}
@@ -115,7 +123,6 @@ const Page = () => {
             {' '}
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-2">
-                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 <div className="grid gap-1 py-2">
                   <div className="max-w-Fmd w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
                     <LabelInputContainer className="mb-4  ">

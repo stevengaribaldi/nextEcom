@@ -20,17 +20,17 @@ const Cart = () => {
   const fee = 1;
   return (
     <>
-      <div className="relative flex items-center justify-center flex-col">
+      <div className="relative flex items-center justify-center flex-col h">
         <Sheet>
           <SheetTrigger className="group">
-            <div className="relative flex transform translate-x-11 items-center justify-center h-10 w-32 text-pink-100  custom-glow  ">
+            <div className="relative flex transform translate-x-11 -translate-y-0.5 items-center justify-center h-11 w-36 text-pink-100  custom-glow  ">
               <div
                 className="relative flex hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
  w-full h-full transition-transform hover:ring-1 mb-1  hover:ring-gray-800 rounded-lg overflow-hidden
   ring-opacity-90"
               >
                 <div className="absolute flex flex-col  font-extralight text-lg transition duration-3000 ease-linear border-transparent">
-                  <div className=" mt-1.5 ml-4 ">
+                  <div className=" mt-1.5 ml-8 ">
                     <Image
                       src="/cart.svg"
                       alt=""
@@ -50,7 +50,7 @@ const Cart = () => {
                 </span>
                 <span
                   style={{ right: 'calc(1.5rem + 0.1rem)' }}
-                  className="absolute top-6 right-10 h-0 w-8  rounded-full text-pink-100 font-extralight text-lg flex items-center justify-center "
+                  className="absolute top-6 right-1 h-0 w-12  rounded-full text-pink-100 font-extralight text-lg flex items-center justify-center "
                 >
                   Cart
                 </span>

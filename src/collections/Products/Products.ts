@@ -1,7 +1,6 @@
 import { PRODUCT_CATEGORIES } from '../../config';
 import { CollectionConfig } from 'payload/types';
 import { Label } from '@/components/ui/label';
-import { access } from 'fs';
 
 export const Products: CollectionConfig = {
   slug: 'products',
@@ -46,14 +45,14 @@ export const Products: CollectionConfig = {
       options: PRODUCT_CATEGORIES.map(({ label, value }) => ({ label, value })),
       required: true,
     },
-    // {
-    //   name: 'product_files',
-    //   label: 'Product file(s)',
-    //   type: 'relationship',
-    //   required: true,
-    //   relationTo: 'product_files',
-    //   hasMany: false,
-    // },
+    {
+      name: 'product_files',
+      label: 'Product file(s)',
+      type: 'relationship',
+      required: true,
+      relationTo: 'product_files',
+      hasMany: false,
+    },
     {
       name: 'approvedForSale',
       label: 'Product Status',

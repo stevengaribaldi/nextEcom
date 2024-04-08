@@ -1,4 +1,4 @@
-import { User } from '../../payload-types';
+import { User } from '../payload-types';
 import { Access, CollectionConfig } from 'payload/types';
 const isAdminOrhasAccessToImages =
   (): Access =>
@@ -30,6 +30,8 @@ export const Media: CollectionConfig = {
       }
       return await isAdminOrhasAccessToImages()({ req });
     },
+    delete: isAdminOrhasAccessToImages(),
+    update: isAdminOrhasAccessToImages(),
   },
   admin: {
     hidden: ({ user }) => user.role !== 'admin',
@@ -64,6 +66,7 @@ export const Media: CollectionConfig = {
       'image/png',
       'image/gif',
       'application/octet-stream',
+      'application/postscript',
     ],
   },
   fields: [

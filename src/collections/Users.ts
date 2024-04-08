@@ -1,4 +1,5 @@
-import { CollectionConfig } from 'payload/types';
+// import { PrimaryActionEmailHtml } from '../components/emails/PrimaryActionEmail';
+import { Access, CollectionConfig } from 'payload/types';
 export const Users: CollectionConfig = {
   slug: 'users',
   auth: {

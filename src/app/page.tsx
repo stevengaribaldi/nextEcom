@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { Separator } from '../components/ui/separator';
+import ProductReel from '@/components/ui/ProductReel';
 
 const perks = [
   {
@@ -21,7 +22,7 @@ const perks = [
   {
     name: 'Guaranteed Quality',
     Icon: CheckCircle,
-    description: 'All assests are verified by industry experts. ',
+    description: 'All assets are verified by industry experts. ',
   },
   {
     name: 'Secure Transactions',
@@ -59,14 +60,14 @@ export default function Home() {
               <section>
                 <div className="bg-black -mx-96 ">
                   <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-                    <h1 className="text-4xl tracking-tight font-light text-gray-400 sm:text-6xl ">
+                    <h1 className="text-4xl tracking-tight font-light text-pink-100 sm:text-6xl ">
                       The Marketplace For <br />
-                      <span className="text-pink-100  font-bold">
+                      <span className="text-rose-400  font-bold">
                         {' '}
-                        Digital Assests
+                        Digital Assets
                       </span>
                     </h1>
-                    <p className="mt-6  max-w-prose text-muted-foreground  text-pink-300 text-sm">
+                    <p className="mt-6  max-w-prose text-muted-foreground  text-rose-500 text-sm">
                       Yahfedra Digital™{' '}
                     </p>
                     <div className="flex flex-col sm:flow-row gap-4 mt-6 ">
@@ -89,6 +90,7 @@ export default function Home() {
                   </div>
                 </div>
                 {/* TODO list products */}
+                <ProductReel title="Trending" href="/products" />
               </section>
             </MaxWithWrapper>
           </div>

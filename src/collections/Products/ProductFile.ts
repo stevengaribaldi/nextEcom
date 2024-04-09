@@ -79,6 +79,7 @@ export const ProductFile: CollectionConfig = {
       'application/postscript',
       'application/pdf',
       'font/*',
+      'application/riv',
     ],
   },
   fields: [

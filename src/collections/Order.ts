@@ -1,4 +1,3 @@
-import { equal } from 'assert';
 import { Access, CollectionConfig } from 'payload/types';
 
 const yourOwn: Access = ({ req: {user} }) => {

@@ -56,7 +56,7 @@ const Navbar = ({ user }: { user: User }) => {
                       href="/login"
                       className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
-                       px-8 py-2 rounded-md text-pink-100   font-extralight text-lg  transition duration-200 ease-linear"
+                       px-8 py-2 rounded-md text-pink-200 bg-black  font-extralight text-lg  transition duration-200 ease-linear"
                     >
                       Log in
                     </Link>
@@ -71,7 +71,7 @@ const Navbar = ({ user }: { user: User }) => {
                       href="/create-account"
                       className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(0,118,255,5%)] mr-8
-                       px-8 py-2 rounded-md text-pink-100   font-extralight text-lg  transition duration-200 ease-linear"
+                       px-8 py-2 rounded-md text-pink-200  bg-black     font-extralight text-lg  transition duration-200 ease-linear"
                     >
                       Create account
                     </Link>

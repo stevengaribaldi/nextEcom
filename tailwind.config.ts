@@ -53,6 +53,7 @@ const config = {
         'custom-lighterblue': '#475569',
         'super-lighterblue': '#7dd3fc',
         customBlue: 'rgba(0,118,255,5%)',
+        'custom-black': '#010101',
         limegreen: '#34d399',
 
         'custom-red': '#fd1111',

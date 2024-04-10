@@ -23,10 +23,10 @@ const Cart = () => {
       <div className="relative flex items-center justify-center flex-col h">
         <Sheet>
           <SheetTrigger className="group">
-            <div className="relative flex transform translate-x-11 -translate-y-0.5 items-center justify-center h-11 w-36 text-pink-100  custom-glow  ">
+            <div className="relative flex transform  translate-x-11 -translate-y-0.5 items-center justify-center h-11 w-36 text-pink-200  custom-glow  ">
               <div
                 className="relative flex hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
- w-full h-full transition-transform hover:ring-1 mb-1  hover:ring-gray-800 rounded-lg overflow-hidden
+ w-full h-full transition-transform hover:ring-1 mb-1  bg-black  hover:ring-gray-800 rounded-lg overflow-hidden
   ring-opacity-90"
               >
                 <div className="absolute flex flex-col  font-extralight text-lg transition duration-3000 ease-linear border-transparent">
@@ -43,21 +43,21 @@ const Cart = () => {
                 </div>
                 <span
                   style={{ right: 'calc(1.5rem + 0.41rem)' }}
-                  className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-cyan-300 font-bold flex items-center justify-center
+                  className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-cyan-500 font-bold flex items-center justify-center
                    transition-transform duration-2500 ease-linear hover:scale-90"
                 >
                   {itemCount}
                 </span>
                 <span
                   style={{ right: 'calc(1.5rem + 0.1rem)' }}
-                  className="absolute top-6 right-1 h-0 w-12  rounded-full text-pink-100 font-extralight text-lg flex items-center justify-center "
+                  className="absolute top-6 right-1 h-0 w-12  rounded-full text-pink-200  font-extralight text-lg flex items-center justify-center "
                 >
                   Cart
                 </span>
               </div>
             </div>
           </SheetTrigger>
-          <SheetContent className="flex flex-col bg-black w-[400px] sm:w-[290px] text-gray-100 ">
+          <SheetContent className="flex flex-col bg-custom-black w-[400px] sm:w-[290px] text-gray-100 ">
             <SheetHeader className="space-y-2.5 items-center pr-6 text-gray-100 ">
               <SheetTitle className="text-gray-100 w-">
                 {' '}
@@ -96,11 +96,11 @@ const Cart = () => {
                       className="w-full items-center flex justify-center"
                     >
                       <Link href="/cart">
-                        <button className="bg-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9 text-gray-400 hover:text-sky-100  inline-block">
+                        <button className="bg-custom-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9 text-gray-400 hover:text-sky-100  inline-block">
                           <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
                             <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_65%)] opacity-10 transition-opacity duration-500 group-hover:opacity-100" />
                           </span>
-                          <div className="relative flex space-x-2 justify-center items-center z-10 rounded-full bg-black py-0.5 px-4 ring-gray/10 ">
+                          <div className="relative flex space-x-2 justify-center items-center z-10 rounded-full bg-custom-black py-0.5 px-4 ring-gray/10 ">
                             <span>Proceed to checkout</span>
                             <svg
                               className="animate-pulse text-gray-100 duration-3000"

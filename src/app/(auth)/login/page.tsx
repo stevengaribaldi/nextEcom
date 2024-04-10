@@ -77,8 +77,8 @@ const Page = () => {
 
   return (
     <>
-      <div className="bg-black container relative flex pt-20 flex-col items-center justify-center lg:px-0">
-        <div className="mx-auto flex bg-black w-full flex-col justify-center space-y-6 sm:w-[350px]">
+      <div className="bg-custom-black container relative flex pt-20 flex-col items-center justify-center lg:px-0">
+        <div className="mx-auto flex bg-custom-black w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col items-center space-y-2 text-center">
             <Image
               src="/8wheel.svg"
@@ -87,15 +87,15 @@ const Page = () => {
               height={200}
               className={` ${isLoading && 'animate-spin'}`}
             />
-            <h1 className="text-2xl text-zinc-500">
+            <h1 className="text-2xl text-white">
               Log in to your account {isSeller ? 'seller' : ''}
             </h1>
             <Link href="/create-account">
-              <button className="mt-4 bg-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9  text-gray-300 hover:text-white inline-block">
+              <button className="mt-4 bg-custom-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9  text-gray-300 hover:text-white inline-block">
                 <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
                   <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-5 transition-opacity duration-500 group-hover:opacity-100" />
                 </span>
-                <div className=" font-light relative flex space-x-2 justify-center items-center z-10 rounded-full bg-black py-0.5 px-4 ring-gray/10 ">
+                <div className=" font-light relative flex space-x-2 text-[#d5e2c4] justify-center items-center z-10 rounded-full bg-custom-black py-0.5 px-4 ring-gray/10 ">
                   <span>Don&apos;t have an account?</span>
                   <svg
                     className="animate-pulse text-gray-100 duration-2500 "
@@ -123,8 +123,8 @@ const Page = () => {
             {' '}
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-2">
-                <div className="grid gap-1 py-2">
-                  <div className="max-w-Fmd w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
+                <div className="grid gap-1 py-2 ">
+                  <div className="max-w-Fmd w-full mx-auto  rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
                     <LabelInputContainer className="mb-4  ">
                       <Label className=" font-light " htmlFor="email">
                         Email Address
@@ -194,26 +194,28 @@ const Page = () => {
                 <span className="w-full border-t"></span>
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-black px-2 text-muted-foreground ">or</span>
+                <span className="bg-custom-black px-2 text-muted-foreground ">
+                  or
+                </span>
               </div>
             </div>
             {isSeller ? (
               <Button
-                className="shadow-[0_4px_14px_0_rgb(0,0,0,1%)] hover:shadow-[0_6px_20px_rgba(93,93,93,23%)] px-8 py-2 bg-[#fff] text-[#696969] rounded-md font-light transition duration-200 ease-linear"
+                className="shadow-[0_6px_20px_rgba(196,204,188,5%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-cutom-darkneutral text-[#d5e2c4] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] hover:bg-transparent text-lg hover:text-base hover:ring-0"
                 onClick={continueAsBuyer}
-                variant="secondary"
+                // variant="secondary"
                 disabled={isLoading}
               >
                 Continue as customer
               </Button>
             ) : (
               <Button
-                className="shadow-[0_4px_14px_0_rgb(0,0,0,1%)] hover:shadow-[0_6px_20px_rgba(93,93,93,23%)] px-8 py-2 bg-[#fff] text-[#696969] rounded-md font-light transition duration-200 ease-linear"
+                className="shadow-[0_6px_20px_rgba(196,204,188,5%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-cutom-darkneutral text-[#d5e2c4] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] hover:bg-transparent text-lg hover:text-base hover:ring-0"
                 onClick={continueAsSeller}
-                variant="secondary"
+                // variant="secondary"
                 disabled={isLoading}
               >
-                Contiune as seller
+                Continue as seller
               </Button>
             )}
           </div>
@@ -240,7 +242,7 @@ const LabelInputContainer = ({
   className?: string;
 }) => {
   return (
-    <div className={cn('flex flex-col space-y-2 w-full', className)}>
+    <div className={cn('flex flex-col space-y-2 w-full ', className)}>
       {children}
     </div>
   );

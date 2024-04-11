@@ -92,10 +92,11 @@ export default function Home() {
                 {/* TODO list products */}
                 <ProductReel
                   query={{ sort: 'desc', limit: 4 }}
-                  title="Trending"
+                  title="New Arrivals"
                   subtitle="Animations"
                   href="/products"
                 />
+                
               </section>
             </MaxWithWrapper>
           </div>

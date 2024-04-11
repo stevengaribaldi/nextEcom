@@ -7,7 +7,6 @@ import { cn } from '@/lib/utils';
 import { PRODUCT_CATEGORIES } from '@/config';
 import { formatPrice } from '../../lib/utils';
 import ImageSlider from './ImageSlider';
-import { boolean } from 'zod';
 
 interface ProductListingProps {
   product: Product | null;
@@ -34,13 +33,15 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
     .filter(Boolean) as string[];
 
   if (isVisable && product) {
-    return (
+      return (
+        <>
+
       <Link
         className={cn('invisible h-full w-full cursor-pointer group/main', {
-          'visible animate-in fade-in-5': isVisable,
+            'visible animate-in fade-in-5': isVisable,
         })}
         href={`/product/${product.id}`}
-      >
+        >
         <div className="flex flex-col w-full">
           <ImageSlider urls={vaildUrls} />
           <h3 className="mt-4 font-medium text-sm text-white">
@@ -52,6 +53,7 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
           </p>
         </div>
       </Link>
+          </>
     );
   }
 };

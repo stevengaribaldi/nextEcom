@@ -132,3 +132,17 @@ input:not(:-webkit-autofill) {
     transform: scale(1.1);
   }
 } */
+
+.swiper-pagination-bullet {
+  width: 7px !important;
+  height: 7px !important;
+
+  background-color: rgba(29, 247, 131, 0.2);
+  scale: 0.9 !important
+}
+
+.swiper-pagination-bullet-active {
+  color: rgb(108, 141, 104) ;
+  background-color: rgb(156, 201, 166) !important;
+  scale: 1.1 !important
+}

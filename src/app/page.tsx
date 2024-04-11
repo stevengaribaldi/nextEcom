@@ -62,12 +62,12 @@ export default function Home() {
                   <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
                     <h1 className="text-4xl tracking-tight font-light text-white sm:text-6xl ">
                       The Marketplace For <br />
-                      <span className="text-pink-100  font-bold">
+                      <span className="text-rose-100  font-bold">
                         {' '}
                         Digital Assets
                       </span>
                     </h1>
-                    <p className="mt-6  max-w-prose text-cyan-300 text-lg">
+                    <p className="mt-6  max-w-prose text-pink-400 text-lg">
                       Yahfedra Digital™{' '}
                     </p>
                     <div className="flex flex-col sm:flow-row gap-4 mt-6 ">

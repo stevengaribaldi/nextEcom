@@ -146,3 +146,7 @@ input:not(:-webkit-autofill) {
   background-color: rgb(156, 201, 166) !important;
   scale: 1.1 !important
 }
+/* Add this to your CSS file */
+.glow-on-hover:hover {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); /* Adjust the color and spread to fit your design */
+}

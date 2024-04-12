@@ -55,6 +55,7 @@ const config = {
         customBlue: 'rgba(0,118,255,5%)',
         'custom-fontgreen': '#d5e2c4',
         'custom-black': '#443444',
+        'customgreen': '#8aa86a',
         limegreen: '#34d399',
 
         'custom-red': '#fd1111',

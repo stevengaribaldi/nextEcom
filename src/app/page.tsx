@@ -60,7 +60,7 @@ export default function Home() {
               <section>
                 <div className="bg-custom-black -mx-96 ">
                   <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-                    <h1 className="text-4xl tracking-tight font-light text-white sm:text-6xl ">
+                    <h1 className="text-4xl tracking-tight font-light text-[#d5e2c4] sm:text-6xl ">
                       The Marketplace For <br />
                       <span className="text-rose-100  font-bold">
                         {' '}
@@ -75,10 +75,10 @@ export default function Home() {
                         href="/products"
                         className={
                           (buttonVariants(),
-                          'shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] lg:flex lg:flex-1 lg:items-center text-lg lg:justify-end lg:space-x-6   hover:bg-cutom-darkneutral  hover:shadow-[0_6px_20px_rgba(196,204,188,5%)]  hover:ring-1 ring-[#c4ccbc] hover:ring-opacity-10  px-10 py-2  rounded-md text-[#d5e2c4] font-extralight justify-center transition duration-200 ease-linear')
+                          'shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] lg:flex lg:flex-1 lg:items-center text-lg lg:justify-end lg:space-x-6  hover:bg-slate-800 bg-slate-900  hover:shadow-[0_6px_20px_rgba(196,204,188,5%)]  hover:ring-1 ring-slate-700 hover:ring-opacity-10  px-10 py-2  rounded-md text-amber-100 font-extralight justify-center transition duration-200 ease-linear')
                         }
                       >
-                        Browser Trending
+                        Browse Trending
                       </Link>
                       <Button
                         className=" bg-accent text-[accent]-foreground font-extralight text-lg shadow-[0px_1px_0px_0px_var(--white)_inset,0px_0px_1px_0px_var(--white)_inset]"
@@ -96,7 +96,6 @@ export default function Home() {
                   subtitle="Animations"
                   href="/products"
                 />
-                
               </section>
             </MaxWithWrapper>
           </div>
@@ -111,7 +110,7 @@ export default function Home() {
                 className="text-center md:flex md:item-start md:text-left lg:block lg:text-center"
               >
                 <div className="md:flex-shrink-0 flex justify-center">
-                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-pink-100  text-black">
+                  <div className="h-16 w-16 flex items-center justify-center rounded-full bg-[#8aa79d]  text-black">
                     {<perk.Icon className="w-1/3" />}
                   </div>
                 </div>

@@ -93,9 +93,9 @@ const Page = () => {
             <Link href="/create-account">
               <button className="mt-4 bg-custom-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9  text-gray-300 hover:text-white inline-block">
                 <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
-                  <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-5 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(230,190,138,0.6)_0%,rgba(230,190,138,0)_75%)] opacity-5 transition-opacity duration-500 group-hover:opacity-100" />
                 </span>
-                <div className=" font-light relative flex space-x-2 text-[#d5e2c4] justify-center items-center z-10 rounded-full bg-custom-black py-0.5 px-4 ring-gray/10 ">
+                <div className=" font-light relative flex space-x-2 text-[#e5deca] hover:text-[#ffdd0] justify-center items-center z-10 rounded-full bg-custom-black py-0.5 px-4 ring-gray/10 ">
                   <span>Don&apos;t have an account?</span>
                   <svg
                     className="animate-pulse text-gray-100 duration-2500 "
@@ -114,7 +114,7 @@ const Page = () => {
                     />
                   </svg>
                 </div>
-                <span className=" absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-500 group-hover:opacity-40 " />
+                <span className=" absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-amber-300/0 via-amber-300/90 to-amber-300/0 transition-opacity duration-500 group-hover:opacity-40 " />
               </button>
             </Link>
           </div>
@@ -171,7 +171,7 @@ const Page = () => {
 
                     <button
                       disabled={isLoading}
-                      className=" relative group/btn w-full text-[#d1c0d0] bg-[#6f8486] rounded-md h-10
+                      className=" relative group/btn w-full  bg-black rounded-md h-10
                       font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]"
                       type="submit"
                     >
@@ -201,7 +201,7 @@ const Page = () => {
             </div>
             {isSeller ? (
               <Button
-                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#30242c] text-[#d1c0d0] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] hover:bg-transparent text-lg hover:text-base hover:ring-0"
+                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)] glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0] hover:bg-[#d1c0d0a0] text-[#5b3b51] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0"
                 onClick={continueAsBuyer}
                 // variant="secondary"
                 disabled={isLoading}
@@ -210,7 +210,7 @@ const Page = () => {
               </Button>
             ) : (
               <Button
-                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#30242c] text-[#d1c0d0] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] hover:bg-transparent text-lg hover:text-base hover:ring-0"
+                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0] hover:bg-[#d1c0d0a0] text-[#5b3b51] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0"
                 onClick={continueAsSeller}
                 // variant="secondary"
                 disabled={isLoading}
@@ -228,8 +228,8 @@ const Page = () => {
 const BottomGradient = () => {
   return (
     <>
-      <span className="block duration-500 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+      <span className="block duration-500 absolute h-px w-full  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-600 to-transparent" />
+      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
     </>
   );
 };

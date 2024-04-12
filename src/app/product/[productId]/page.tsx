@@ -1,5 +1,10 @@
 import MaxWithWrapper from '@/components/MaxWidthWrapper';
+import { PRODUCT_CATEGORIES } from '@/config';
+import { getPayloadClient } from '@/get-payload';
+import { formatPrice } from '@/lib/utils';
+import { Check } from 'lucide-react';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 interface PageProps {
   params: {
@@ -20,20 +25,42 @@ const BREADCRUMBS = [
   },
 ];
 
-const Page = ({ params }: PageProps) => {
+const Page = async ({ params }: PageProps) => {
+  const { productId } = params;
+  const payload = await getPayloadClient();
+
+  const { docs: products } = await payload.find({
+    collection: 'products',
+    limit: 1,
+    where: {
+      id: {
+        equals: productId,
+      },
+      approvedForSale: {
+        equals: 'approved',
+      },
+    },
+  });
+
+  const [product] = products;
+  if (!product) return notFound();
+
+  const label = PRODUCT_CATEGORIES.find(
+    ({ value }) => value === product.category,
+  )?.label;
+
   return (
-    <MaxWithWrapper className="bg-[##645462]">
-      <div className="bg-[#645462]">
+    <MaxWithWrapper className="bg-custom-black">
+      <div className="bg-custom-black">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:max-w-lg lg:self-end">
             <ol className="flex items-center space-x-2">
-              {' '}
               {BREADCRUMBS.map((breadcrumb, i) => (
                 <li key={breadcrumb.href}>
-                  <div>
+                  <div className="flex items-center text-sm">
                     <Link
                       href={breadcrumb.href}
-                      className="font-medium text-sm text-muted-foreground hover:text-gray-900"
+                      className="font-medium text-sm  text-[#faebd7] hover:text-[#c3b091]"
                     >
                       {breadcrumb.name}
                     </Link>
@@ -42,7 +69,7 @@ const Page = ({ params }: PageProps) => {
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"
-                        className="ml-2 h-5 w-5 flex-shrink-0 text-gray-600"
+                        className="ml-2 h-5 w-5 flex-shrink-0 text-[#c09318]"
                       >
                         <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                       </svg>
@@ -51,7 +78,38 @@ const Page = ({ params }: PageProps) => {
                 </li>
               ))}
             </ol>
-          </div>
+            <div className="mt-4 text-[#faebd7]">
+              <h1 className=" text-3xl font-bold tracking-tight sm:text-4xl text-[#f5c689] ">
+                {product.name}
+              </h1>
+            </div>
+            <section className="mt-6">
+              <div className="flex items-center  ">
+                <p className="font-medium text-red-100">
+                  {formatPrice(product.price)}
+                </p>
+
+                <div className="ml-4 border-l text-muted-foreground text-[#b8b59a] border-orange-300 pl-4">
+                  {label}
+                </div>
+              </div>
+              <div className="mt-1 space-y-6 ">
+                <p className="text-base text-muted-foreground text-[#FAFAD2]">
+                  {product.description}
+                </p>
+              </div>
+              <div className="mt-6 flex items-center">
+                <Check
+                  aria-hidden="true"
+                  className="h-5 w-5 flex-shrink-0 text-lime-300"
+                ></Check>
+                <p className="ml-2 text-sm text-muted-foreground">
+                  Instant Delivery
+                </p>
+              </div>
+            </section>
+                  </div>
+                  
         </div>
       </div>
     </MaxWithWrapper>

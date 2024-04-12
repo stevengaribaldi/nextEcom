@@ -52,15 +52,34 @@ const ProductReel = (props: ProductReelProps) => {
         {href ? (
           <Link
             href={href}
-            className="hidden  font-extralight font-mediu  text-pink-200 hover:text-pink-300 md:block"
+            className="mt-4 bg-custom-black no-underline group cursor-pointer items-center relative rounded-full p-px text-sm font-semibold text-[#e5deca] hover:text-[#fffdd0] inline-block"
+            style={{ width: 'auto', marginRight: '20px' }}
           >
-            Browse collection
-            <span
-              aria-hidden="true"
-              className="animate-pulse text-cyan-600 duration-2500 "
-            >
-              &rarr;
+            <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
+              <span
+              // className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-5 transition-opacity duration-500 group-hover:opacity-100"
+              />
             </span>
+            <div className="font-light relative flex space-x-2 justify-center items-center z-10 rounded-full bg-custom-black py-0.5 px-4 ring-gray/10">
+              Browse collection
+              <svg
+                className="animate-pulse text-gray-100 duration-2500"
+                fill="none"
+                height="16"
+                viewBox="0 -2 24 24"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.75 8.75L14.25 12L10.75 15.25"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </div>
+            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-amber-100/0 via-amber-100/90 to-amber-100/0 transition-opacity duration-500 group-hover:opacity-40" />
           </Link>
         ) : null}
       </div>
@@ -68,10 +87,7 @@ const ProductReel = (props: ProductReelProps) => {
         <div className="mt-6 flex items-center w-full">
           <div className="w-full grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8">
             {map.map((product, i) => (
-              <ProductListing
-                product={product}
-                index={i}
-              />
+              <ProductListing product={product} index={i} />
             ))}
           </div>
         </div>

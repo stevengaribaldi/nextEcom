@@ -98,16 +98,16 @@ const Cart = () => {
                       <Link href="/cart">
                         <button className="bg-custom-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9 text-gray-400 hover:text-sky-100  inline-block">
                           <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
-                            <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_65%)] opacity-10 transition-opacity duration-500 group-hover:opacity-100" />
+                            <span className="absolute inset-0 rounded-full opacity-10 transition-opacity duration-500 group-hover:opacity-100" />
                           </span>
-                          <div className="relative flex space-x-2 justify-center items-center z-10 rounded-full bg-custom-black py-0.5 px-4 ring-gray/10 ">
+                          <div className="  shadow-[0_6px_20px_rgba(209,192,208,50%)] glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0]  py-0.5 px-4  hover:bg-[#d1c0d0a0] text-[#5b3b51]  rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0">
                             <span>Proceed to checkout</span>
                             <svg
-                              className="animate-pulse text-gray-100 duration-3000"
+                              className="animate-pulse text-pink-100 duration-3000"
                               fill="none"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              width="16"
+                              height="18"
+                              viewBox="0 0 16 16"
+                              width="18"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path
@@ -119,7 +119,7 @@ const Cart = () => {
                               />
                             </svg>
                           </div>
-                          <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-cyan-700/0 via-cyan-400/90 to-cyan-400/0 transition-opacity duration-500 group-hover:opacity-30" />
+                          <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r  transition-opacity duration-500 group-hover:opacity-30" />
                         </button>
                       </Link>
                     </SheetTrigger>

@@ -35,26 +35,25 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
   if (isVisable && product) {
       return (
         <>
-
-      <Link
-        className={cn('invisible h-full w-full cursor-pointer group/main', {
-            'visible animate-in fade-in-5': isVisable,
-        })}
-        href={`/product/${product.id}`}
-        >
-        <div className="flex flex-col w-full">
-          <ImageSlider urls={vaildUrls} />
-          <h3 className="mt-4 font-medium text-sm text-white">
-            {product.name}
-          </h3>
-          <p className="mt-1 text-sm text-custom-fontgreen">{label} </p>
-          <p className="mt-1 font-medium text-sm text-[#3d6f2b]">
-            {formatPrice(product.price)}
-          </p>
-        </div>
-      </Link>
-          </>
-    );
+          <Link
+            className={cn('invisible h-full w-full cursor-pointer group/main', {
+              'visible animate-in fade-in-5': isVisable,
+            })}
+            href={`/product/${product.id}`}
+          >
+            <div className="flex flex-col w-full">
+              <ImageSlider urls={vaildUrls} />
+              <h3 className="mt-4 font-medium text-sm text-white">
+                {product.name}
+              </h3>
+              <p className="mt-1 text-sm text-custom-fontgreen">{label} </p>
+              <p className="mt-1 font-medium text-sm text-[#8aa79d]">
+                {formatPrice(product.price)}
+              </p>
+            </div>
+          </Link>
+        </>
+      );
   }
 };
 

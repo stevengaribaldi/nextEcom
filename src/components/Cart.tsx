@@ -25,8 +25,8 @@ const Cart = () => {
           <SheetTrigger className="group">
             <div className="relative flex transform  translate-x-11 -translate-y-0.5 items-center justify-center h-11 w-36 text-pink-200  custom-glow  ">
               <div
-                className="relative flex hover:shadow-[0_6px_20px_rgba(0,118,255,5%)]
- w-full h-full transition-transform hover:ring-1 mb-1  bg-black  hover:ring-gray-800 rounded-lg overflow-hidden
+                className="relative flex    hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
+ w-full h-full transition-transform hover:ring-1 ring-pink-300 hover:ring-opacity-10 mb-1  bg-custom-black  hover:ring-pink-300 rounded-lg overflow-hidden
   ring-opacity-90"
               >
                 <div className="absolute flex flex-col  font-extralight text-lg transition duration-3000 ease-linear border-transparent">

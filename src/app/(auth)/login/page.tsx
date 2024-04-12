@@ -124,7 +124,7 @@ const Page = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="grid gap-2">
                 <div className="grid gap-1 py-2 ">
-                  <div className="max-w-Fmd w-full mx-auto  rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
+                  <div className="max-w-Fmd bg-[#2c242c] w-full mx-auto  rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
                     <LabelInputContainer className="mb-4  ">
                       <Label className=" font-light " htmlFor="email">
                         Email Address
@@ -171,7 +171,7 @@ const Page = () => {
 
                     <button
                       disabled={isLoading}
-                      className=" relative group/btn w-full text-white  rounded-md h-10
+                      className=" relative group/btn w-full text-[#d1c0d0] bg-[#6f8486] rounded-md h-10
                       font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]"
                       type="submit"
                     >
@@ -201,7 +201,7 @@ const Page = () => {
             </div>
             {isSeller ? (
               <Button
-                className="shadow-[0_6px_20px_rgba(196,204,188,5%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-cutom-darkneutral text-[#d5e2c4] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] hover:bg-transparent text-lg hover:text-base hover:ring-0"
+                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#30242c] text-[#d1c0d0] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] hover:bg-transparent text-lg hover:text-base hover:ring-0"
                 onClick={continueAsBuyer}
                 // variant="secondary"
                 disabled={isLoading}
@@ -210,7 +210,7 @@ const Page = () => {
               </Button>
             ) : (
               <Button
-                className="shadow-[0_6px_20px_rgba(196,204,188,5%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-cutom-darkneutral text-[#d5e2c4] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] hover:bg-transparent text-lg hover:text-base hover:ring-0"
+                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#30242c] text-[#d1c0d0] px-10 py-2 rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] hover:bg-transparent text-lg hover:text-base hover:ring-0"
                 onClick={continueAsSeller}
                 // variant="secondary"
                 disabled={isLoading}

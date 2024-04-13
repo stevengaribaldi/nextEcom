@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -65,12 +66,12 @@ const ImageSlider = ({ urls }: ImageSliderProps) => {
           <ChevronLeft className="h-4 w-4  text-black" />
         </button>
       </div>
-          <Swiper
-              pagination={{
-                  renderBullet: (_, className) => {
-                      return `<span  class="rounded-full transition ${className}"></span>`
-                  }
-              }}
+      <Swiper
+        pagination={{
+          renderBullet: (_, className) => {
+            return `<span  class="rounded-full transition ${className}"></span>`;
+          },
+        }}
         onSwiper={(swiper) => setSwiper(swiper)}
         spaceBetween={50}
         modules={[Pagination]}

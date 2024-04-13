@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ShoppingCart } from 'lucide-react';
 import {
@@ -15,8 +15,20 @@ import { formatPrice } from '@/lib/utils';
 import Link from 'next/link';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import Image from 'next/image';
+import { useCart } from '@/hooks/use-cart';
+import { ScrollArea, ScrollBar } from './ui/scroll-area';
+import CartItem from './CartItem';
 const Cart = () => {
-  const itemCount = 8;
+  const { items } = useCart();
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  const itemCount = items.length;
+  const cartTotal = items.reduce(
+    (total, { product }) => total + product.price,
+    0,
+  );
   const fee = 1;
   return (
     <>
@@ -25,7 +37,7 @@ const Cart = () => {
           <SheetTrigger className="group">
             <div className="relative flex transform  translate-x-11 -translate-y-0.5 items-center justify-center h-11 w-36 text-pink-200  custom-glow  ">
               <div
-                className="relative flex    hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
+                className="relative flex hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
  w-full h-full transition-transform hover:ring-1 ring-pink-300 hover:ring-opacity-10 mb-1  bg-custom-black  hover:ring-pink-300 rounded-lg overflow-hidden
   ring-opacity-90"
               >
@@ -37,7 +49,7 @@ const Cart = () => {
                       width={42}
                       style={{ padding: '1px' }}
                       height={40}
-                      className="   "
+                      // className="   "
                     />
                   </div>
                 </div>
@@ -46,7 +58,7 @@ const Cart = () => {
                   className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-cyan-500 font-bold flex items-center justify-center
                    transition-transform duration-2500 ease-linear hover:scale-90"
                 >
-                  {itemCount}
+                  {isMounted ? itemCount : 0}
                 </span>
                 <span
                   style={{ right: 'calc(1.5rem + 0.1rem)' }}
@@ -57,18 +69,22 @@ const Cart = () => {
               </div>
             </div>
           </SheetTrigger>
-          <SheetContent className="flex flex-col bg-custom-black w-[400px] sm:w-[290px] text-gray-100 ">
+          <SheetContent className="flex flex-col bg-custom-black  w-full pr-0 sm:max-w-lg text-gray-100 ">
             <SheetHeader className="space-y-2.5 items-center pr-6 text-gray-100 ">
               <SheetTitle className="text-gray-100 w-">
                 {' '}
-                Cart({itemCount})
+                Cart({isMounted ? itemCount : 0})
               </SheetTitle>
             </SheetHeader>
             {itemCount > 0 ? (
               <>
                 <div className="flex w-fu flex-col pr-6">
-                  {/* TODO: cart items logic */}
-                  cart items
+                  <ScrollArea>
+                    {items.map(({ product }) => (
+                      <CartItem product={product} key={product.id} />
+                    ))}
+                  </ScrollArea>
+                  Cart Items
                 </div>
 
                 <div className="space-y-4 pr-6">
@@ -86,7 +102,11 @@ const Cart = () => {
                     </div>
                     <div className="flex">
                       <span className="flex-1">Subtotal</span>
-                      <span>{formatPrice(fee)}</span>
+                      <span>{formatPrice(cartTotal)}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="flex-1">Total</span>
+                      <span>{formatPrice(cartTotal + fee)}</span>
                     </div>
                   </div>
                   <SheetFooter>
@@ -96,11 +116,8 @@ const Cart = () => {
                       className="w-full items-center flex justify-center"
                     >
                       <Link href="/cart">
-                        <button className="bg-custom-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9 text-gray-400 hover:text-sky-100  inline-block">
-                          <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
-                            <span className="absolute inset-0 rounded-full opacity-10 transition-opacity duration-500 group-hover:opacity-100" />
-                          </span>
-                          <div className="  shadow-[0_6px_20px_rgba(209,192,208,50%)] glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0]  py-0.5 px-4  hover:bg-[#d1c0d0a0] text-[#5b3b51]  rounded-md font-extralight transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0">
+                        <button className="bg-custom-black no-underline  cursor-pointer  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
+                          <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] justify-center glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
                             <span>Proceed to checkout</span>
                             <svg
                               className="animate-pulse text-pink-100 duration-3000"

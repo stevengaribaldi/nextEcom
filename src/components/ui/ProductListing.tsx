@@ -28,32 +28,32 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
     ({ value }) => value === product.category,
   )?.label;
 
-  const vaildUrls = product.images
+  const validUrls = product.images
     .map(({ image }) => (typeof image === 'string' ? image : image.url))
     .filter(Boolean) as string[];
 
   if (isVisable && product) {
-      return (
-        <>
-          <Link
-            className={cn('invisible h-full w-full cursor-pointer group/main', {
-              'visible animate-in fade-in-5': isVisable,
-            })}
-            href={`/product/${product.id}`}
-          >
-            <div className="flex flex-col w-full">
-              <ImageSlider urls={vaildUrls} />
-              <h3 className="mt-4 font-medium text-sm text-white">
-                {product.name}
-              </h3>
-              <p className="mt-1 text-sm text-custom-fontgreen">{label} </p>
-              <p className="mt-1 font-medium text-sm text-[#8aa79d]">
-                {formatPrice(product.price)}
-              </p>
-            </div>
-          </Link>
-        </>
-      );
+    return (
+      <>
+        <Link
+          className={cn('invisible h-full w-full cursor-pointer group/main', {
+            'visible animate-in fade-in-5': isVisable,
+          })}
+          href={`/product/${product.id}`}
+        >
+          <div className="flex flex-col w-full">
+            <ImageSlider urls={validUrls} />
+            <h3 className="mt-4 font-medium text-sm text-pale-gold">
+              {product.name}
+            </h3>
+            <p className="mt-1 text-sm text-brown-khaki">{label} </p>
+            <p className="mt-1 font-medium text-sm text-red-100">
+              {formatPrice(product.price)}
+            </p>
+          </div>
+        </Link>
+      </>
+    );
   }
 };
 

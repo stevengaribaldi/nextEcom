@@ -1,8 +1,11 @@
 import MaxWithWrapper from '@/components/MaxWidthWrapper';
+import AddToCartButton from '@/components/ui/AddToCartButton';
+import ImageSlider from '@/components/ui/ImageSlider';
+import ProductReel from '@/components/ui/ProductReel';
 import { PRODUCT_CATEGORIES } from '@/config';
 import { getPayloadClient } from '@/get-payload';
 import { formatPrice } from '@/lib/utils';
-import { Check } from 'lucide-react';
+import { Check, Shield } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -49,6 +52,10 @@ const Page = async ({ params }: PageProps) => {
     ({ value }) => value === product.category,
   )?.label;
 
+  const validUrls = product.images
+    .map(({ image }) => (typeof image === 'string' ? image : image.url))
+    .filter(Boolean) as string[];
+
   return (
     <MaxWithWrapper className="bg-custom-black">
       <div className="bg-custom-black">
@@ -83,13 +90,18 @@ const Page = async ({ params }: PageProps) => {
                 {product.name}
               </h1>
             </div>
+            <div className="mt-10 mt lg:col-start-2 lg:row-span-2 lg:mt-10 lg:self-center">
+              <div className="aspect-square rounded-lg">
+                <ImageSlider urls={validUrls} />
+              </div>
+            </div>
             <section className="mt-6">
               <div className="flex items-center  ">
                 <p className="font-medium text-red-100">
                   {formatPrice(product.price)}
                 </p>
 
-                <div className="ml-4 border-l text-muted-foreground text-[#b8b59a] border-orange-300 pl-4">
+                <div className="ml-4 border-l text-muted-foreground text-brown-khaki border-orange-300 pl-4">
                   {label}
                 </div>
               </div>
@@ -108,9 +120,33 @@ const Page = async ({ params }: PageProps) => {
                 </p>
               </div>
             </section>
-                  </div>
-                  
+          </div>
+          <div className="mt-5 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
+            <div>
+              <div className="mt-4">
+                <AddToCartButton product={product}></AddToCartButton>
+              </div>
+            </div>
+            <div className="mt-10 text-center">
+              <div className="group inline-flex text-sm text-medium">
+                <Shield
+                  //   aria-hidden="true"
+                  className="mr-2 h-5 flex-shrink-0 text-teal-300"
+                />
+                <span className="text-muted-foreground text-teal-400">
+                  30 day return Guarantee{' '}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      <div className="text-black">
+        <ProductReel
+          href="/products"
+          query={{ category: product.category, limit: 4 }}
+          title={'Frequently bought together'}
+        />
       </div>
     </MaxWithWrapper>
   );

@@ -22,7 +22,7 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
           There was a problem
         </h1>
         <p className="text-gray-400 font-extralight text-center ">
-           Token is not vaild or has expired. Please try again
+          Token is not vaild or has expired. Please try again
         </p>
       </div>
     );
@@ -46,9 +46,9 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
         </p>
         <Link
           href="/login"
-          className="ring-1 mt-9  ring-blue-500 ring-opacity-10 group-hover:ring-sky hover:ring-opacity-10 group-hover:border-blue-400
-                      hover:shadow-[0_1px_10px_rgba(3,219,252,6%)]
-                       px-8 py-2 rounded-md text-pink-100 hover:-translate-y-1 transform   font-extralight text-lg  transition duration-3000 ease-linear"
+          className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                      hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
+                       px-8 py-2 rounded-md text-pink-200 bg-custom-black  font-extralight text-lg  transition duration-200 ease-linear"
         >
           Log in
         </Link>

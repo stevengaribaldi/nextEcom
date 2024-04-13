@@ -2,7 +2,7 @@ import { PRODUCT_CATEGORIES } from '@/config';
 import { useCart } from '@/hooks/use-cart';
 import { formatPrice } from '@/lib/utils';
 import { Product } from '@/payload-types';
-import { ImageIcon, Trash, Trash2, X } from 'lucide-react';
+import { ImageIcon, X } from 'lucide-react';
 import Image from 'next/image';
 
 const CartItem = ({ product }: { product: Product }) => {

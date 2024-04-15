@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { PRODUCT_CATEGORIES } from '@/config';
 import { useCart } from '@/hooks/use-cart';
 import { cn, formatPrice } from '@/lib/utils';
-import { Trash2, X } from 'lucide-react';
+import { Check, Trash2, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { use, useEffect, useState } from 'react';
@@ -15,7 +15,7 @@ const Page = () => {
     setIsMounted(true);
   }, []);
   return (
-    <div className="bg-custom-black">
+    <div className="bg-custom-black ">
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
         <h1 className="text-3xl  font-light tracking-tight text-[#d5e2c4] sm:text-4xl">
           Shopping Cart
@@ -53,7 +53,7 @@ const Page = () => {
 
             <ul
               className={cn({
-                'divide-y divide-slate-700 border-b border-t border-slate-500':
+                'divide-y  divide-slate-700 border-b border-t border-slate-500':
                   isMounted && items.length > 0,
               })}
             >
@@ -71,14 +71,17 @@ const Page = () => {
                       <div className="flex-shrink-0">
                         <div className="relative h-48 w-48">
                           {typeof image !== 'string' && image.url ? (
-                            <Image
-                              fill
-                              src={image.url}
-                              alt={product.name}
-                              className="h-full w-full rounded-md object-cover object-center sm:h-48 sm:w-48"
-                            />
+                            <Link href={`/product/${product.id}`}>
+                              <Image
+                                fill
+                                src={image.url}
+                                alt={product.name}
+                                className="h-full w-full rounded-md object-cover object-center sm:h-48 sm:w-48"
+                              />
+                            </Link>
                           ) : null}
                         </div>
+                        <Link href={`/product/${product.id}`} />
                       </div>
 
                       <div className="ml-4 flex flex-1 flex-col justify-between sm:ml-6">
@@ -88,33 +91,48 @@ const Page = () => {
                               <h3 className="text-sm">
                                 <Link
                                   href={`/product/${product.id}`}
-                                  className="font-medium text-[#f7e7ce] hover:text-[#f7e7ce]"
+                                  className="font-medium text-[#f7e7ce] text-3xl hover:text-[#f8dfb6]"
                                 >
                                   {product.name}
                                 </Link>
                               </h3>
                             </div>
+                            <Link href={`/product/${product.id}`}>
+                              <div className="mt-1  flex text-sm">
+                                <p className=" text-2xl   text-stone-400 text-muted-foreground">
+                                  Category: {label}
+                                </p>
+                              </div>
+                            </Link>
 
-                            <div className="mt-1 flex text-sm">
-                              <p className="text-muted-foreground">
-                                Category: {label}
+                            <Link href={`/product/${product.id}`}>
+                              <p className="mt-1 text-lg font-medium text-[#cab28b]">
+                                {formatPrice(product.price)}
                               </p>
-                            </div>
-
-                            <p className="mt-1 text-sm font-medium text-[#cab28b]">
-                              {formatPrice(product.price)}
-                            </p>
+                            </Link>
                           </div>
 
                           <div className="mt-4 sm:mt-0 sm:pr-9 w-20">
                             <div className="absolute right-0 top-0">
-                              <Button className="bg-red-300 text-dark-brown hover:text-white">
+                              <Button
+                                aria-label="remove product"
+                                onClick={() => removeItem(product.id)}
+                                className="bg-red-300 text-dark-brown hover:text-white"
+                              >
                                 <X className="h-5 w-5" aria-hidden="true" />
                                 Delete
                               </Button>
                             </div>
                           </div>
                         </div>
+                        <Link href={`/product/${product.id}`}>
+                          <button className=" h-20 w-full  mt-0 -mb-0 bottom-0">
+                            <p className="mt-10 flex space-x-2 text-medium text-slate-500">
+                              <Check className="h-5 w-5 flex-shrink-0 text-green-500" />
+                              <span>Instant Delivery </span>
+                            </p>
+                          </button>
+                        </Link>
                       </div>
                     </li>
                   );

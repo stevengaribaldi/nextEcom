@@ -171,12 +171,16 @@ const Page = () => {
 
                     <button
                       disabled={isLoading}
-                      className=" relative group/btn w-full  bg-dark-brown rounded-md h-10
-                      font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]"
+                      className={cn(
+                        'relative group/btn w-full  bg-black rounded-md h-10 font-medium  shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]',
+
+                        isValid &&
+                          '  hover:shadow-[0_0px_20px_rgba(0.26,0.20392156862745098,0.26,10%)] hover:bg-slate-950  hover:bg-gradient-to-r hover:from-cyan-950/0 hover:via-cyan-950/90 hover:to-cyan-950/0 hover:transition-opacity duration-500 group-hover:opacity-40   hover:ring-1 hover:ring-opacity-10 hover:ring-cyan-100',
+                      )}
                       type="submit"
                     >
                       <TextGenerateEffect
-                        words="Login"
+                        words={`Log in`}
                         isValid={isValid}
                         className="font-bold text-lg"
                       />
@@ -210,7 +214,7 @@ const Page = () => {
               </Button>
             ) : (
               <Button
-                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)] ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0] hover:bg-[#d1c0d0a0] text-white px-10 py-2 rounded-md font-normal transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0"
+                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)]  ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0] hover:bg-[#d1c0d0a0] text-white px-10 py-2 rounded-md font-normal transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0"
                 onClick={continueAsSeller}
                 // variant="secondary"
                 disabled={isLoading}
@@ -228,7 +232,7 @@ const Page = () => {
 const BottomGradient = () => {
   return (
     <>
-      <span className="block duration-500 absolute h-px w-full  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-600 to-transparent" />
+      <span className="block duration-500 absolute h-px w-full shadow-[0_6px_20px_rgba(209,192,208,50%)]  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-600 to-transparent" />
       <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
     </>
   );

@@ -53,9 +53,10 @@ const Cart = () => {
                     />
                   </div>
                 </div>
+                
                 <span
                   style={{ right: 'calc(1.5rem + 0.41rem)' }}
-                  className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-cyan-500 font-bold flex items-center justify-center
+                  className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-[#81c336] font-bold flex items-center justify-center
                    transition-transform duration-2500 ease-linear hover:scale-90"
                 >
                   {isMounted ? itemCount : 0}

@@ -105,8 +105,8 @@ const Page = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className=" -mt-1 grid gap-2 ">
                 <div className="grid gap-1 py-2">
-                  <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
-                    <LabelInputContainer className="mb-4 ">
+                  <div className="max-w-md  bg-[#2c242c] w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
+                    <LabelInputContainer className="mb-4  ">
                       <Label className="" htmlFor="email">
                         Email Address
                       </Label>
@@ -147,8 +147,12 @@ const Page = () => {
 
                     <button
                       disabled={isLoading}
-                      className=" relative group/btn w-full  bg-dark-brown rounded-md h-10
-                      font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]"
+                      className={cn(
+                        'relative group/btn w-full  bg-black rounded-md h-10 font-medium  shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]',
+
+                        isValid &&
+                          '  hover:bg-slate-950  hover:bg-gradient-to-r hover:from-cyan-950/0 hover:via-cyan-950/90 hover:to-cyan-950/0 hover:transition-opacity duration-500 group-hover:opacity-40   hover:ring-1 hover:ring-opacity-10 hover:ring-cyan-100',
+                      )}
                       type="submit"
                     >
                       <TextGenerateEffect

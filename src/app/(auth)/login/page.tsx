@@ -171,7 +171,7 @@ const Page = () => {
 
                     <button
                       disabled={isLoading}
-                      className=" relative group/btn w-full  bg-black rounded-md h-10
+                      className=" relative group/btn w-full  bg-dark-brown rounded-md h-10
                       font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]"
                       type="submit"
                     >

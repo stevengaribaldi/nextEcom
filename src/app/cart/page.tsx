@@ -64,9 +64,12 @@ const Page = () => {
                   )?.label;
                   const { image } = product.images[0];
                   return (
-                    <li className="flex py-6 sm:py-10" key={product.id}>
+                    <li
+                      className="flex justify-center  py-6 sm:py-10"
+                      key={product.id}
+                    >
                       <div className="flex-shrink-0">
-                        <div className="relative h-24 w-24">
+                        <div className="relative h-48 w-48">
                           {typeof image !== 'string' && image.url ? (
                             <Image
                               fill
@@ -105,11 +108,9 @@ const Page = () => {
 
                           <div className="mt-4 sm:mt-0 sm:pr-9 w-20">
                             <div className="absolute right-0 top-0">
-                              <Button>
-                                <X
-                                  className="h-5 w-5"
-                                  aria-hidden="true"
-                                />
+                              <Button className="bg-red-300 text-dark-brown hover:text-white">
+                                <X className="h-5 w-5" aria-hidden="true" />
+                                Delete
                               </Button>
                             </div>
                           </div>

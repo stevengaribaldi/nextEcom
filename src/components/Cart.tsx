@@ -78,14 +78,7 @@ const Cart = () => {
             </SheetHeader>
             {itemCount > 0 ? (
               <>
-                <div className="flex w-fu flex-col pr-6">
-                  <ScrollArea>
-                    {items.map(({ product }) => (
-                      <CartItem product={product} key={product.id} />
-                    ))}
-                  </ScrollArea>
-                  Cart Items
-                </div>
+                <div className="flex w-fu flex-col pr-6">Cart Items</div>
 
                 <div className="space-y-4 pr-6">
                   <Separator />
@@ -141,6 +134,14 @@ const Cart = () => {
                       </Link>
                     </SheetTrigger>
                   </SheetFooter>
+                  <ScrollArea>
+                    {items.map(({ product }) => (
+                      <>
+                        <CartItem product={product} key={product.id} />
+                        <Separator className="bg-gray-700" />
+                      </>
+                    ))}
+                  </ScrollArea>
                 </div>
               </>
             ) : (

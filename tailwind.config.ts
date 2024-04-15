@@ -59,6 +59,7 @@ const config = {
         limegreen: '#34d399',
         'pale-gold': '#f5c689',
         'brown-khaki': '#c3b091',
+        'dark-brown': '#0b0a04',
 
         'custom-red': '#fd1111',
         border: 'hsl(var(--border))',

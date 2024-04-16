@@ -13,7 +13,7 @@ import {
 import { Separator } from './ui/separator';
 import { formatPrice } from '@/lib/utils';
 import Link from 'next/link';
-import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
+import { TextGenerateEffect } from './ui/TextGenerateEffect';
 import Image from 'next/image';
 import { useCart } from '@/hooks/use-cart';
 import { ScrollArea, ScrollBar } from './ui/scroll-area';
@@ -24,12 +24,12 @@ const Cart = () => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  const itemCount = items.length;
+  const itemCount: number = items.length;
   const cartTotal = items.reduce(
     (total, { product }) => total + product.price,
     0,
   );
-  const fee = 1;
+  const fee: number = itemCount <= 0 ? 0 : 1;
   return (
     <>
       <div className="relative flex items-center justify-center flex-col h">
@@ -53,7 +53,7 @@ const Cart = () => {
                     />
                   </div>
                 </div>
-                
+
                 <span
                   style={{ right: 'calc(1.5rem + 0.41rem)' }}
                   className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-[#81c336] font-bold flex items-center justify-center

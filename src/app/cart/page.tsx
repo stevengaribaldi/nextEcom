@@ -1,5 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import { PRODUCT_CATEGORIES } from '@/config';
 import { useCart } from '@/hooks/use-cart';
 import { cn, formatPrice } from '@/lib/utils';
@@ -14,10 +15,21 @@ const Page = () => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  //  const { items } = useCart();
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  const itemCount = items.length;
+  const cartTotal = items.reduce(
+    (total, { product }) => total + product.price,
+    0,
+  );
+  const fee: number = itemCount <= 0 ? 0 : 1;
   return (
     <div className="bg-custom-black ">
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 className="text-3xl  font-light tracking-tight text-[#d5e2c4] sm:text-4xl">
+        <h1 className="text-3xl  font-bold tracking-tight text-[#f5f5dc] sm:text-4xl">
           Shopping Cart
         </h1>
         <div className="mt-12 lg:grid lg:grid-cols-12  lg:items-start lg:gap-x-16">
@@ -53,7 +65,7 @@ const Page = () => {
 
             <ul
               className={cn({
-                'divide-y  divide-slate-700 border-b border-t border-slate-500':
+                'divide-y  divide-[#564856] border-b border-t border-[#564856]':
                   isMounted && items.length > 0,
               })}
             >
@@ -91,7 +103,7 @@ const Page = () => {
                               <h3 className="text-sm">
                                 <Link
                                   href={`/product/${product.id}`}
-                                  className="font-medium text-[#f7e7ce] text-3xl hover:text-[#f8dfb6]"
+                                  className="font-medium text-pink-50 text-3xl hover:text-[#f8dfb6]"
                                 >
                                   {product.name}
                                 </Link>
@@ -99,14 +111,15 @@ const Page = () => {
                             </div>
                             <Link href={`/product/${product.id}`}>
                               <div className="mt-1  flex text-sm">
-                                <p className=" text-2xl   text-stone-400 text-muted-foreground">
-                                  Category: {label}
+                                <p className=" flex flex-row text-2xl  text-purple-50 ">
+                                  <p className="italic">Category:</p>
+                                  <p className=" ml-2">{label}</p>
                                 </p>
                               </div>
                             </Link>
 
                             <Link href={`/product/${product.id}`}>
-                              <p className="mt-1 text-lg font-medium text-[#cab28b]">
+                              <p className="mt-1 text-lg font-medium text-violet-50">
                                 {formatPrice(product.price)}
                               </p>
                             </Link>
@@ -117,7 +130,7 @@ const Page = () => {
                               <Button
                                 aria-label="remove product"
                                 onClick={() => removeItem(product.id)}
-                                className="bg-red-300 text-dark-brown hover:text-white"
+                                className="hover:bg-red-500 hover:text-dark-brown text-white"
                               >
                                 <X className="h-5 w-5" aria-hidden="true" />
                                 Delete
@@ -127,8 +140,8 @@ const Page = () => {
                         </div>
                         <Link href={`/product/${product.id}`}>
                           <button className=" h-20 w-full  mt-0 -mb-0 bottom-0">
-                            <p className="mt-10 flex space-x-2 text-medium text-slate-500">
-                              <Check className="h-5 w-5 flex-shrink-0 text-green-500" />
+                            <p className="mt-10 flex space-x-2 text-medium text-neutral-400 ">
+                              <Check className="h-5 w-5  flex-shrink-0  text-green-500" />
                               <span>Instant Delivery </span>
                             </p>
                           </button>
@@ -139,6 +152,84 @@ const Page = () => {
                 })}
             </ul>
           </div>
+          <section className="mt-16 rounded-lg text-xl text-slate-300   bg-[#5648562e] px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
+            <h2>Order Summary</h2>
+            <div className="mt-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <p className="text-lg mt-5 text-slate-300">Subtotal</p>
+                <p className="text-sm font-medium ">
+                  {isMounted ? (
+                    formatPrice(cartTotal)
+                  ) : (
+                    <Image
+                      src="/8wheel.svg"
+                      alt={''}
+                      width={60}
+                      height={60}
+                      className="animate-spin mt-5 text-muted-foreground"
+                    />
+                  )}
+                </p>
+              </div>
+              <div className="justify-between border-t border-gray-600">
+                <div className="flex items-center justify-between">
+                  <p className="text-lg mt-5 text-slate-300">fee</p>
+                  <p className="text-sm  mt-5 font-medium text-slate-300">
+                    {isMounted ? (
+                      formatPrice(fee)
+                    ) : (
+                      <Image
+                        src="/8wheel.svg"
+                        alt={''}
+                        width={60}
+                        height={60}
+                        className="animate-spin mt-1 text-muted-foreground"
+                      />
+                    )}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center justify-between border-t border-gray-600 pt-4 ">
+                <div className="font-medium text-2xl text-slate-50">
+                  Order Total
+                </div>
+                <div className="text-base font-medium text-slate-50">
+                  {isMounted ? (
+                    formatPrice(cartTotal + fee)
+                  ) : (
+                    <Image
+                      src="/8wheel.svg"
+                      alt={''}
+                      width={60}
+                      height={60}
+                      className="animate-spin mt-1 text-muted-foreground"
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="mt-6">
+              <button
+                // disabled={isLoading}
+                className={cn(
+                  'relative group/btn w-full  rounded-md h-10 font-medium  ]',
+                  itemCount > 0 && isMounted
+                    ? '  hover:shadow-[0_6px_20px_rgba(209,192,208,30%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90  hover:via-stone-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-2 hover:ring-opacity-30 hover:ring-slate-800'
+                    : null,
+                  //  hover:shadow-[0_6px_20px_rgba(230,225,211,10%)]
+                )}
+                type="submit"
+              >
+                <TextGenerateEffect
+                  words="Checkout"
+                  textColor="#fae8ff"
+                  isValid={isMounted}
+                  className="font-bold text-lg"
+                />
+                {itemCount > 0 && isMounted ? <BottomGradient /> : null}
+              </button>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -146,3 +237,12 @@ const Page = () => {
 };
 
 export default Page;
+const BottomGradient = () => {
+  return (
+    <>
+      <span className="block duration-500 absolute h-px w-full shadow-[0_6px_50px_rgba(209,192,208,100%)]  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-300 to-transparent" />
+      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-300 to-transparent" />
+    </>
+  );
+};
+

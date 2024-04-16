@@ -35,13 +35,14 @@ const CartItem = ({ product }: { product: Product }) => {
                 </div>
               )}
             </div>
-            <div className="mt-3  hover:text-white  px-1 text-muted-foreground">
-              <div className="bg-red-300 hover:bg-dark-brown  hover:text-white inline-block rounded  ">
+            <div className="mt-3  text-white  px-1 text-muted-foreground">
+              <div className="hover:bg-red-500 bg-dark-brown  text-white inline-block rounded  ">
                 <button
                   onClick={() => removeItem(product.id)}
-                  className="flex items-center sm:justify-end text-dark-brown  hover:text-white  justify-end rounded text-xs font-medium px-2 py-1 "
+                  className="flex items-center sm:justify-end  hover:text-dark-brown  text-white  justify-end rounded text-xs font-medium px-2 py-1 "
                 >
                   <X className="w-3.5 h-3.5" />
+                  Delete
                 </button>
               </div>
             </div>

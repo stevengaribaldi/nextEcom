@@ -151,12 +151,13 @@ const Page = () => {
                         'relative group/btn w-full  bg-black rounded-md h-10 font-medium  shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]',
 
                         isValid &&
-                          '  hover:bg-slate-950  hover:bg-gradient-to-r hover:from-cyan-950/0 hover:via-cyan-950/90 hover:to-cyan-950/0 hover:transition-opacity duration-500 group-hover:opacity-40   hover:ring-1 hover:ring-opacity-10 hover:ring-cyan-100',
+                          'hover:shadow-[0_6px_20px_rgba(209,192,208,30%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90 hover:via-stone-800/90 to-slate-800/0  hover:transition-opacity duration-500 group-hover:opacity-40   hover:ring-1 hover:ring-opacity-10 hover:ring-cyan-100',
                       )}
                       type="submit"
                     >
                       <TextGenerateEffect
                         words="Create Account"
+                        textColor="#fae8ff"
                         isValid={isValid}
                         className="your-custom-class"
                       />
@@ -177,8 +178,8 @@ const Page = () => {
 const BottomGradient = () => {
   return (
     <>
-      <span className="block duration-500 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+      <span className="block duration-500 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-300 to-transparent" />
+      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-pink-300 to-transparent" />
     </>
   );
 };

@@ -50,6 +50,7 @@
     "skeleton": "^0.1.2",
     "skelton": "^0.0.0",
     "sonner": "^1.4.41",
+    "stripe": "^15.2.0",
     "swiper": "^11.1.1",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",

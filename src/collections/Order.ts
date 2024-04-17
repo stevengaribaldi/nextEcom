@@ -1,30 +1,30 @@
 import { Access, CollectionConfig } from 'payload/types';
 
-const yourOwn: Access = ({ req: {user} }) => {
-    if (user.role === 'admin') return true;
+const yourOwn: Access = ({ req: { user } }) => {
+  if (user.role === 'admin') return true;
 
-    return {
-        user: {
-            equals:user?.id
-}}
-}
-
+  return {
+    user: {
+      equals: user?.id,
+    },
+  };
+};
 
 export const Orders: CollectionConfig = {
   slug: 'orders',
   admin: {
     useAsTitle: 'Order History',
     description: 'All orders placed',
-    },
-    access: {
-        read: yourOwn,
-        update: ({ req }) => req.user.role === 'admin',
-        create: ({ req }) => req.user.role === 'admin',
-        delete: ({ req }) => req.user.role === 'admin',
+  },
+  access: {
+    read: yourOwn,
+    update: ({ req }) => req.user.role === 'admin',
+    create: ({ req }) => req.user.role === 'admin',
+    delete: ({ req }) => req.user.role === 'admin',
   },
   fields: [
     {
-      name: 'isPaid',
+      name: '_isPaid',
       type: 'checkbox',
       access: {
         read: ({ req }) => req.user.role === 'admin',

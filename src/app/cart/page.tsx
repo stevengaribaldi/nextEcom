@@ -212,14 +212,15 @@ const Page = () => {
               <button
                 // disabled={isLoading}
                 className={cn(
-                  'relative group/btn w-full  rounded-md h-10 font-medium  ]',
+                  'relative group/btn w-full justify-center items-center  rounded-md h-10 font-medium  ]',
                   itemCount > 0 && isMounted
-                    ? '  hover:shadow-[0_6px_20px_rgba(209,192,208,30%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90  hover:via-stone-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-2 hover:ring-opacity-30 hover:ring-slate-800'
+                    ? 'shadow-[0_6px_20px_rgba(209,192,208,50%)] glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0] hover:bg-[#d1c0d0a0] text-white px-10 py-2 rounded-md font-normal transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0'
                     : null,
                   //  hover:shadow-[0_6px_20px_rgba(230,225,211,10%)]
                 )}
-                type="submit"
               >
+                {/* // '  hover:shadow-[0_6px_20px_rgba(209,192,208,30%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90  hover:via-stone-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-2 hover:ring-opacity-30 hover:ring-slate-800' */}
+
                 <TextGenerateEffect
                   words="Checkout"
                   textColor="#fae8ff"
@@ -240,8 +241,8 @@ export default Page;
 const BottomGradient = () => {
   return (
     <>
-      <span className="block duration-500 absolute h-px w-full shadow-[0_6px_50px_rgba(209,192,208,100%)]  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-300 to-transparent" />
-      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-300 to-transparent" />
+      <span className="block duration-500 absolute h-px w-full shadow-[0_6px_50px_rgba(209,192,208,100%)]  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-200 to-transparent" />
+      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-200 to-transparent" />
     </>
   );
 };

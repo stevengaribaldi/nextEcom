@@ -175,13 +175,13 @@ const Page = () => {
                         'relative group/btn w-full  rounded-md h-10 font-medium  ',
 
                         isValid &&
-                          '  hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90 hover:via-stone-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-1 hover:ring-opacity-10 hover:ring-cyan-100',
+                          ' relative group/btn w-full  rounded-md h-10 font-medium   hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90 hover:via-sky-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-1 hover:ring-opacity-10 hover:ring-cyan-100',
                       )}
                       type="submit"
                     >
                       <TextGenerateEffect
                         words={`Log in`}
-                        textColor="#ffffff"
+                        textColor="#fce7f3"
                         isValid={isValid}
                         className="font-bold text-lg"
                       />
@@ -206,7 +206,7 @@ const Page = () => {
             </div>
             {isSeller ? (
               <Button
-                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)] glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0] hover:bg-[#d1c0d0a0] text-white px-10 py-2 rounded-md font-normal transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0"
+                className=" relative group/btn w-full text-[#fafafa]  text-lg rounded-md h-10 font-medium hover:bg-slate-950  hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90 hover:via-sky-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-1 hover:ring-opacity-10 hover:ring-cyan-100"
                 onClick={continueAsBuyer}
                 // variant="secondary"
                 disabled={isLoading}
@@ -215,7 +215,7 @@ const Page = () => {
               </Button>
             ) : (
               <Button
-                className=" shadow-[0_6px_20px_rgba(209,192,208,50%)]  ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0] hover:bg-[#d1c0d0a0] text-white px-10 py-2 rounded-md font-normal transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0"
+                className=" relative group/btn w-full text-[#fafafa]  text-lg rounded-md h-10 font-medium hover:bg-slate-950  hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90 hover:via-sky-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-1 hover:ring-opacity-10 hover:ring-cyan-100"
                 onClick={continueAsSeller}
                 // variant="secondary"
                 disabled={isLoading}
@@ -233,8 +233,8 @@ const Page = () => {
 const BottomGradient = () => {
   return (
     <>
-      <span className="block duration-500 absolute h-px w-full shadow-[0_6px_20px_rgba(209,192,208,50%)]  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-300 to-transparent" />
-      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-pink-300 to-transparent" />
+      <span className="block duration-500 absolute h-px w-full shadow-[0_6px_20px_rgba(209,192,208,50%)]  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-blue-900 to-transparent" />
+      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-blue-900 to-transparent" />
     </>
   );
 };

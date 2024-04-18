@@ -67,7 +67,7 @@ export default function Home() {
                         Digital Assets
                       </span>
                     </h1>
-                    <p className="mt-6  max-w-prose text-pink-400 text-lg">
+                    <p className="mt-6  max-w-prose text-cyan-400 text-lg">
                       Yahfedra Digital™{' '}
                     </p>
                     <div className="flex flex-col sm:flow-row gap-4 mt-6 ">

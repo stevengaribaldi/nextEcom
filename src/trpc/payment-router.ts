@@ -59,7 +59,8 @@ export const paymentRouter = router({
           {
             success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderid=${order.id}`,
             cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cart`,
-            payment_method_types: ['amazon_pay', 'cashapp', 'card'],
+            // add apple and google 
+            payment_method_types: ['klarna', 'card'],
 
             mode: 'payment',
             metadata: {

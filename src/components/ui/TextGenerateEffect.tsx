@@ -40,7 +40,7 @@ export const TextGenerateEffect = ({
         {wordsArray.map((words, idx) => (
           <span
             key={`${words}-${idx}`}
-            style={colorSpan}
+            style={colorSpan ? { color: colorSpan } : undefined}
             className="inline-block"
           >
             {words}

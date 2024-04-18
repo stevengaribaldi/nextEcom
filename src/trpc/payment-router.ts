@@ -3,7 +3,7 @@ import { privateProdure, router } from './trpc';
 import { z } from 'zod';
 import { getPayloadClient } from '../get-payload';
 import payload from 'payload';
-import { stripe } from '@/lib/stripe';
+import { stripe } from '../lib/stripe';
 import type Stripe from 'stripe';
 
 export const paymentRouter = router({
@@ -24,8 +24,7 @@ export const paymentRouter = router({
         collection: 'products',
         where: {
           id: { in: productIds },
-          },
-
+        },
       });
 
       const filterProducts = products.filter((prod) => Boolean(prod.priceId));
@@ -58,16 +57,9 @@ export const paymentRouter = router({
 
         const stripeSession = await stripe.checkout.sessions.create(
           {
-            success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderid=${order.id}}`,
+            success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderid=${order.id}`,
             cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cart`,
-            payment_method_types: [
-              'paypal',
-              'card',
-              'affirm',
-              'paypal',
-              'amazon_pay',
-              // 'apple_pay',
-            ],
+            payment_method_types: ['amazon_pay', 'cashapp', 'card'],
 
             mode: 'payment',
             metadata: {
@@ -80,12 +72,10 @@ export const paymentRouter = router({
             idempotencyKey,
           },
         );
+        return { url: stripeSession.url };
       } catch (err) {
         console.error('Failed to create Stripe session:', err);
-        throw new TRPCError({
-          code: 'INTERNAL_SERVER_ERROR',
-          message: 'Failed to initiate payment process.',
-        });
+        return { url: null };
       }
     }),
 });

@@ -44,9 +44,9 @@ const ProductReel = (props: ProductReelProps) => {
             </h1>
           ) : null}
           {subtitle ? (
-            <p className="mt-2 text-white text-sm text-muted-foreground">
+            <h2 className="mt-2 text-white text-sm text-muted-foreground">
               {subtitle}
-            </p>
+            </h2>
           ) : null}
         </div>
         {href ? (

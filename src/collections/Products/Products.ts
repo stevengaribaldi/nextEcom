@@ -4,7 +4,7 @@ import { Label } from '@/components/ui/label';
 import { BeforeChangeHook } from 'payload/dist/collections/config/types';
 import { Product } from '@/payload-types';
 import { argv } from 'process';
-import { stripe } from '@/lib/stripe';
+import { stripe } from '../../lib/stripe';
 
 const addUser: BeforeChangeHook<Product> = async ({ req, data }) => {
   const user = req.user;
@@ -33,7 +33,25 @@ export const Products: CollectionConfig = {
               unit_amount: Math.round(data.price * 100),
             },
           });
+          const createdProductUpdated: Product = {
+            ...data,
+            stripeId: createProduct.id,
+            priceId: createProduct.default_price as string,
+          };
+          return createdProductUpdated;
         } else if (args.operation === 'update') {
+          const data = args.data as Product;
+
+          const updatedProduct = await stripe.products.update(data.stripeId!, {
+            name: data.name,
+            default_price: data.priceId!,
+          });
+          const productedReupdated: Product = {
+            ...data,
+            stripeId: updatedProduct.id,
+            priceId: updatedProduct.default_price as string,
+          };
+          return productedReupdated;
         }
       },
     ],

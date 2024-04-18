@@ -4,28 +4,40 @@ import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import { PRODUCT_CATEGORIES } from '@/config';
 import { useCart } from '@/hooks/use-cart';
 import { cn, formatPrice } from '@/lib/utils';
+import { trpc } from '@/trpc/client';
 import { Check, Trash2, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { use, useEffect, useState } from 'react';
+import { router } from '../../trpc/trpc';
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
   const { items, removeItem } = useCart();
+  const router = useRouter();
+  const { mutate: createCheckoutSession, isLoading } =
+    trpc.payment.createSession.useMutation({
+      onSuccess: ({ url }) => {
+        if (url) router.push(url);
+      },
+    });
+
+  const productIds = items.map(({ product }) => product.id);
+
   const [isMounted, setIsMounted] = useState<boolean>(false);
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  //  const { items } = useCart();
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  const itemCount = items.length;
+  const itemsCount = items.length;
   const cartTotal = items.reduce(
     (total, { product }) => total + product.price,
     0,
   );
-  const fee: number = itemCount <= 0 ? 0 : 1;
+  const fee: number = itemsCount <= 0 ? 0 : 1;
   return (
     <div className="bg-custom-black ">
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -111,10 +123,9 @@ const Page = () => {
                             </div>
                             <Link href={`/product/${product.id}`}>
                               <div className="mt-1  flex text-sm">
-                                <p className=" flex flex-row text-2xl  text-purple-50 ">
-                                  <p className="italic">Category:</p>
-                                  <p className=" ml-2">{label}</p>
-                                </p>
+                                <p className=" flex flex-row text-2xl  text-purple-50 "></p>
+                                <p className="italic">Category:</p>
+                                <p className=" ml-2">{label}</p>
                               </div>
                             </Link>
 
@@ -210,15 +221,25 @@ const Page = () => {
             </div>
             <div className="mt-6">
               <button
-                // disabled={isLoading}
+                disabled={itemsCount === 0 || isLoading || isMounted === false}
+                onClick={() => createCheckoutSession({ productIds })}
                 className={cn(
                   'relative group/btn w-full justify-center items-center  rounded-md h-10 font-medium  ]',
-                  itemCount > 0 && isMounted
+                  itemsCount > 0 && isMounted
                     ? 'shadow-[0_6px_20px_rgba(209,192,208,50%)] glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0] hover:bg-[#d1c0d0a0] text-white px-10 py-2 rounded-md font-normal transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0'
                     : null,
                   //  hover:shadow-[0_6px_20px_rgba(230,225,211,10%)]
                 )}
               >
+                {isLoading ? (
+                  <Image
+                    src="/8wheel.svg"
+                    alt={''}
+                    width={60}
+                    height={60}
+                    className="animate-spin mt-1 text-muted-foreground"
+                  />
+                ) : null}
                 {/* // '  hover:shadow-[0_6px_20px_rgba(209,192,208,30%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90  hover:via-stone-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-2 hover:ring-opacity-30 hover:ring-slate-800' */}
 
                 <TextGenerateEffect
@@ -227,7 +248,7 @@ const Page = () => {
                   isValid={isMounted}
                   className="font-bold text-lg"
                 />
-                {itemCount > 0 && isMounted ? <BottomGradient /> : null}
+                {itemsCount > 0 && isMounted ? <BottomGradient /> : null}
               </button>
             </div>
           </section>
@@ -246,4 +267,3 @@ const BottomGradient = () => {
     </>
   );
 };
-

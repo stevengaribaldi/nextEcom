@@ -137,10 +137,7 @@ const Cart = () => {
                   </SheetFooter>
                   <ScrollArea>
                     {items.map(({ product }) => (
-                      <>
-                        <CartItem product={product} key={product.id} />
-                        <Separator className="bg-gray-700" />
-                      </>
+                      <CartItem product={product} key={product.id} />
                     ))}
                   </ScrollArea>
                 </div>

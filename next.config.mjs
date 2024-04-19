@@ -8,7 +8,10 @@ const nextConfig = {
         port: "3000",
         pathname:'**'
       },
-   
+      {
+        protocol: 'https',
+        hostname: 'yehfedra.com',
+      },
     ],
   },
 };

@@ -60,14 +60,14 @@ export default function Home() {
               <section>
                 <div className="bg-custom-black -mx-96 ">
                   <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-                    <h1 className="text-4xl tracking-tight font-light text-[#d5e2c4] sm:text-6xl ">
+                    <h1 className="text-4xl tracking-tight font-light text-[#effaf7] sm:text-6xl ">
                       The Marketplace For <br />
                       <span className="text-rose-100  font-bold">
                         {' '}
                         Digital Assets
                       </span>
                     </h1>
-                    <p className="mt-6  max-w-prose text-cyan-400 text-lg">
+                    <p className="mt-6  max-w-prose text-[#bdeade] text-lg">
                       Yahfedra Digital™{' '}
                     </p>
                     <div className="flex flex-col sm:flow-row gap-4 mt-6 ">

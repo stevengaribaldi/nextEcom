@@ -38,7 +38,7 @@ const Page = () => {
   return (
     <div className="bg-custom-black ">
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 className="text-3xl  font-bold tracking-tight text-[#f5f5dc] sm:text-4xl">
+        <h1 className="text-3xl  font-bold tracking-tight text-pale-gold sm:text-4xl">
           Shopping Cart
         </h1>
         <div className="mt-12 lg:grid lg:grid-cols-12  lg:items-start lg:gap-x-16">
@@ -112,22 +112,22 @@ const Page = () => {
                               <h3 className="text-sm">
                                 <Link
                                   href={`/product/${product.id}`}
-                                  className="font-medium text-pink-50 text-3xl hover:text-[#f8dfb6]"
+                                  className="font-medium text-3xl text-orange-100"
                                 >
                                   {product.name}
                                 </Link>
                               </h3>
                             </div>
                             <Link href={`/product/${product.id}`}>
-                              <div className="mt-1  flex text-sm">
-                                <p className=" flex flex-row text-2xl  text-purple-50 "></p>
+                              <div className="mt-1 text-champagne-b flex text-sm">
+                                <p className=" flex flex-row text-2xl "></p>
                                 <p className="italic">Category:</p>
                                 <p className=" ml-2">{label}</p>
                               </div>
                             </Link>
 
                             <Link href={`/product/${product.id}`}>
-                              <p className="mt-1 text-lg font-medium text-violet-50">
+                              <p className="mt-1  text-slate-50 text-lg font-medium ">
                                 {formatPrice(product.price)}
                               </p>
                             </Link>

@@ -51,7 +51,7 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
           {/* <!-- <div className="lg:col-start-2 space-y-6"> --> */}
           {/* Left column for order details */}
           <div className="space-y-6 flex flex-col">
-            <p className=" text-6xl text-champagne-b">Thank you</p>
+            <p className=" text-6xl text-[#3dc9af] ">Thank you</p>
 
             {order._isPaid ? (
               <p className="mt-2 text-base font-light text-[#aabab4]  ">
@@ -76,7 +76,7 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
               <div className="mt-0 text-gray-300">{order.id}</div>
             </div>
 
-            <ul className="mt-6 divide-y  divide-slate-700 border-t border-gray-200 text-sm font-medium text-muted-foreground">
+            <ul className="mt-6 divide-y  divide-slate-700 border-t border-[#523f52] text-sm font-medium text-muted-foreground">
               {(order.products as Product[]).map((product) => {
                 const label = PRODUCT_CATEGORIES.find(
                   ({ value }) => value === product.category,
@@ -101,8 +101,10 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
                     </div>
                     <div className="flex-auto flex-col justify-between">
                       <div className="space-y-1">
-                        <h3 className="text-[#fff8e7] ">{product.name}</h3>
-                        <p className="my-1">Category: {label}</p>
+                        <h3 className="text-orange-100">{product.name}</h3>
+                        <p className="my-1 font-light text-champagne-b ">
+                          Category: {label}
+                        </p>
                       </div>
                       {order._isPaid ? (
                         <a
@@ -124,21 +126,21 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
               })}
             </ul>
           </div>
-          <div className="space-y-6 flex flex-col  flex-1  pt-600 text-sm font-medium text-muted-foreground">
-            <h1 className=" flex flex-col  col-span-1 text-4xl font-medium text-[#d5e2c4]">
+          <div className="space-y-6 flex flex-col flex-1 pt-600 text-sm font-medium text-muted-foreground border-t border-[#695c69] lg:border-t-0">
+            <h1 className=" flex flex-col  col-span-1  mt-3 text-4xl font-medium text-[#daa06d]">
               Order Successful
             </h1>
-            <div className="flex justify-between">
+            <div className="text-slate-50 flex justify-between">
               <p> Subtotal</p>
               <p>{formatPrice(ordertotal)}</p>
             </div>
 
-            <div className="flex justify-between">
+            <div className=" text-slate-50 flex justify-between">
               <p> Transaction Fee</p>
               <p>{formatPrice(1)}</p>
             </div>
 
-            <div className="flex items-center justify-between border-t border-gray-200 pt-6">
+            <div className="flex items-center text-white justify-between border-t border-[#523f52] pt-6">
               <p className="text-base">Total</p>
               <p className="text-base"> {formatPrice(ordertotal + 1)}</p>
             </div>

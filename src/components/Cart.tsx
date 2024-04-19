@@ -79,27 +79,31 @@ const Cart = () => {
             </SheetHeader>
             {itemCount > 0 ? (
               <>
-                <div className="flex w-fu flex-col pr-6">Cart Items</div>
+                <div className="flex  text-champagne-b w-fu flex-col pr-6">
+                  Cart Items
+                </div>
 
                 <div className="space-y-4 pr-6">
                   <Separator />
                   <div className="space-y-1.5 text-sm">
                     <div className="flex">
-                      <span className="flex-1">Shipping</span>
-                      <span>Free</span>
+                      {/* <span className="flex-1">Shipping</span>
+                      <span>Free</span> */}
                     </div>
                   </div>
-                  <div className="space-y-1.5 text-sm">
-                    <div className="flex">
-                      <span className="flex-1">Transaction Fee</span>
+                  <div className="space-y-1.5  text-[#dce8dc] text-sm">
+                    <div className="flex text-[#dce8dc] ">
+                      <span className="flex-1 text-[#dce8dc] ">
+                        Transaction Fee
+                      </span>
                       <span>{formatPrice(fee)}</span>
                     </div>
-                    <div className="flex">
-                      <span className="flex-1">Subtotal</span>
+                    <div className="flex text-[#dce8dc] ">
+                      <span className="flex-1 text-[#dce8dc] ">Subtotal</span>
                       <span>{formatPrice(cartTotal)}</span>
                     </div>
-                    <div className="flex">
-                      <span className="flex-1">Total</span>
+                    <div className="flex text-[#dce8dc] ">
+                      <span className="flex-1 text-green-50 ">Total</span>
                       <span>{formatPrice(cartTotal + fee)}</span>
                     </div>
                   </div>

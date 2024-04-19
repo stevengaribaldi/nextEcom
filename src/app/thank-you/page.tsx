@@ -3,10 +3,12 @@ import Image from 'next/image';
 import { cookies } from 'next/headers';
 import { getPayloadClient } from '@/get-payload';
 import { notFound, redirect } from 'next/navigation';
-import { Product, ProductFile } from '@/payload-types';
+import { Product, ProductFile, User } from '@/payload-types';
 import { PRODUCT_CATEGORIES } from '@/config';
 import { ArrowDownToLine, Download } from 'lucide-react';
 import { formatPrice } from '@/lib/utils';
+import Link from 'next/link';
+import PaymentStatus from '@/components/PaymentStatus';
 
 interface PageProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -140,9 +142,23 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
               <p>{formatPrice(1)}</p>
             </div>
 
+            <PaymentStatus
+              isPaid={order._isPaid}
+              orderEmail={(order.user as User).email}
+              orderId={order.id}
+            />
+
             <div className="flex items-center text-white justify-between border-t border-[#523f52] pt-6">
               <p className="text-base">Total</p>
               <p className="text-base"> {formatPrice(ordertotal + 1)}</p>
+            </div>
+            <div className=" mt-16 py-6 border-t  border-[#c9af3d] border-muted-foreground text-right">
+              <Link
+                href="/products"
+                className="text-sm font-medium   text-[#c9af3d]  hover:text-orange-400"
+              >
+                Continue Shopping <span className="animate-pulse">&rarr;</span>{' '}
+              </Link>
             </div>
           </div>
         </div>

@@ -44,7 +44,7 @@ const ProductReel = (props: ProductReelProps) => {
             </h1>
           ) : null}
           {subtitle ? (
-            <h2 className="mt-2 text-[#f1e9d2] text-sm text-muted-foreground">
+            <h2 className="mt-2 text-[#fff4c4] text-sm ">
               {subtitle}
             </h2>
           ) : null}

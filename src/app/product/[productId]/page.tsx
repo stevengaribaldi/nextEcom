@@ -67,7 +67,7 @@ const Page = async ({ params }: PageProps) => {
                   <div className="flex items-center text-sm">
                     <Link
                       href={breadcrumb.href}
-                      className="font-medium text-sm  text-[#faebd7] hover:text-[#c3b091]"
+                      className="font-medium text-sm  text-[#c9af3d] hover:text-orange-400"
                     >
                       {breadcrumb.name}
                     </Link>
@@ -101,7 +101,7 @@ const Page = async ({ params }: PageProps) => {
                   {formatPrice(product.price)}
                 </p>
 
-                <div className="ml-4 border-l text-muted-foreground text-champagne-b  border-orange-300 pl-4">
+                <div className="ml-4 border-l  text-champagne-b  border-orange-300 pl-4">
                   {label}
                 </div>
               </div>

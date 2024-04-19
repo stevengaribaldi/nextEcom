@@ -20,7 +20,7 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
 
   const { user } = await getServerSideUser(nextCookies);
   const payload = await getPayloadClient();
-  console.log(payload);
+  // console.log(payload);
 
   const { docs: orders } = await payload.find({
     collection: 'orders',

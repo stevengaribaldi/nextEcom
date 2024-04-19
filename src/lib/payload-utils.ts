@@ -10,6 +10,6 @@ export const getServerSideUser = async (
     headers: { Authorization: `JWT ${token}` },
   });
 
-  const { user} = (await meRes.json()) as { user: User | null };
+  const { user } = (await meRes.json()) as { user: User | null };
   return { user };
 };

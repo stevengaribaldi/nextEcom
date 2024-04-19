@@ -11,8 +11,10 @@ import { getServerSideUser } from '@/lib/payload-utils';
 import { cookies } from 'next/headers';
 import UserAccountNav from './UserAccountNav';
 import { User } from '@/payload-types';
-
-const Navbar = ({ user }: { user: User }) => {
+interface NavbarProps {
+  user: User | null; // Allow user to be null
+}
+const Navbar = ({ user }: NavbarProps) => {
   const [isRotating, setIsRotating] = useState(true);
 
   useEffect(() => {

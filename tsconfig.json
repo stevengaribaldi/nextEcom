@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "tsconfig.server.json"  ],
+, "tsconfig.server.json", "src/app/(auth)/check-user/page"  ],
   "exclude": [
     "node_modules"
   ]

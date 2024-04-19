@@ -58,7 +58,7 @@ const config = {
         darkt: '#344444',
         'custom-red': 'fffdd0',
         'champagne-b': '#f7e7ce',
-        'linen-pink': 'faf0e6',
+        'linen-pink': 'FAF0E6',
         customgreen: '#8aa86a',
         limegreen: '#34d399',
         'pale-gold': '#f5c689',

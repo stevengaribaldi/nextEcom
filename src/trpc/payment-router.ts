@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server';
-import { privateProdure, router } from './trpc';
+import { privateProcedure, router } from './trpc';
 import { z } from 'zod';
 import { getPayloadClient } from '../get-payload';
 import payload from 'payload';
@@ -7,7 +7,7 @@ import { stripe } from '../lib/stripe';
 import type Stripe from 'stripe';
 
 export const paymentRouter = router({
-  createSession: privateProdure
+  createSession: privateProcedure
     .input(z.object({ productIds: z.array(z.string().min(1)).min(1) }))
     .mutation(async ({ ctx, input }) => {
       const { user } = ctx;
@@ -57,10 +57,10 @@ export const paymentRouter = router({
 
         const stripeSession = await stripe.checkout.sessions.create(
           {
-            success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderid=${order.id}`,
+            success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
             cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cart`,
-            // add apple and google 
-            payment_method_types: ['klarna', 'card'],
+            // add apple and google
+            payment_method_types: ['klarna', 'card', 'amazon_pay'],
 
             mode: 'payment',
             metadata: {

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 const SvgComponent = () => {
-  const [glow, setGlow] = useState(false); // State to toggle glow effect
+  const [glow, setGlow] = useState(false);
 
-  const toggleGlow = () => setGlow(!glow); // Function to toggle glow effect
+  const toggleGlow = () => setGlow(!glow);
 
   return (
     <svg
@@ -13,7 +13,7 @@ const SvgComponent = () => {
       height="169px"
       viewBox="0 0 300.000000 169.000000"
       preserveAspectRatio="xMidYMid meet"
-      onClick={toggleGlow} // Set the SVG to toggle glow on click
+      onClick={toggleGlow}
     >
       <defs>
         <filter id="glow-effect" x="-50%" y="-50%" width="200%" height="200%">

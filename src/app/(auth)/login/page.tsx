@@ -41,6 +41,7 @@ const Page = () => {
   } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
+  
   const { mutate: logIn, isLoading } = trpc.auth.logIn.useMutation({
     onSuccess: async () => {
       toast.success('Signed in successfully');

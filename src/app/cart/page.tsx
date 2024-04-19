@@ -21,13 +21,9 @@ const Page = () => {
         if (url) router.push(url);
       },
     });
-
   const productIds = items.map(({ product }) => product.id);
 
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   useEffect(() => {
     setIsMounted(true);
@@ -38,6 +34,7 @@ const Page = () => {
     0,
   );
   const fee: number = itemsCount <= 0 ? 0 : 1;
+
   return (
     <div className="bg-custom-black ">
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -221,7 +218,7 @@ const Page = () => {
             </div>
             <div className="mt-6">
               <button
-                disabled={itemsCount === 0 || isLoading || isMounted === false}
+                disabled={itemsCount === 0 || isLoading || !isMounted}
                 onClick={() => createCheckoutSession({ productIds })}
                 className={cn(
                   'relative group/btn w-full justify-center items-center  rounded-md h-10 font-medium  ]',

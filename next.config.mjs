@@ -8,10 +8,7 @@ const nextConfig = {
         port: "3000",
         pathname:'**'
       },
-      {
-        protocol: 'https',
-        hostname: 'digitalhippo-production.up.railway.app',
-      },
+   
     ],
   },
 };

@@ -5,7 +5,6 @@ import { getPayloadClient } from '../get-payload';
 import payload from 'payload';
 import { stripe } from '../lib/stripe';
 import type Stripe from 'stripe';
-import e from 'express';
 
 export const paymentRouter = router({
   createSession: privateProcedure

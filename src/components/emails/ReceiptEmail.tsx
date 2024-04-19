@@ -46,10 +46,10 @@ export const ReceiptEmail = ({
           <Section>
             <Column>
               <Img
-                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/thankyou.png`}
+                src={`${process.env.NEXT_PUBLIC_SERVER_URL}/silla8handedsword.png`}
                 width="100"
                 height="100"
-                alt="Yehfedra thank you"
+                alt="Yehfedra Logo"
               />
             </Column>
 

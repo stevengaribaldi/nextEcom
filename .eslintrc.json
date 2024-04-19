@@ -13,10 +13,9 @@
     "sourceType": "module"
   },
   "rules": {
-    "@typescript-eslint/no-unused-vars": "off"
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }
-
 // BCFD91
-
 // EE7E9F

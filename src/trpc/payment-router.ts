@@ -11,7 +11,7 @@ export const paymentRouter = router({
     .input(z.object({ productIds: z.array(z.string().min(1)).min(1) }))
     .mutation(async ({ ctx, input }) => {
       const { user } = ctx;
-      let { productIds } = input;
+      const { productIds } = input;
       if (productIds.length === 0) {
         throw new TRPCError({
           code: 'BAD_REQUEST',

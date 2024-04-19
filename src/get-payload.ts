@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport({
     pass: process.env.RESEND_API_KEY,
   },
   tls: {
-    rejectUnauthorized: false, // This bypasses the certificate validation
+    rejectUnauthorized: false,
   },
 });
 

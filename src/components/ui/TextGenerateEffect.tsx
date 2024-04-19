@@ -33,7 +33,7 @@ export const TextGenerateEffect = ({
       );
       wasValidRef.current = false;
     }
-  }, [isValid, animate]);
+  }, [isValid, animate, colorSpan]);
   return (
     <div className={cn('font-bold ', className)}>
       <div ref={scope} className="mt-0 text-2xl leading-snug tracking-wide ">

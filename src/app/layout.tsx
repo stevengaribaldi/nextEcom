@@ -4,6 +4,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import NarbarServer from '@/components/NarbarServer';
 import Providers from '@/components/Providers';
+import Footer from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,9 +24,9 @@ export default function RootLayout({
       >
         <main className="relative flex flex-col min-h-screen bg-custom-black">
           <Providers>
-            <NarbarServer></NarbarServer>
-
+            <NarbarServer />
             <div className="flex-grow flex-1">{children}</div>
+            <Footer />
           </Providers>
         </main>
       </body>

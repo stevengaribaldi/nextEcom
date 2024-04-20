@@ -16,7 +16,6 @@ import { trpc } from '@/trpc/client';
 import { Toaster, toast } from 'sonner';
 import { ZodError } from 'zod';
 import { useRouter } from 'next/navigation';
-import { Loader2 } from 'lucide-react';
 
 const Page = () => {
   const {

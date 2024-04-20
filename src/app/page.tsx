@@ -9,7 +9,6 @@ import {
   Undo2,
 } from 'lucide-react';
 import Link from 'next/link';
-import { Separator } from '../components/ui/separator';
 import ProductReel from '@/components/ui/ProductReel';
 
 const perks = [

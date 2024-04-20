@@ -1,6 +1,5 @@
-import { headers } from 'next/headers';
 import { useRouter } from 'next/navigation';
-import { toast, Toaster } from 'sonner';
+import { toast } from 'sonner';
 
 export const useAuth = () => {
   const router = useRouter();
@@ -20,10 +19,10 @@ export const useAuth = () => {
       toast.success('Logged out successfully');
       router.push('/login');
       router.refresh();
-      return
+      return;
     } catch (err) {
       toast.error('Failed to log out');
-      return
+      return;
     }
   };
   return { logOut };

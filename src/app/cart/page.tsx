@@ -8,13 +8,13 @@ import { trpc } from '@/trpc/client';
 import { Check, Trash2, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { use, useEffect, useState } from 'react';
-import { router } from '../../trpc/trpc';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const Page = () => {
   const { items, removeItem } = useCart();
   const router = useRouter();
+  
   const { mutate: createCheckoutSession, isLoading } =
     trpc.payment.createSession.useMutation({
       onSuccess: ({ url }) => {

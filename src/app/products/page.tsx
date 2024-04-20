@@ -1,5 +1,5 @@
-import MaxWidthWrapper from '@/components/MaxWidthWrapper';
-import ProductReel from '../../components/ui/ProductReel';
+import MaxWithWrapper from '@/components/MaxWidthWrapper';
+import ProductReel from '@/components/ui/ProductReel';
 import { PRODUCT_CATEGORIES } from '@/config';
 
 type Param = string | string[] | undefined;
@@ -11,7 +11,6 @@ interface ProductsPageProps {
 const parse = (param: Param) => {
   return typeof param === 'string' ? param : undefined;
 };
-
 const ProductsPage = ({ searchParams }: ProductsPageProps) => {
   const sort = parse(searchParams.sort);
   const category = parse(searchParams.category);
@@ -21,16 +20,16 @@ const ProductsPage = ({ searchParams }: ProductsPageProps) => {
   )?.label;
 
   return (
-    <MaxWidthWrapper>
+    <MaxWithWrapper>
       <ProductReel
-        title={label ??  'Browse high-quality assets'}
+        title={label ?? 'Explore top-quality assets'}
         query={{
           category,
           limit: 40,
           sort: sort === 'desc' || sort === 'asc' ? sort : undefined,
         }}
-      />
-    </MaxWidthWrapper>
+      ></ProductReel>
+    </MaxWithWrapper>
   );
 };
 

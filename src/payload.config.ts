@@ -14,7 +14,7 @@ import { Orders } from './collections/Order';
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_PAYLOAD_SERVER_URL || '',
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
   collections: [Users, Products, Media, ProductFile, Orders],
   routes: {
     admin: '/sell',

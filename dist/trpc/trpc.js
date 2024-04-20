@@ -48,10 +48,7 @@ var isAuth = middleware(function (_a) {
             req = ctx.req;
             user = req.user;
             if (!user || !user.id) {
-                throw new server_1.TRPCError({
-                    code: 'UNAUTHORIZED',
-                    message: 'You must be logged in to perform this action',
-                });
+                throw new server_1.TRPCError({ code: 'UNAUTHORIZED' });
             }
             return [2 /*return*/, next({
                     ctx: {
@@ -64,4 +61,3 @@ var isAuth = middleware(function (_a) {
 exports.router = t.router;
 exports.publicProcedure = t.procedure;
 exports.privateProcedure = t.procedure.use(isAuth);
-;

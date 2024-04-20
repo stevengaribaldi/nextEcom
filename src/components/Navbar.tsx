@@ -2,17 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import MaxWidthWrapper from './MaxWidthWrapper';
-import { Icons } from './Icons';
 import NavItems from './NavItems';
 import Image from 'next/image';
 import Cart from './Cart';
-import { Separator } from './ui/separator';
-import { getServerSideUser } from '@/lib/payload-utils';
-import { cookies } from 'next/headers';
+
 import UserAccountNav from './UserAccountNav';
 import { User } from '@/payload-types';
+
+import MobileNav from './MobileNav';
 interface NavbarProps {
-  user: User | null; // Allow user to be null
+  user: User | null;
 }
 const Navbar = ({ user }: NavbarProps) => {
   const [isRotating, setIsRotating] = useState(true);
@@ -33,8 +32,7 @@ const Navbar = ({ user }: NavbarProps) => {
         <MaxWidthWrapper>
           <div className=" ">
             <div className="flex items-center">
-              {/* TODO MOBILE NAV */}
-
+              <MobileNav />
               <div
                 className={`ml-0 flex lg:ml-0 ${isRotating ? 'continuous-step-spin' : ''}`}
               >

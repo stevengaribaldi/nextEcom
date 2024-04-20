@@ -28,20 +28,20 @@ export const EmailTemplate = ({
   return (
     <Html>
       <Head />
-      <Preview>The marketplace for high-quality digital goods.</Preview>
+      <Preview>The marketplace for high-quality digital assets.</Preview>
       <Body style={main}>
         <Container style={container}>
           <Img
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/hippo-newsletter-sign-up.png`}
+            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/8wheel.png`}
             width="150"
             height="150"
-            alt="DigitalHippo"
+            alt="8wheel logo"
             style={logo}
           />
           <Text style={paragraph}>Hi there,</Text>
           <Text style={paragraph}>
-            Welcome to DigitalHippo, the marketplace for high quality digital
-            goods. Use the button below to {actionLabel}.
+            Welcome to Yehfedra, the marketplace for digital assets Use the
+            button below to {actionLabel}.
           </Text>
           <Section style={btnContainer}>
             <Button style={button} href={href}>
@@ -51,7 +51,7 @@ export const EmailTemplate = ({
           <Text style={paragraph}>
             Best,
             <br />
-            The DigitalHippo team
+            The Yehfedra team
           </Text>
           <Hr style={hr} />
           <Text style={footer}>

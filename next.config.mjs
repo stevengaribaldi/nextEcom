@@ -11,7 +11,6 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'yehfedra.com',
-        pathname: '**',
       },
     ],
   },

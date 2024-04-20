@@ -17,7 +17,7 @@ const perks = [
     name: 'Instant Download',
     Icon: ArrowDownToLine,
     description:
-      'Get your  Yahfedra Digital™ assets delivered instantly to your email.',
+      'Get your  Yehfedra Digital™ assets delivered instantly to your email.',
   },
   {
     name: 'Guaranteed Quality',
@@ -68,7 +68,7 @@ export default function Home() {
                       </span>
                     </h1>
                     <p className="mt-6  max-w-prose text-[#bdeade] text-lg">
-                      Yahfedra Digital™{' '}
+                      Yehfedra Digital™{' '}
                     </p>
                     <div className="flex flex-col sm:flow-row gap-4 mt-6 ">
                       <Link

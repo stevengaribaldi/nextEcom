@@ -2,7 +2,6 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-
       {
         protocol: 'https',
         hostname: 'yehfedra.com',

@@ -32,8 +32,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "tsconfig.server.json", "src/app/(auth)/check-user/page"  ],
+    ".next/types/**/*.ts",
+    "tsconfig.server.json",
+    "src/app/(auth)/check-user/page"
+  ],
   "exclude": [
     "node_modules"
   ]

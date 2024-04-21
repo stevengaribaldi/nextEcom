@@ -49,7 +49,7 @@ export function constructMetadata({
     },
     twitter: {},
     icons,
-    metadataBase: new URL('http://yehfedra.com'),
+    metadataBase: new URL('https://yehfedra.com'),
     ...(noIndex && {
       robots: {
         index: false,

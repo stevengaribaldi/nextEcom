@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSideUser } from './lib/payload-utils';
-import { redirect } from 'next/navigation';
 
 export async function middleware(req: NextRequest) {
   const { nextUrl, cookies } = req;

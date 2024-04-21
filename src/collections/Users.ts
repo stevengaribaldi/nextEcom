@@ -19,7 +19,7 @@ export const Users: CollectionConfig = {
           actionLabel: 'Verify your email',
           buttonText: 'Verify Email',
           href: `${process.env.NEXT_PUBLIC_SERVER_URL}/verify-email?token=${token}`,
-        })
+        });
       },
     },
   },

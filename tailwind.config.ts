@@ -1,9 +1,13 @@
+/* eslint-disable prefer-const */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import type { Config } from 'tailwindcss';
 const defaultTheme = require('tailwindcss/defaultTheme');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const colors = require('tailwindcss/colors');
 
 const {
   default: flattenColorPalette,
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 } = require('tailwindcss/lib/util/flattenColorPalette');
 
 const config = {
@@ -170,6 +174,7 @@ const config = {
 } satisfies Config;
 
 function addVariablesForColors({ addBase, theme }: any) {
+  // eslint-disable-next-line prefer-const
   let allColors = flattenColorPalette(theme('colors'));
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),

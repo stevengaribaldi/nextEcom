@@ -1,4 +1,6 @@
 import express from 'express';
+import rateLimit from 'express-rate-limit';
+
 import { getPayloadClient } from './get-payload';
 import { nextApp, nextHandler } from './next-utils';
 import * as trpcExpress from '@trpc/server/adapters/express';
@@ -30,12 +32,30 @@ export type WebhookRequest = IncomingMessage & {
 };
 
 const start = async () => {
+  const generalLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per windowMs
+  });
+
+  // Stricter rate limit for API routes
+  const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 50, // Limit each IP to 50 requests per windowMs
+    message:
+      'Too many requests from this IP, please try again after 15 minutes',
+  });
+
   const webhookMiddleware = bodyParser.json({
     verify: (req: WebhookRequest, _, buffer) => {
       req.rawBody = buffer;
     },
   });
-  app.post('/api/webhooks/stripe', webhookMiddleware, stripeWebhookHandler);
+  app.post(
+    '/api/webhooks/stripe',
+    apiLimiter,
+    webhookMiddleware,
+    stripeWebhookHandler,
+  );
 
   const payload = await getPayloadClient({
     initOptions: {
@@ -64,11 +84,13 @@ const start = async () => {
     const parsedUrl = parse(req.url, true);
     return nextApp.render(req, res, '/cart', parsedUrl.query);
   });
+  app.use(generalLimiter);
 
   app.use('/cart', cartRouter);
 
   app.use(
     '/api/trpc',
+    apiLimiter,
     trpcExpress.createExpressMiddleware({
       router: appRouter,
       createContext,

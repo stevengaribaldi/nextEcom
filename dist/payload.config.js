@@ -16,7 +16,7 @@ var ProductFile_1 = require("./collections/Products/ProductFile");
 var Order_1 = require("./collections/Order");
 dotenv_1.default.config({ path: path_1.default.resolve(__dirname, '../.env') });
 exports.default = (0, config_1.buildConfig)({
-    serverURL: process.env.NEXT_PUBLIC_PAYLOAD_SERVER_URL || '',
+    serverURL: process.env.NEXT_PUBLIC_SERVER_URL || '',
     collections: [Users_1.Users, Products_1.Products, Media_1.Media, ProductFile_1.ProductFile, Order_1.Orders],
     routes: {
         admin: '/sell',

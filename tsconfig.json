@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -16,7 +17,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "noImplicitAny": true,
     "plugins": [
       {
         "name": "next"
@@ -32,9 +32,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "tsconfig.server.json",
-    "src/app/(auth)/check-user/page"
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

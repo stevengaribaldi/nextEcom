@@ -19,8 +19,8 @@ exports.Users = {
             generateEmailHTML: function (_a) {
                 var token = _a.token;
                 return (0, PrimaryActionEmail_1.PrimaryActionEmailHtml)({
-                    actionLabel: 'Verify your email',
-                    buttonText: 'Verify Email',
+                    actionLabel: 'verify your account',
+                    buttonText: 'Verify Account',
                     href: "".concat(process.env.NEXT_PUBLIC_SERVER_URL, "/verify-email?token=").concat(token),
                 });
             },

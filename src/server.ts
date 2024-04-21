@@ -12,6 +12,7 @@ import { parse } from 'url';
 import nextBuild from 'next/dist/build';
 import path from 'path';
 import { PayloadRequest } from 'payload/types';
+
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 const createContext = ({
@@ -21,24 +22,39 @@ const createContext = ({
   req,
   res,
 });
+
 export type ExpressContext = inferAsyncReturnType<typeof createContext>;
-export type WebhookRequest = IncomingMessage & { rawBody: Buffer };
+
+export type WebhookRequest = IncomingMessage & {
+  rawBody: Buffer;
+};
+
 const start = async () => {
   const webhookMiddleware = bodyParser.json({
     verify: (req: WebhookRequest, _, buffer) => {
       req.rawBody = buffer;
     },
   });
-  app.post('/api/webhoooks/stripe', webhookMiddleware, stripeWebhookHandler);
+
+  app.post('/api/webhooks/stripe', webhookMiddleware, stripeWebhookHandler);
 
   const payload = await getPayloadClient({
     initOptions: {
       express: app,
       onInit: async (cms) => {
-        cms.logger.info(`Admin URL ${cms.getAdminURL()} `);
+        cms.logger.info(`Admin URL: ${cms.getAdminURL()}`);
       },
     },
   });
+  if (process.env.NEXT_BUILD) {
+    app.listen(PORT, async () => {
+      payload.logger.info('Next.js build for production started');
+      //@ts-expect-error expects error
+      await nextBuild(path.join(__dirname, '../'));
+      process.exit();
+    });
+    return;
+  }
 
   const cartRouter = express.Router();
   cartRouter.use(payload.authenticate);
@@ -51,16 +67,6 @@ const start = async () => {
   });
 
   app.use('/cart', cartRouter);
-
-  if (process.env.NEXT_BUILD) {
-    app.listen(PORT, async () => {
-      payload.logger.info('Next.js build for production started');
-      //@ts-expect-error expects error
-      await nextBuild(path.join(__dirname, '../'));
-      process.exit();
-    });
-    return;
-  }
 
   app.use(
     '/api/trpc',

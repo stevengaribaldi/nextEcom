@@ -51,7 +51,7 @@ const start = async () => {
   });
 
   app.use('/cart', cartRouter);
-  
+
   if (process.env.NEXT_BUILD) {
     app.listen(PORT, async () => {
       payload.logger.info('Next.js build for production started');
@@ -74,7 +74,7 @@ const start = async () => {
     payload.logger.info('Next.js Started');
     app.listen(PORT, async () => {
       payload.logger.info(
-        `next.js app url:${process.env.NEXt_PUBLIC_SERVER_URL}`,
+        `next.js app url:${process.env.NEXT_PUBLIC_SERVER_URL}`,
       );
     });
   });

@@ -47,11 +47,9 @@ export function constructMetadata({
         },
       ],
     },
-    twitter: {
-
-    },
+    twitter: {},
     icons,
-    metadataBase: new URL('http://localhost.com'),
+    metadataBase: new URL('http://yehfedra.com'),
     ...(noIndex && {
       robots: {
         index: false,

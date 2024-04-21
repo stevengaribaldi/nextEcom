@@ -15,15 +15,17 @@ export const useAuth = () => {
           },
         },
       );
-      if (!res.ok) throw new Error();
+
+      if (!res.ok) throw new Error('Logout failed with status ' + res.status);
+
       toast.success('Logged out successfully');
       router.push('/login');
       router.refresh();
-      return;
     } catch (err) {
+      console.error('Failed to log out:', err);
       toast.error('Failed to log out');
-      return;
     }
   };
+
   return { logOut };
 };

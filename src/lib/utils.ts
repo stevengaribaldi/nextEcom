@@ -51,7 +51,7 @@ export function constructMetadata({
 
     },
     icons,
-    metadataBase: new URL('https://yefedra.com'),
+    metadataBase: new URL('http://localhost.com'),
     ...(noIndex && {
       robots: {
         index: false,

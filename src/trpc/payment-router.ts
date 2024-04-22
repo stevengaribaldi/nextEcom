@@ -1,75 +1,81 @@
-import { z } from 'zod';
-import { privateProcedure, publicProcedure, router } from './trpc';
 import { TRPCError } from '@trpc/server';
+import { privateProcedure, publicProcedure, router } from './trpc';
+import { z } from 'zod';
 import { getPayloadClient } from '../get-payload';
+import payload from 'payload';
 import { stripe } from '../lib/stripe';
 import type Stripe from 'stripe';
 
 export const paymentRouter = router({
   createSession: privateProcedure
-    .input(z.object({ productIds: z.array(z.string()) }))
+    .input(z.object({ productIds: z.array(z.string().min(1)).min(1) }))
     .mutation(async ({ ctx, input }) => {
       const { user } = ctx;
       const { productIds } = input;
-
       if (productIds.length === 0) {
-        throw new TRPCError({ code: 'BAD_REQUEST' });
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'No products in cart',
+        });
       }
-
       const payload = await getPayloadClient();
 
       const { docs: products } = await payload.find({
         collection: 'products',
         where: {
-          id: {
-            in: productIds,
-          },
+          id: { in: productIds },
         },
       });
 
-      const filteredProducts = products.filter((prod) => Boolean(prod.priceId));
-
+      const filterProducts = products.filter((prod) => Boolean(prod.priceId));
       const order = await payload.create({
         collection: 'orders',
         data: {
           _isPaid: false,
-          products: filteredProducts.map((prod) => prod.id),
+          products: filterProducts.map((prod) => prod.id),
           user: user.id,
         },
       });
 
       const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
 
-      filteredProducts.forEach((product) => {
+      filterProducts.forEach((products) => {
         line_items.push({
-          price: product.priceId!,
+          price: products.priceId!,
           quantity: 1,
         });
       });
-
       line_items.push({
-        price: 'price_1OCeBwA19umTXGu8s4p2G3aX',
+        price: process.env.STRIPE_FEE,
         quantity: 1,
         adjustable_quantity: {
           enabled: false,
         },
       });
-
       try {
-        const stripeSession = await stripe.checkout.sessions.create({
-          success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
-          cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cart`,
-          payment_method_types: ['card', 'paypal'],
-          mode: 'payment',
-          metadata: {
-            userId: user.id,
-            orderId: order.id,
-          },
-          line_items,
-        });
+        const idempotencyKey = `checkout_${order.id}`;
 
+        const stripeSession = await stripe.checkout.sessions.create(
+          {
+            success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
+            cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cart`,
+            // add apple and google
+            payment_method_types: ['klarna', 'card', 'amazon_pay'],
+
+            mode: 'payment',
+            metadata: {
+              userId: user.id,
+              orderId: order.id,
+            },
+            line_items,
+          },
+          {
+            idempotencyKey,
+          },
+        );
         return { url: stripeSession.url };
       } catch (err) {
+        console.error('Failed to create Stripe session:', err);
         return { url: null };
       }
     }),
@@ -79,7 +85,6 @@ export const paymentRouter = router({
       const { orderId } = input;
 
       const payload = await getPayloadClient();
-
       const { docs: orders } = await payload.find({
         collection: 'orders',
         where: {
@@ -88,13 +93,13 @@ export const paymentRouter = router({
           },
         },
       });
-
       if (!orders.length) {
-        throw new TRPCError({ code: 'NOT_FOUND' });
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'Order not found',
+        });
       }
-
       const [order] = orders;
-
       return { isPaid: order._isPaid };
     }),
 });

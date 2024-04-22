@@ -66,6 +66,7 @@ export const Media: CollectionConfig = {
       'image/png',
       'image/gif',
       'application/octet-stream',
+      'application/postscript',
     ],
   },
   fields: [

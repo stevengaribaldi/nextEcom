@@ -1,19 +1,22 @@
 import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 import { Metadata } from 'next';
+import { twMerge } from 'tailwind-merge';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
 export function formatPrice(
   price: number | string,
   options: {
-    currency?: 'USD' | 'MXN' | 'EUR';
+    currency?: 'USD' | 'EUR' | 'GBP' | 'BDT';
     notation?: Intl.NumberFormatOptions['notation'];
   } = {},
 ) {
   const { currency = 'USD', notation = 'compact' } = options;
+
   const numericPrice = typeof price === 'string' ? parseFloat(price) : price;
+
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency,
@@ -25,8 +28,8 @@ export function formatPrice(
 export function constructMetadata({
   title = 'Yehfedra - The go to for verified digital goods.',
   description = ' Yehfedra is an open-source marketplace The go to for verified digital goods.',
-  // image = '/thumbnail.png',
-  // icons = '/favicon.ico',
+  image = '/thumbnail.png',
+  icons = '/favicon.ico',
   noIndex = false,
 }: {
   title?: string;
@@ -41,14 +44,14 @@ export function constructMetadata({
     openGraph: {
       title,
       description,
-      // images: [
-      //   {
-      //     url: image,
-      //   },
-      // ],
+      images: [
+        {
+          url: image,
+        },
+      ],
     },
     twitter: {},
-    // icons,
+    icons,
     metadataBase: new URL('https://yehfedra.com'),
     ...(noIndex && {
       robots: {

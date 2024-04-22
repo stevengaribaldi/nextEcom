@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'nextecom-production.up.railway.app',
+        hostname: 'next-ecom-chi.vercel.app',
       },
     ],
   },

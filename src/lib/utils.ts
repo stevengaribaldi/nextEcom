@@ -52,7 +52,7 @@ export function constructMetadata({
     },
     twitter: {},
     icons,
-    metadataBase: new URL('https://yehfedra.com'),
+    metadataBase: new URL('https://nextecom-production.up.railway.app'),
     ...(noIndex && {
       robots: {
         index: false,

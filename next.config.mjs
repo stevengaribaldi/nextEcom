@@ -12,6 +12,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'nextecom-production.up.railway.app',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.yehfedra.com', 
+      },
     ],
   },
 };

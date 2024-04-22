@@ -139,7 +139,7 @@ const Page = async ({ params }: PageProps) => {
           </div>
         </div>
       </div>
-      <div className="text-black">
+      <div className="">
         <ProductReel
           href="/products"
           query={{ category: product.category, limit: 4 }}

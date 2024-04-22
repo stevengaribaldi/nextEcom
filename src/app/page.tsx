@@ -54,10 +54,10 @@ export default function Home() {
       <>
         {/* <Separator /> */}
         <section className=" bg-custom-black">
-          <div className="bg-custom-black -mx-96 ">
+          <div className="bg-custom-black  ">
             <MaxWithWrapper className="">
               <section>
-                <div className="bg-custom-black -mx-96 ">
+                <div className="bg-custom-black">
                   <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
                     <h1 className="text-4xl tracking-tight font-light text-[#effaf7] sm:text-6xl ">
                       The Marketplace For <br />
@@ -88,7 +88,6 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                {/* TODO list products */}
                 <ProductReel
                   query={{ sort: 'desc', limit: 4 }}
                   title="New Arrivals"
@@ -102,7 +101,7 @@ export default function Home() {
       </>
       <section className="border-t border-custom-black bg-custom-black">
         <MaxWithWrapper className="py-20">
-          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
+          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
             {perks.map((perk) => (
               <div
                 key={perk.name}

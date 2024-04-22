@@ -24,7 +24,7 @@ export default buildConfig({
     bundler: webpackBundler(),
     meta: {
       titleSuffix: '-Yehfedra Digital',
-      favicon: '/favicon.ico',
+      // favicon: '/favicon.ico',
       ogImage: '/thumbnail.jpg',
     },
   },

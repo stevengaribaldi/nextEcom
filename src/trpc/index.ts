@@ -1,6 +1,6 @@
-import { publicProcedure, router } from './trpc';
-import { authRouter } from './auth-router';
 import { z } from 'zod';
+import { authRouter } from './auth-router';
+import { publicProcedure, router } from './trpc';
 import { QueryValidator } from '../lib/validators/query-validator';
 import { getPayloadClient } from '../get-payload';
 import { paymentRouter } from './payment-router';
@@ -24,6 +24,7 @@ export const appRouter = router({
       const payload = await getPayloadClient();
 
       const parsedQueryOpts: Record<string, { equals: string }> = {};
+
       Object.entries(queryOpts).forEach(([key, value]) => {
         parsedQueryOpts[key] = {
           equals: value,
@@ -34,8 +35,8 @@ export const appRouter = router({
 
       const {
         docs: items,
-        nextPage,
         hasNextPage,
+        nextPage,
       } = await payload.find({
         collection: 'products',
         where: {
@@ -49,6 +50,7 @@ export const appRouter = router({
         limit,
         page,
       });
+
       return {
         items,
         nextPage: hasNextPage ? nextPage : null,

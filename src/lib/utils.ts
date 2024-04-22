@@ -25,8 +25,8 @@ export function formatPrice(
 export function constructMetadata({
   title = 'Yehfedra - The go to for verified digital goods.',
   description = ' Yehfedra is an open-source marketplace The go to for verified digital goods.',
-  image = '/thumbnail.png',
-  icons = '/favicon.ico',
+  // image = '/thumbnail.png',
+  // icons = '/favicon.ico',
   noIndex = false,
 }: {
   title?: string;
@@ -41,14 +41,14 @@ export function constructMetadata({
     openGraph: {
       title,
       description,
-      images: [
-        {
-          url: image,
-        },
-      ],
+      // images: [
+      //   {
+      //     url: image,
+      //   },
+      // ],
     },
     twitter: {},
-    icons,
+    // icons,
     metadataBase: new URL('https://yehfedra.com'),
     ...(noIndex && {
       robots: {

@@ -1,6 +1,5 @@
 import express from 'express';
 import rateLimit from 'express-rate-limit';
-
 import { getPayloadClient } from './get-payload';
 import { nextApp, nextHandler } from './next-utils';
 import * as trpcExpress from '@trpc/server/adapters/express';
@@ -34,13 +33,12 @@ export type WebhookRequest = IncomingMessage & {
 const start = async () => {
   const generalLimiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 100, // Limit each IP to 100 requests per windowMs
+    max: 100,
   });
 
-  // Stricter rate limit for API routes
   const apiLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 50, // Limit each IP to 50 requests per windowMs
+    windowMs: 15 * 60 * 1000,
+    max: 50,
     message:
       'Too many requests from this IP, please try again after 15 minutes',
   });
@@ -50,12 +48,8 @@ const start = async () => {
       req.rawBody = buffer;
     },
   });
-  app.post(
-    '/api/webhooks/stripe',
-    apiLimiter,
-    webhookMiddleware,
-    stripeWebhookHandler,
-  );
+
+  app.post('/api/webhooks/stripe', webhookMiddleware, stripeWebhookHandler);
 
   const payload = await getPayloadClient({
     initOptions: {
@@ -65,6 +59,7 @@ const start = async () => {
       },
     },
   });
+
   if (process.env.NEXT_BUILD) {
     app.listen(PORT, async () => {
       payload.logger.info('Next.js build for production started');
@@ -76,6 +71,7 @@ const start = async () => {
   }
 
   const cartRouter = express.Router();
+  
   cartRouter.use(payload.authenticate);
 
   cartRouter.get('/', (req, res) => {
@@ -97,8 +93,10 @@ const start = async () => {
     }),
   );
   app.use((req, res) => nextHandler(req, res));
+
   nextApp.prepare().then(() => {
     payload.logger.info('Next.js Started');
+
     app.listen(PORT, async () => {
       payload.logger.info(
         `next.js app url:${process.env.NEXT_PUBLIC_SERVER_URL}`,

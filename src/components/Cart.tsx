@@ -29,6 +29,30 @@ const Cart = () => {
     (total, { product }) => total + product.price,
     0,
   );
+
+    const getRightPosition = () => {
+      if (itemCount === 0) {
+        return 'calc(0.59rem + 1.3rem)';
+      } else if (itemCount === 1) {
+        return 'calc(0.64rem + 1.28rem)';
+      } else if (itemCount <= 9 && itemCount > 1) {
+        return 'calc(0.62rem + 1.28rem)';
+      } else if (itemCount === 10) {
+        return 'calc(0.64rem + 1.34rem)';
+      } else if (itemCount === 11) {
+        return 'calc(0.64rem + 1.34rem)';
+      } else if (itemCount < 20 && itemCount >= 11) {
+        return 'calc(0.64rem + 1.34rem)';
+      } else if (itemCount >= 20 && itemCount < 100) {
+        return 'calc(0.64rem + 1.28rem)';
+      } else {
+        return 'calc(0.64rem + 1.28rem)';
+      }
+    };
+
+    const itemCountStyle = {
+      right: getRightPosition(),
+    };
   const fee: number = itemCount <= 0 ? 0 : 1;
   return (
     <>
@@ -55,9 +79,9 @@ const Cart = () => {
                 </div>
 
                 <span
-                  style={{ right: 'calc(1.5rem + 0.41rem)' }}
-                  className="text-xl absolute top-3 right-3 h-0 w-28 rounded-full text-[#81c336] font-bold flex items-center justify-center
-                   transition-transform duration-2500 ease-linear hover:scale-90"
+                  style={itemCountStyle}
+                  className="text-xl absolute top-2 right-3 h-0 w-28 rounded-full text-[#81c336] font-semibold flex items-center justify-center
+                   transition-transform duration-2500 ease-linear scale-90"
                 >
                   {isMounted ? itemCount : 0}
                 </span>

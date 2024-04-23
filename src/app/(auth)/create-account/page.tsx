@@ -104,7 +104,7 @@ const Page = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className=" -mt-1 grid gap-2 ">
                 <div className="grid gap-1 py-2">
-                  <div className="max-w-md  bg-[#2c242c] w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input ">
+                  <div className="max-w-md  bg-[#2c242c] w-full mx-auto rounded-sm p-8  ring ring-blue-900 ring-opacity-30">
                     <LabelInputContainer className="mb-4  ">
                       <Label className="" htmlFor="email">
                         Email Address
@@ -112,6 +112,10 @@ const Page = () => {
                       <Input
                         {...register('email', {
                           required: 'Invalid email',
+                        })}
+                        className={cn({
+                          'focus-visible:bg-red-900': errors.password,
+                          'bg-[#130f13]': !errors.email,
                         })}
                         id="email"
                         placeholder="projectmayhem@example.com"
@@ -129,10 +133,10 @@ const Page = () => {
                         {...register('password', {
                           required: 'Password is required.',
                         })}
-                        // className={cn( {
-
-                        //   'focus-visible:bg-red-900': errors.password,
-                        // })}
+                        className={cn({
+                          'focus-visible:bg-red-900': errors.password,
+                          'bg-[#130f13]': !errors.email,
+                        })}
                         id="password"
                         placeholder="••••••••"
                         type="password"
@@ -147,7 +151,7 @@ const Page = () => {
                     <button
                       disabled={isLoading}
                       className={cn(
-                        'relative group/btn w-full  bg-black rounded-md h-10 font-medium  shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]',
+                        'relative group/btn w-full rounded-md h-10 font-medium  shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]',
 
                         isValid &&
                           ' relative group/btn w-full  rounded-md h-10 font-medium   hover:shadow-[0_6px_20px_rgba(209,192,208,20%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90 hover:via-sky-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-1 hover:ring-opacity-10 hover:ring-cyan-100',

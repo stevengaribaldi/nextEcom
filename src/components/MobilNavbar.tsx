@@ -21,14 +21,21 @@ const MobileNavbar = () => {
 
   const getRightPosition = () => {
     if (itemCount === 0) {
-      return 'calc(0.59rem - 0.22rem)';
+      return 'calc(0.59rem - 0.21rem)';
     } else if (itemCount === 1) {
-      return 'calc(0.64rem - 0.24rem)';
-    } else if (itemCount <= 9) {
-      return 'calc(0.62rem - 0.23rem)';
-
+      return 'calc(0.64rem - 0.28rem)';
+    } else if (itemCount <= 9 && itemCount > 1) {
+      return 'calc(0.62rem - 0.28rem)';
+    } else if (itemCount === 10) {
+      return 'calc(0.24rem - 0.07rem)';
+    } else if (itemCount === 11) {
+      return 'calc(0.63rem - 0.48rem)';
+    } else if (itemCount < 20 && itemCount >= 11) {
+      return 'calc(0.63rem - 0.46rem)';
+    } else if (itemCount >= 20 && itemCount < 100) {
+      return 'calc(0.63rem - 0.49rem) ';
     } else {
-      return 'calc(0.33rem - 0.25rem)';
+      return 'calc(0.59rem - 0.6rem)';
     }
   };
 
@@ -53,7 +60,7 @@ const MobileNavbar = () => {
     },
     {
       name: 'Account',
-      link: '/products',
+      link: '/login',
       icon: <IconUser className="h-4 w-4 text-white dark:text-white" />,
     },
     {
@@ -73,8 +80,8 @@ const MobileNavbar = () => {
 
             <span
               style={itemCountStyle}
-              className="text-xs absolute -top-1.5 right-3  rounded-full text-[#81c336] font-semibold flex items-center justify-center
-                   transition-transform duration-2500 ease-linear scale-90"
+              className="text-xs absolute -top-2 right-3  rounded-full text-[#81c336] font-bold flex items-center justify-center
+                   transition-transform duration-2500 ease-linear scale-75"
             >
               {isMounted ? itemCount : 0}
             </span>

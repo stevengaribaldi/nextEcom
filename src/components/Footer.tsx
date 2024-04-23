@@ -6,6 +6,7 @@ import Link from 'next/link';
 const Footer = () => {
   const pathname = usePathname();
   const pathsToMinimize = [' /verify-email', '/login', '/create-account'];
+
   return (
     <footer className="bg-custom-black flex-grow-0">
       <MaxWidthWrapper>
@@ -18,7 +19,7 @@ const Footer = () => {
                   alt={''}
                   width={90}
                   height={90}
-                  className="-rotate-180  "
+                  className="h-12 w-auto "
                 />{' '}
               </div>
             </div>
@@ -30,21 +31,22 @@ const Footer = () => {
                 <div className="absolute inset-0 overflow-hidden rounded-lg">
                   <div
                     aria-hidden="true"
-                    className="absolute bg-custom-black inset-0 bg-gradient-to-br bg-opacity-85"
+                    className="absolute bg-custom-black inset-0 bg-gradient-to-br bg-opacity-10"
                   />
                 </div>
                 <div className="text-center relative mx-auto max-w-sm">
                   <h3 className="font-semibold text-amber-50">
-                    Become a Seller
+                    Become a seller
                   </h3>
-                  <p className="mt-2 text-sm text-gray-300">
-                    Start selling your products on our platform with in minutes
-                    and reach a wider audience.
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    If you&apos;d like to sell high-quality digital products,
+                    you can do so in minutes.
                     <Link
                       href="login?as=seller"
                       className="text-sm font-medium   text-[#c9af3d]  hover:text-orange-400"
                     >
-                      Get Started <span className="animate-pulse">&rarr;</span>{' '}
+                      Get Started
+                      <span className="animate-pulse">&rarr;</span>{' '}
                     </Link>
                   </p>
                 </div>

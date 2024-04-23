@@ -2,8 +2,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { cn, constructMetadata } from '@/lib/utils';
 import NarbarServer from '@/components/NarbarServer';
-import Providers from '@/components/Providers';
 import Footer from '@/components/Footer';
+import Providers from '@/components/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 

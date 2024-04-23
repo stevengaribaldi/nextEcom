@@ -5,11 +5,10 @@ import MaxWidthWrapper from './MaxWidthWrapper';
 import NavItems from './NavItems';
 import Image from 'next/image';
 import Cart from './Cart';
-
+import MobileNavbar from './MobilNavbar';
 import UserAccountNav from './UserAccountNav';
 import { User } from '@/payload-types';
 
-import MobileNav from './MobileNav';
 interface NavbarProps {
   user: User | null;
 }
@@ -27,12 +26,12 @@ const Navbar = ({ user }: NavbarProps) => {
   }, []);
 
   return (
-    <div className=" sticky z-50 top-0 inset-x-0 h-0">
-      <header className="relative ">
+    <div className=" sticky z-50  top-0 inset-x-0 h-0">
+      <header className="relative bg-custom-black ">
         <MaxWidthWrapper>
           <div className=" ">
+            <MobileNavbar />
             <div className="flex items-center">
-              <MobileNav />
               <div
                 className={`ml-0 flex lg:ml-0 ${isRotating ? 'continuous-step-spin' : ''}`}
               >
@@ -42,15 +41,15 @@ const Navbar = ({ user }: NavbarProps) => {
                     alt={''}
                     width={90}
                     height={90}
-                    className="-rotate-180  "
+                    className="-rotate-180 hidden relative z-50 lg:block 2xl:block"
                   />
                 </Link>
               </div>
-              <div className="hidden z-50 lgr:ml-8 lg:block lg:self-stretch">
+              <div className="hidden z-50 -md:ml-15  lg:ml-8 md:block lgr:ml-8 lg:block lg:self-stretch">
                 <NavItems />
               </div>
-              <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+              <div className="ml-auto  flex  items-center">
+                <div className="hidden md:pr-5 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 md:flex md:flex-1 md:items-center md:justify-end -md:space-x-4">
                   {user ? null : (
                     <Link
                       href="/login"

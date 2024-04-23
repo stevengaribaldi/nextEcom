@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -41,7 +41,7 @@ const Page = () => {
   } = useForm<TAuthCredentialsValidator>({
     resolver: zodResolver(AuthCredentialsValidator),
   });
-  
+
   const { mutate: logIn, isLoading } = trpc.auth.logIn.useMutation({
     onSuccess: async () => {
       toast.success('Signed in successfully');

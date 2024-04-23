@@ -9,29 +9,11 @@ import {
 } from './ui/dropdown-menu';
 import React, { useState, useRef } from 'react';
 
-import { Button } from './ui/button';
 import { User } from '@/payload-types';
 import Link from 'next/link';
 import { useAuth } from '@/hooks/use-auth';
 import { toast, Toaster } from 'sonner';
-import {
-  Cloud,
-  CreditCard,
-  Github,
-  Keyboard,
-  LifeBuoy,
-  LogOut,
-  Mail,
-  MessageSquare,
-  Plus,
-  PlusCircle,
-  Settings,
-  User as UserIcon,
-  UserPlus,
-  Users,
-  Tag,
-  LayoutDashboard,
-} from 'lucide-react';
+import { LogOut, User as UserIcon, Tag } from 'lucide-react';
 
 const UserAccountNav = ({ user }: { user: User }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,14 +41,14 @@ const UserAccountNav = ({ user }: { user: User }) => {
               My Account
             </span>
           </div>
-      </div>
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         className="w-60 bg-slate-950 text-pink-100"
         align="end"
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
-        >
+      >
         <DropdownMenuLabel>
           <div className="flex items-center justify-start gap-2 p-2">
             <div className="flex flex-col text-white space-y-0.5 leading-none">

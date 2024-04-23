@@ -152,7 +152,6 @@ const Cart = () => {
                   aria-hidden="true"
                   className="flex content-center w-full flex-col items-center justify-center"
                 >
-              
                   <div className="mt-[-400px] relative  text-muted-foreground justify-center content-center inset-0 flex-col flex h-full bg-slate-950 rounded-lg mb-1 ">
                     <h1 className=" items-center justify-center px-1 flex-row  text-white rounded-md text-2xl">
                       Your Cart is empty.

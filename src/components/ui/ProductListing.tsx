@@ -14,16 +14,16 @@ interface ProductListingProps {
 }
 
 const ProductListing = ({ product, index }: ProductListingProps) => {
-  const [isVisable, setIsVisable] = useState<boolean>(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisable(true);
+      setIsVisible(true);
     }, index * 75);
     return () => clearTimeout(timer);
   }, [index]);
 
-  if (!product || !isVisable) return <ProductPlaceHolder />;
+  if (!product || !isVisible) return <ProductPlaceHolder />;
   const label = PRODUCT_CATEGORIES.find(
     ({ value }) => value === product.category,
   )?.label;
@@ -32,12 +32,12 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
     .map(({ image }) => (typeof image === 'string' ? image : image.url))
     .filter(Boolean) as string[];
 
-  if (isVisable && product) {
+  if (isVisible && product) {
     return (
       <>
         <Link
           className={cn('invisible h-full w-full cursor-pointer group/main', {
-            'visible animate-in fade-in-5': isVisable,
+            'visible animate-in fade-in-5': isVisible,
           })}
           href={`/product/${product.id}`}
         >

@@ -74,7 +74,7 @@ export default function Home() {
                         href="/products"
                         className={
                           (buttonVariants(),
-                          'shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] lg:flex lg:flex-1 lg:items-center text-lg lg:justify-end lg:space-x-6  hover:bg-slate-800 bg-slate-900  hover:shadow-[0_6px_20px_rgba(196,204,188,5%)]  hover:ring-1 ring-slate-700 hover:ring-opacity-10  px-10 py-2  rounded-md text-amber-100 font-extralight justify-center transition duration-200 ease-linear')
+                          'shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset] lg:flex lg:flex-1 lg:items-center text-lg lg:justify-end lg:space-x-6  hover:bg-slate-900 bg-slate-950  hover:shadow-[0_6px_20px_rgba(196,204,188,5%)]  hover:ring-1 ring-slate-700 hover:ring-opacity-10  px-10 py-2  rounded-md text-pink-100 font-extralight justify-center transition duration-200 ease-linear')
                         }
                       >
                         Browse Trending

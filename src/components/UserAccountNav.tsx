@@ -30,7 +30,7 @@ const UserAccountNav = ({ user }: { user: User }) => {
         <div
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
-                       px-8 py-2 rounded-md text-pink-200 bg-custom-black  font-extralight text-lg  transition duration-200 ease-linear"
+                       px-8 py-2 rounded-md text-pink-200 bg-custom-black font-extralight text-lg  transition duration-200 ease-linear"
         >
           <div className="flex ">
             <UserIcon
@@ -44,14 +44,14 @@ const UserAccountNav = ({ user }: { user: User }) => {
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-60 bg-slate-950 text-pink-100"
+        className="w-60 bg-[#020403]  text-pink-100"
         align="end"
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
       >
         <DropdownMenuLabel>
           <div className="flex items-center justify-start gap-2 p-2">
-            <div className="flex flex-col text-white space-y-0.5 leading-none">
+            <div className="flex flex-col text-[#8fb8d3] space-y-0.5 leading-none">
               {/* <UserIcon className="mr-2 h-4 w-4" /> */}
               <span className="font-medium text-sm">{user.email}</span>
             </div>

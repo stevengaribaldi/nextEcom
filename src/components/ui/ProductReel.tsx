@@ -39,20 +39,18 @@ const ProductReel = (props: ProductReelProps) => {
       <div className="md:flex md:items-center md:justify-between mb-4">
         <div className="max-w-2xl px-4 lg:max-w-4xl lg:px-0">
           {title ? (
-            <h1 className="text-2xl font-bold text-pale-gold sm:text-3xl">
+            <h1 className="text-2xl font-bold text-[#8fb8d3] sm:text-3xl">
               {title}
             </h1>
           ) : null}
           {subtitle ? (
-            <h2 className="mt-2 text-[#fff4c4] text-sm ">
-              {subtitle}
-            </h2>
+            <h2 className="mt-2 text-[#bdeade] text-sm ">{subtitle}</h2>
           ) : null}
         </div>
         {href ? (
           <Link
             href={href}
-            className="mt-4 bg-custom-black no-underline group cursor-pointer items-center relative rounded-full p-px text-sm font-semibold text-[#e5deca] hover:text-[#fffdd0] inline-block"
+            className="mt-4 bg-custom-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9  text-gray-300 hover:text-white inline-block"
             style={{ width: 'auto', marginRight: '20px' }}
           >
             <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
@@ -60,7 +58,7 @@ const ProductReel = (props: ProductReelProps) => {
               // className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-5 transition-opacity duration-500 group-hover:opacity-100"
               />
             </span>
-            <div className="font-light relative flex space-x-2 justify-center items-center z-10 rounded-full bg-custom-black py-0.5 px-4 ring-gray/10">
+                <div className=" relative flex space-x-2 justify-center items-center z-10 rounded-full bg-custom-black py-0.5 px-4 ring-gray/10 ">
               Browse collection
               <svg
                 className="animate-pulse text-gray-100 duration-2500"
@@ -79,7 +77,7 @@ const ProductReel = (props: ProductReelProps) => {
                 />
               </svg>
             </div>
-            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-amber-100/0 via-amber-100/90 to-amber-100/0 transition-opacity duration-500 group-hover:opacity-40" />
+            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0 transition-opacity duration-500 group-hover:opacity-40 " />
           </Link>
         ) : null}
       </div>

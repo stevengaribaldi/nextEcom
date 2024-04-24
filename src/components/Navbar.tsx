@@ -27,7 +27,12 @@ const Navbar = ({ user }: NavbarProps) => {
 
   return (
     <div className=" sticky z-50  top-0 inset-x-0 h-0">
-      <header className="relative bg-custom-black ">
+      <section className="border-t border-custom-black"> </section>
+
+      <section className="border-t border-custom-black"> </section>
+      <section className="border-t border-custom-black"> </section>
+
+      <header className="relative bg-custom-black  ">
         <MaxWidthWrapper>
           <div className=" ">
             <MobileNavbar />
@@ -95,7 +100,12 @@ const Navbar = ({ user }: NavbarProps) => {
           </div>
         </MaxWidthWrapper>
       </header>
-      <section className="border-t border-gray-800"> </section>
+      <section className="border-t border-[#070f0b] "> </section>
+      <section className="border-t border-[#070e0b] border-opacity-10"></section>
+
+      {/* <section className="border-t border-[#0c1a13]"> </section> */}
+
+      <section className=" bordercustom-black"> </section>
     </div>
   );
 };

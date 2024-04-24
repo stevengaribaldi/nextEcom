@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-import { ShoppingCart } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -18,6 +17,8 @@ import Image from 'next/image';
 import { useCart } from '@/hooks/use-cart';
 import { ScrollArea, ScrollBar } from './ui/scroll-area';
 import CartItem from './CartItem';
+
+
 const Cart = () => {
   const { items } = useCart();
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -42,7 +43,7 @@ const Cart = () => {
       } else if (itemCount === 11) {
         return 'calc(0.64rem + 1.34rem)';
       } else if (itemCount < 20 && itemCount >= 11) {
-        return 'calc(0.64rem + 1.34rem)';
+        return 'calc(0.64rem + 1.26rem)';
       } else if (itemCount >= 20 && itemCount < 100) {
         return 'calc(0.64rem + 1.28rem)';
       } else {
@@ -62,7 +63,7 @@ const Cart = () => {
             <div className="relative flex transform  translate-x-11 -translate-y-0.5 items-center justify-center h-11 w-36 text-pink-200  custom-glow  ">
               <div
                 className="relative flex hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
- w-full h-full transition-transform hover:ring-1 ring-pink-300 hover:ring-opacity-10 mb-1  bg-custom-black  hover:ring-pink-300 rounded-lg overflow-hidden
+ w-full h-full transition-transform hover:ring-1 ring-pink-300 hover:ring-opacity-10 mb-1  bg-custom-black   hover:ring-pink-300 rounded-lg overflow-hidden
   ring-opacity-90"
               >
                 <div className="absolute flex flex-col  font-extralight text-lg transition duration-3000 ease-linear border-transparent">
@@ -94,7 +95,7 @@ const Cart = () => {
               </div>
             </div>
           </SheetTrigger>
-          <SheetContent className="flex flex-col bg-custom-black  w-full pr-0 sm:max-w-lg text-gray-100 ">
+          <SheetContent className="flex flex-col bg-[#020403] w-full pr-0 sm:max-w-lg text-gray-100 ">
             <SheetHeader className="space-y-2.5 items-center pr-6 text-gray-100 ">
               <SheetTitle className="text-gray-100 w-">
                 {' '}

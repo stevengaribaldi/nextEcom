@@ -1,6 +1,6 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import  FloatingNav  from '../components/ui/floating-navbar';
+import React, { useEffect, useState, useRef } from 'react';
+import FloatingNav from '../components/ui/floating-navbar';
 import {
   IconHome,
   IconMessage,
@@ -21,7 +21,6 @@ import CartItem from './CartItem';
 import Cart from './Cart';
 
 const MobileNavbar = () => {
-
   const navItems = [
     {
       name: 'Home',
@@ -46,7 +45,6 @@ const MobileNavbar = () => {
     {
       name: 'Cart',
       link: <MobileNav />,
-
     },
   ];
 
@@ -57,47 +55,58 @@ const MobileNavbar = () => {
   );
 };
 
-
-
 const MobileNav = () => {
-    const { items } = useCart();
-    const [isMounted, setIsMounted] = useState<boolean>(false);
-    useEffect(() => {
-      setIsMounted(true);
-    }, []);
-    const itemCount: number = items.length;
-
-    const getRightPosition = () => {
-      if (itemCount === 0) {
-        return 'calc(0.59rem - 0.21rem)';
-      } else if (itemCount === 1) {
-        return 'calc(0.64rem - 0.28rem)';
-      } else if (itemCount <= 9 && itemCount > 1) {
-        return 'calc(0.62rem - 0.28rem)';
-      } else if (itemCount === 10) {
-        return 'calc(0.24rem - 0.07rem)';
-      } else if (itemCount === 11) {
-        return 'calc(0.63rem - 0.48rem)';
-      } else if (itemCount < 20 && itemCount >= 11) {
-        return 'calc(0.63rem - 0.46rem)';
-      } else if (itemCount >= 20 && itemCount < 100) {
-        return 'calc(0.63rem - 0.49rem) ';
-      } else {
-        return 'calc(0.59rem - 0.6rem)';
-      }
-    };
-
-    const itemCountStyle = {
-      right: getRightPosition(),
-    };
-
+  const { items } = useCart();
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
   const pathname = usePathname();
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  const itemCount: number = items.length;
+
+  const getRightPosition = () => {
+    if (itemCount === 0) {
+      return 'calc(0.59rem - 0.21rem)';
+    } else if (itemCount === 1) {
+      return 'calc(0.64rem - 0.28rem)';
+    } else if (itemCount <= 9 && itemCount > 1) {
+      return 'calc(0.62rem - 0.28rem)';
+    } else if (itemCount === 10) {
+      return 'calc(0.24rem - 0.07rem)';
+    } else if (itemCount === 11) {
+      return 'calc(0.63rem - 0.48rem)';
+    } else if (itemCount < 20 && itemCount >= 11) {
+      return 'calc(0.63rem - 0.46rem)';
+    } else if (itemCount >= 20 && itemCount < 100) {
+      return 'calc(0.63rem - 0.49rem) ';
+    } else {
+      return 'calc(0.59rem - 0.6rem)';
+    }
+  };
+
+  const itemCountStyle = {
+    right: getRightPosition(),
+  };
 
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [navRef]);
 
   const closeOnCurrent = (href: string) => {
     if (pathname === href) {
@@ -115,18 +124,19 @@ const MobileNav = () => {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="lg:hidden relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+        className="lg:hidden relative -m-3 -mt-2.5 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
       >
         <div className="relative flex transform   text-pink-200  ">
           <div>
-            <Image
-              src="/cart.svg"
-              alt=""
-              width={22}
-              // style={{ padding: '1px' }}
-              height={20}
-              className=" w-6"
-            />
+            <div className="">
+              <Image
+                src="/cart.svg"
+                alt=""
+                width={22}
+                height={20}
+                className="mb-1 w-6"
+              />
+            </div>
 
             <span
               style={itemCountStyle}
@@ -146,20 +156,45 @@ const MobileNav = () => {
         <div className="fixed inset-0 bg-black bg-opacity-25" />
       </div>
 
-      <div className="fixed overflow-y-scroll overscroll-y-none inset-0 z-40 flex">
+      <div
+        ref={navRef}
+        className="fixed overflow-y-scroll overscroll-y-none inset-0 z-40 flex"
+        onClick={() => setIsOpen(false)}
+      >
         <div className="w-4/5">
-          <div className="relative flex w-full max-w-sm flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+          <div className="relative flex w-full max-w-sm flex-col overflow-y-auto bg-[#09120e] ring-2 ring-[#020403] rounded-sm   pb-12 shadow-xl">
             <div className="flex px-4 pb-2 pt-5">
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
                 className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
-              >
-                <X className="h-6 w-6" aria-hidden="true" />
-              </button>
+              ></button>
             </div>
-
-            <div className="mt-2">
+            <Link href="/cart">
+              <button className=" no-underline items-center  cursor-pointer justify-center  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
+                <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] text-center items-center justify-center glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear flex flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
+                  <span>Proceed to checkout</span>
+                  <svg
+                    className="animate-pulse text-pink-100 duration-3000"
+                    fill="none"
+                    height="18"
+                    viewBox="0 0 10 10"
+                    width="18"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.75 8.75L14.25 12L10.75 15.25"
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                </div>
+                <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r  transition-opacity duration-500 group-hover:opacity-30" />
+              </button>
+            </Link>
+            <div className="mt-2 mr-8">
               <ScrollArea>
                 {items.map(({ product }) => (
                   <CartItem product={product} key={product.id} />
@@ -167,23 +202,23 @@ const MobileNav = () => {
               </ScrollArea>
             </div>
 
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              <div className="flow-root">
+            <div className="space-y-6 border-t  border-[#fad6a5] px-4 py-6">
+              <div className="flow-root rounded-2xl ">
                 <Link
-                  onClick={() => closeOnCurrent('/sign-in')}
-                  href="/sign-in"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  onClick={() => closeOnCurrent('/login')}
+                  href="/login"
+                  className="-m-2 block p-2 rounded-xl font-medium hover:bg-slate-50 text-[#c1989f]"
                 >
-                  Sign in
+                  Log in
                 </Link>
               </div>
               <div className="flow-root">
                 <Link
-                  onClick={() => closeOnCurrent('/sign-up')}
-                  href="/sign-up"
-                  className="-m-2 block p-2 font-medium text-gray-900"
+                  onClick={() => closeOnCurrent('/create-account')}
+                  href="/create-account"
+                  className="-m-2 block p-2 rounded-xl font-medium hover:bg-slate-50 text-[#c1989f]"
                 >
-                  Sign up
+                  Create Account
                 </Link>
               </div>
             </div>
@@ -194,5 +229,4 @@ const MobileNav = () => {
   );
 };
 
-// export default MobileNav;
 export default MobileNavbar;

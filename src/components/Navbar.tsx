@@ -100,12 +100,9 @@ const Navbar = ({ user }: NavbarProps) => {
           </div>
         </MaxWidthWrapper>
       </header>
-      <section className="border-t border-[#070f0b] "> </section>
-      <section className="border-t border-[#070e0b] border-opacity-10"></section>
 
-      {/* <section className="border-t border-[#0c1a13]"> </section> */}
+      <section className="border-t border-[#6c516c] "></section>
 
-      <section className=" bordercustom-black"> </section>
     </div>
   );
 };

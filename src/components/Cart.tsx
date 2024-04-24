@@ -59,8 +59,8 @@ const Cart = () => {
     <>
       <div className="relative flex items-center justify-center flex-col h">
         <Sheet>
-          <SheetTrigger className="group">
-            <div className="relative flex transform  translate-x-11 -translate-y-0.5 items-center justify-center h-11 w-36 text-pink-200  custom-glow  ">
+          <SheetTrigger className=" group">
+            <div className="relative flex transform  translate-x-11 -translate-y-0.5 items-center justify-center h-10  w-36 text-pink-200  custom-glow  ">
               <div
                 className="relative flex hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
  w-full h-full transition-transform hover:ring-1 ring-pink-300 hover:ring-opacity-10 mb-1  bg-custom-black   hover:ring-pink-300 rounded-lg overflow-hidden
@@ -78,7 +78,6 @@ const Cart = () => {
                     />
                   </div>
                 </div>
-
                 <span
                   style={itemCountStyle}
                   className="text-xl absolute top-2 right-3 h-0 w-28 rounded-full text-[#81c336] font-semibold flex items-center justify-center
@@ -95,40 +94,40 @@ const Cart = () => {
               </div>
             </div>
           </SheetTrigger>
-          <SheetContent className="flex flex-col bg-[#020403] w-full pr-0 sm:max-w-lg text-gray-100 ">
-            <SheetHeader className="space-y-2.5 items-center pr-6 text-gray-100 ">
-              <SheetTitle className="text-gray-100 w-">
+          <SheetContent className="flex flex-col bg-[#09120e] w-full pr-0 sm:max-w-lg text-[#fad6a5] ">
+            <SheetHeader className="space-y-2.5 items-center pr-6 text-[#fad6a5] ">
+              <SheetTitle className="text-[#fad6a5] ">
                 {' '}
                 Cart({isMounted ? itemCount : 0})
               </SheetTitle>
             </SheetHeader>
             {itemCount > 0 ? (
               <>
-                <div className="flex  text-champagne-b w-fu flex-col pr-6">
+                <div className="flex  text-[#fad6a5] w-full flex-col pr-6">
                   Cart Items
                 </div>
 
                 <div className="space-y-4 pr-6">
-                  <Separator />
+                  <Separator className="bg-[#fad6a5] text-[#fad6a5]" />
                   <div className="space-y-1.5 text-sm">
                     <div className="flex">
                       {/* <span className="flex-1">Shipping</span>
                       <span>Free</span> */}
                     </div>
                   </div>
-                  <div className="space-y-1.5  text-[#dce8dc] text-sm">
-                    <div className="flex text-[#dce8dc] ">
-                      <span className="flex-1 text-[#dce8dc] ">
+                  <div className="space-y-1.5  text-[#fad6a5]text-sm">
+                    <div className="flex text-[#fad6a5]">
+                      <span className="flex-1 text-[#fad6a5]">
                         Transaction Fee
                       </span>
                       <span>{formatPrice(fee)}</span>
                     </div>
-                    <div className="flex text-[#dce8dc] ">
-                      <span className="flex-1 text-[#dce8dc] ">Subtotal</span>
+                    <div className="flex text-[#fad6a5]">
+                      <span className="flex-1 text-[#fad6a5]">Subtotal</span>
                       <span>{formatPrice(cartTotal)}</span>
                     </div>
-                    <div className="flex text-[#dce8dc] ">
-                      <span className="flex-1 text-green-50 ">Total</span>
+                    <div className="flex text-[#fad6a5]">
+                      <span className="flex-1 text-[#fad6a5] ">Total</span>
                       <span>{formatPrice(cartTotal + fee)}</span>
                     </div>
                   </div>
@@ -139,8 +138,8 @@ const Cart = () => {
                       className="w-full items-center flex justify-center"
                     >
                       <Link href="/cart">
-                        <button className="bg-custom-black no-underline  cursor-pointer  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
-                          <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] justify-center glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
+                        <button className=" no-underline items-center  cursor-pointer justify-center  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
+                          <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] text-center items-center justify-center glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear flex flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
                             <span>Proceed to checkout</span>
                             <svg
                               className="animate-pulse text-pink-100 duration-3000"
@@ -178,11 +177,11 @@ const Cart = () => {
                   className="flex content-center w-full flex-col items-center justify-center"
                 >
                   <div className="mt-[-400px] relative  text-muted-foreground justify-center content-center inset-0 flex-col flex h-full bg-slate-950 rounded-lg mb-1 ">
-                    <h1 className=" items-center justify-center px-1 flex-row  text-white rounded-md text-2xl">
+                    <h1 className=" items-center justify-center px-1 flex-row  text-[#fad6a5] rounded-md text-2xl">
                       Your Cart is empty.
-                      <h2 className=" items-center justify-center px-1  text-white rounded-md  flex-row mt-2 text-sm">
+                      <h2 className=" items-center justify-center px-1  text-[#fad6a5] rounded-md  flex-row mt-2 text-sm">
                         Check your Saved for later items below or{' '}
-                        <SheetTrigger asChild>
+                        <SheetTrigger className="" asChild>
                           <Link
                             href="/products"
                             className="text-blue-500  hover:text-blue-600"

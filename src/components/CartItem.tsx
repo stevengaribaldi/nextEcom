@@ -50,16 +50,16 @@ const CartItem = ({ product }: { product: Product }) => {
             </div>
           </div>
           <div className="flex flex-col self-start">
-            <span className="line-clamp-1 text-orange-100 text-lg   text-muted-foreground font-medium mb-1">
+            <span className="line-clamp-1 text-[#fad6a5] text-lg   text-muted-foreground font-medium mb-1">
               {product.name}
             </span>
-            <span className="flex flex-col line-clamp-1 text-medium text-champagne-b  ">
+            <span className="flex flex-col line-clamp-1 text-medium text-[#fad6a5]  ">
               {label}
             </span>
           </div>
         </div>
-        <div className="flex flex-col space-y-1 text-slate-50 font-medium">
-          <span className="ml-auto line-clamp-1  text-slate-50 text-sm">
+        <div className="flex flex-col space-y-1 text-[#fad6a5] font-medium">
+          <span className="ml-auto line-clamp-1  text-[#fad6a5] text-sm">
             {formatPrice(product.price)}
           </span>
         </div>

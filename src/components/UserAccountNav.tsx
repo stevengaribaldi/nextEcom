@@ -44,25 +44,26 @@ const UserAccountNav = ({ user }: { user: User }) => {
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-60 bg-[#020403]  text-pink-100"
+        className="w-60 bg-[#09120e]  text-[#c1989f]"
         align="end"
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
       >
         <DropdownMenuLabel>
           <div className="flex items-center justify-start gap-2 p-2">
-            <div className="flex flex-col text-[#8fb8d3] space-y-0.5 leading-none">
+            <div className="flex flex-col text-[#fad6a5] space-y-0.5 leading-none">
               {/* <UserIcon className="mr-2 h-4 w-4" /> */}
               <span className="font-medium text-sm">{user.email}</span>
             </div>
           </div>
         </DropdownMenuLabel>
+        {/* 36454F 203e4a bfafb2 */}
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem>
+        <DropdownMenuItem className="hover:bg-slate-950">
           <Tag></Tag>
-          <div className="flex items-center justify-start gap-2 p-2">
+          <div className="flex items-center  justify-start gap-2 p-2">
             <div className="flex  space-y-0.5 leading-none">
               <Link href="/sell">Sell </Link>
             </div>

@@ -236,7 +236,7 @@ const Page = () => {
 const BottomGradient = () => {
   return (
     <>
-      <span className="block duration-500 absolute h-px w-full shadow-[0_6px_20px_rgba(209,192,208,50%)]  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-blue-900 to-transparent" />
+      <span className="block duration-1000 absolute h-px w-full shadow-[0_6px_20px_rgba(209,192,208,50%)]  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-blue-900 to-transparent" />
       <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-blue-900 to-transparent" />
     </>
   );

@@ -86,7 +86,7 @@ const Page = async ({ params }: PageProps) => {
               ))}
             </ol>
             <div className="mt-4 text-[#faebd7]">
-              <h1 className=" text-3xl font-bold tracking-tight sm:text-4xl text-orange-100   ">
+              <h1 className=" text-3xl font-bold tracking-tight sm:text-4xl text-champagne-b   ">
                 {product.name}
               </h1>
             </div>
@@ -97,7 +97,7 @@ const Page = async ({ params }: PageProps) => {
             </div>
             <section className="mt-6">
               <div className="flex items-center ">
-                <p className="font-medium text-slate-50">
+                <p className="font-medium text-champagne-b ">
                   {formatPrice(product.price)}
                 </p>
 
@@ -106,7 +106,9 @@ const Page = async ({ params }: PageProps) => {
                 </div>
               </div>
               <div className="mt-1 space-y-6 ">
-                <p className="text-base  text-white">{product.description}</p>
+                <p className="text-base  text-champagne-b ">
+                  {product.description}
+                </p>
               </div>
               <div className="mt-6 flex items-center">
                 <Check

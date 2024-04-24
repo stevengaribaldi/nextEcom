@@ -37,11 +37,11 @@ const CartItem = ({ product }: { product: Product }) => {
                 </div>
               )}
             </div>
-            <div className="mt-3  text-white  px-1 text-muted-foreground">
-              <div className="hover:bg-red-500 bg-dark-brown  text-white inline-block rounded  ">
+            <div className="mt-2 text-sm px-1 text-muted-foreground">
+              <div className="  bg-[#3c0006] inline-block rounded  ">
                 <button
                   onClick={() => removeItem(product.id)}
-                  className="flex items-center sm:justify-end  hover:text-dark-brown  text-white  justify-end rounded text-xs font-medium px-2 py-1 "
+                  className="flex items-center sm:justify-end  hover:text-gray-600  justify-end rounded text-xs font-medium px-2 py-1 "
                 >
                   <X className="w-3.5 h-3.5" />
                   Delete
@@ -50,7 +50,7 @@ const CartItem = ({ product }: { product: Product }) => {
             </div>
           </div>
           <div className="flex flex-col self-start">
-            <span className="line-clamp-1 text-[#fad6a5] text-lg   text-muted-foreground font-medium mb-1">
+            <span className="line-clamp-1 text-[#fad6a5] text-lg    font-medium mb-1">
               {product.name}
             </span>
             <span className="flex flex-col line-clamp-1 text-medium text-[#fad6a5]  ">

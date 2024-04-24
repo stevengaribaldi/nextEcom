@@ -14,7 +14,7 @@ import { useRouter } from 'next/navigation';
 const Page = () => {
   const { items, removeItem } = useCart();
   const router = useRouter();
-  
+
   const { mutate: createCheckoutSession, isLoading } =
     trpc.payment.createSession.useMutation({
       onSuccess: ({ url }) => {
@@ -38,7 +38,7 @@ const Page = () => {
   return (
     <div className="bg-custom-black ">
       <div className="mx-auto max-w-2xl px-4 pb-24 pt-16 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 className="text-3xl  font-bold tracking-tight text-pale-gold sm:text-4xl">
+        <h1 className="text-3xl  font-bold tracking-tight text-[#8fb8d3] sm:text-4xl">
           Shopping Cart
         </h1>
         <div className="mt-12 lg:grid lg:grid-cols-12  lg:items-start lg:gap-x-16">
@@ -112,7 +112,7 @@ const Page = () => {
                               <h3 className="text-sm">
                                 <Link
                                   href={`/product/${product.id}`}
-                                  className="font-medium text-3xl text-orange-100"
+                                  className="font-medium text-3xl text-champagne-b "
                                 >
                                   {product.name}
                                 </Link>
@@ -127,22 +127,21 @@ const Page = () => {
                             </Link>
 
                             <Link href={`/product/${product.id}`}>
-                              <p className="mt-1  text-slate-50 text-lg font-medium ">
+                              <p className="mt-1  text-champagne-b  text-lg font-medium ">
                                 {formatPrice(product.price)}
                               </p>
                             </Link>
                           </div>
 
-                          <div className="mt-4 sm:mt-0 sm:pr-9 w-20">
+                          <div className="mt-3 text-sm px-1 text-muted-foreground">
                             <div className="absolute right-0 top-0">
-                              <Button
-                                aria-label="remove product"
+                              <button
                                 onClick={() => removeItem(product.id)}
-                                className="hover:bg-red-500 hover:text-dark-brown text-white"
+                                className="flex items-center sm:justify-end bg-[#3c0006] hover:text-gray-600   justify-end rounded text-xs font-medium px-2 py-1 "
                               >
-                                <X className="h-5 w-5" aria-hidden="true" />
+                                <X className="w-3.5 h-3.5" />
                                 Delete
-                              </Button>
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -243,9 +242,9 @@ const Page = () => {
                   words="Checkout"
                   textColor="#fae8ff"
                   isValid={isMounted}
-                  className="font-bold text-lg"
+                  className="font-bold justify-center items-center -mt-1 text-lg"
                 />
-                {itemsCount > 0 && isMounted ? <BottomGradient /> : null}
+                {/* {itemsCount > 0 && isMounted ? <BottomGradient /> : null} */}
               </button>
             </div>
           </section>
@@ -256,11 +255,3 @@ const Page = () => {
 };
 
 export default Page;
-const BottomGradient = () => {
-  return (
-    <>
-      <span className="block duration-500 absolute h-px w-full shadow-[0_6px_50px_rgba(209,192,208,100%)]  -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-200 to-transparent" />
-      <span className="blur-sm block transition duration-500 absolute h-px w-1/2 mx-auto -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-pink-200 to-transparent" />
-    </>
-  );
-};

@@ -44,7 +44,7 @@ const UserAccountNav = ({ user }: { user: User }) => {
         </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-60 bg-[#09120e]  text-[#c1989f]"
+        className="w-60 bg-[#09120e]  text-amber-100"
         align="end"
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}

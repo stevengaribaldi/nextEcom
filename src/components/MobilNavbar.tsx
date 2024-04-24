@@ -202,12 +202,12 @@ const MobileNav = () => {
               </ScrollArea>
             </div>
 
-            <div className="space-y-6 border-t  border-[#fad6a5] px-4 py-6">
+            <div className="space-y-6 border-t   border-[#fad6a5] px-4 py-6">
               <div className="flow-root rounded-2xl ">
                 <Link
                   onClick={() => closeOnCurrent('/login')}
                   href="/login"
-                  className="-m-2 block p-2 rounded-xl font-medium hover:bg-slate-50 text-[#c1989f]"
+                  className="-m-2 block p-2 rounded-xl hover:text-[#09120e] font-medium hover:bg-slate-50 text-amber-100"
                 >
                   Log in
                 </Link>
@@ -216,7 +216,7 @@ const MobileNav = () => {
                 <Link
                   onClick={() => closeOnCurrent('/create-account')}
                   href="/create-account"
-                  className="-m-2 block p-2 rounded-xl font-medium hover:bg-slate-50 text-[#c1989f]"
+                  className="-m-2 block p-2 rounded-xl hover:text-[#09120e] font-medium hover:bg-slate-50 text-amber-100"
                 >
                   Create Account
                 </Link>

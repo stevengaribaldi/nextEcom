@@ -75,7 +75,9 @@ const CartMobile = () => {
     if (isOpen) document.body.classList.add('overflow-hidden');
     else document.body.classList.remove('overflow-hidden');
   }, [isOpen]);
-
+ const handleClickInside = (event: { stopPropagation: () => void; }) => {
+   event.stopPropagation();
+ };
   if (!isOpen)
     return (
       <button
@@ -118,8 +120,11 @@ const CartMobile = () => {
         className="fixed overflow-y-scroll overscroll-y-none inset-0 z-40 flex"
         onClick={() => setIsOpen(false)}
       >
-        <div className="w-4/5">
-          <div className="relative flex w-full max-w-sm flex-col overflow-y-auto bg-[#09120e] ring-2 ring-[#020403] rounded-sm   pb-12 shadow-xl">
+        <div className="w-4/5 ">
+          <div
+            onClick={handleClickInside}
+            className="relative flex w-full max-w-sm flex-col overflow-y-auto bg-[#09120e] ring-2 ring-[#020403] rounded-sm   pb-12 shadow-xl"
+          >
             <div className="flex px-4 pb-2 pt-5">
               <button
                 type="button"

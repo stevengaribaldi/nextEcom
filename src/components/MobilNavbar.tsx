@@ -35,11 +35,11 @@ const MobileNavbar = ({ user }: NavbarProps) => {
     user
       ? {
           link: (
-            <AccountIconMobile className="h-4 w-4 text-white dark:text-white" />
+            <AccountIconMobile className=" text-white dark:text-white" />
           ),
         }
       : {
-          name: 'Log In',
+          name: 'Account',
           link: '/login', // Login page for non-logged users
           icon: <IconUser className="h-4 w-4 text-white dark:text-white" />,
         },

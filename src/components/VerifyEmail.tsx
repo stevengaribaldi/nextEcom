@@ -1,7 +1,7 @@
 'use client';
 
 import { trpc } from '@/trpc/client';
-import { Loader2, XCircle } from 'lucide-react';
+import { Loader2, XCircle, MailOpen } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -31,12 +31,7 @@ const VerifyEmail = ({ token }: VerifyEmailProps) => {
     return (
       <div className="flex h-full flex-col items-center justify-center">
         <div className="relative mb-4 h-60  w-60 text-muted-foreground">
-          <Image
-            src="/emailblack.jpg"
-            fill
-            alt="email sent"
-            objectFit="cover"
-          />{' '}
+          <MailOpen className='justify-center items-center mb-4 h-60 w-60' />
         </div>
         <h3 className="font-semibold text-2xl text-white">
           You&apos;re all set!{' '}

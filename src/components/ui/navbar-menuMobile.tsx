@@ -53,13 +53,14 @@ export const MenuItem = ({
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={transition}
-          className="absolute top-[calc(100%_-_2rem)] -right-[125%] transform -translate-x-1/3 pt-14"
+          className="absolute top-full -right-[125%] transform translate-y-8 -translate-x-1/3 pt-3.5"
         >
           <motion.div
             transition={transition}
             layoutId="active"
-            className=" bg-[#555d50]  backdrop-blur-sm rounded-2xl overflow-hidden border border-[#fad6a5]  shadow-2xl"
+            className=" bg-[#09120e]   rounded-2xl backdrop-blur-2xl overflow-hidden border border-[#fad6a5]  shadow-2xl"
           >
+            {/* bg-[#555d50] */}
             <motion.div layout className="w-max h-9 p-4 pl-6">
               {children}
             </motion.div>
@@ -79,7 +80,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)}
-      className="relative   flex justify-center space-x-4 px-8 py-6 -mx-9 -my-6"
+      className="relative  -mb-7 flex justify-center space-x-4 -px-8 py-6 -mx-1 -my-6"
     >
       {children}
     </nav>
@@ -162,7 +163,7 @@ export const HoveredLink: React.FC<HoveredLinkProps> = ({
         onMouseEnter={onHover}
         onMouseLeave={onLeave}
         onClick={onClick}
-        className="text-amber-100 justify-center items-center -mt-6 cursor-pointer"
+        className="text-amber-100 justify-center items-center -mt-7 cursor-pointer"
         style={style}
       >
         {children}

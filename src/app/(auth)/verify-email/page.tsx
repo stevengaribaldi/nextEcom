@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import VerifyEmail from '@/components/VerifyEmail';
+import { MailSearch } from 'lucide-react';
 
 interface PageProps {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -17,12 +18,7 @@ const VerifyEmailPage = ({ searchParams }: PageProps) => {
         ) : (
           <div className="flex h-full flex-col items-center space-y-1">
             <div className="mb-4 h-60 w-60 text-muted-foreground relative ">
-              <Image
-                src="/closeEmail.png"
-                fill
-                alt="email sent image"
-                objectFit="cover"
-              />
+              <MailSearch className="justify-center items-center mb-4 h-60 w-60" />
             </div>
             <h3 className="font-semibold text-2xl text-white ">
               Check your email

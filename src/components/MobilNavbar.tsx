@@ -3,22 +3,20 @@ import React, { useEffect, useState, useRef } from 'react';
 import FloatingNav from '../components/ui/floating-navbar';
 import {
   IconHome,
-  IconMessage,
   IconUser,
   IconTag,
   IconShoppingBag,
 } from '@tabler/icons-react';
+import { HoveredLink, Menu, MenuItem } from './ui/navbar-menuMobile';
 
 import Image from 'next/image';
 
-import { Menu, X } from 'lucide-react';
+import { LogInIcon, UserPlus } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ScrollArea, ScrollBar } from './ui/scroll-area';
-import { TextGenerateEffect } from './ui/TextGenerateEffect';
+import { ScrollArea } from './ui/scroll-area';
 import { useCart } from '@/hooks/use-cart';
 import CartItem from './CartItem';
-import Cart from './Cart';
 
 const MobileNavbar = () => {
   const navItems = [
@@ -38,9 +36,7 @@ const MobileNavbar = () => {
       icon: <IconTag className="h-4 w-4 text-white dark:text-white" />,
     },
     {
-      name: 'Account',
-      link: '/login',
-      icon: <IconUser className="h-4 w-4 text-white dark:text-white" />,
+      link: <Navbar className="top-2" />,
     },
     {
       name: 'Cart',
@@ -54,6 +50,48 @@ const MobileNavbar = () => {
     </div>
   );
 };
+
+function Navbar({ className }: { className?: string }) {
+  const [active, setActive] = useState<string | null>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  const handleHover = (item: React.SetStateAction<string | null>) => () => {
+    setHovered(item);
+  };
+
+  const handleLeave = () => {
+    setHovered(null);
+  };
+
+  return (
+    <div className={className}>
+      <Menu setActive={setActive}>
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          icon={<IconUser className="h-4/5 w-4/5 text-white" />}
+          item="Account"
+        >
+          <div className="text-sm grid grid-cols-3 gap-10 p-4">
+            {['cart', 'sell', 'logout'].map((item) => (
+              <HoveredLink
+                key={item}
+                href={`/${item.toLowerCase()}`}
+                onHover={handleHover(item)}
+                onLeave={handleLeave}
+                style={{
+                  color: hovered && hovered !== item ? '#555d50' : 'fad6a5',
+                }}
+              >
+                {item}
+              </HoveredLink>
+            ))}
+          </div>
+        </MenuItem>
+      </Menu>
+    </div>
+  );
+}
 
 const MobileNav = () => {
   const { items } = useCart();
@@ -89,6 +127,8 @@ const MobileNav = () => {
 
   const itemCountStyle = {
     right: getRightPosition(),
+    transform: isOpen ? 'scale(1.0)' : 'scale(0.75)',
+    transition: 'transform 250ms ease-in-out',
   };
 
   useEffect(() => {
@@ -146,7 +186,7 @@ const MobileNav = () => {
               {isMounted ? itemCount : 0}
             </span>
           </div>
-        </div>{' '}
+        </div>
       </button>
     );
 
@@ -209,7 +249,10 @@ const MobileNav = () => {
                   href="/login"
                   className="-m-2 block p-2 rounded-xl hover:text-[#09120e] font-medium hover:bg-slate-50 text-amber-100"
                 >
-                  Log in
+                  <div className="flex items-center justify-start gap-2 ">
+                    <LogInIcon />
+                    <div className="flex  space-y-0.5 leading-none">Log In</div>
+                  </div>
                 </Link>
               </div>
               <div className="flow-root">
@@ -218,7 +261,13 @@ const MobileNav = () => {
                   href="/create-account"
                   className="-m-2 block p-2 rounded-xl hover:text-[#09120e] font-medium hover:bg-slate-50 text-amber-100"
                 >
-                  Create Account
+                  <div className="flex items-center justify-start gap-2 ">
+                    <UserPlus />
+                    <div className="flex  space-y-0.5 leading-none">
+                      {' '}
+                      Create Account
+                    </div>
+                  </div>{' '}
                 </Link>
               </div>
             </div>

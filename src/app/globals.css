@@ -62,46 +62,43 @@
 .custom-glow:hover {
   filter: drop-shadow(0px 0px 5px rgba(5, 228, 221, 0.03));
 }
-/* .custom-glows:hover {
-  filter: drop-shadow(0 1px 20px rgba(0,118,255,0.1));
-} */
+
 @keyframes step-spin {
 
   0%, 20% { transform: rotate(-45deg);  }
 
 }
 .click-effect {
-  transform: translateY(-4px); /* Tailwind's hover:-translate-y-1 equivalent */
-  transition: transform 400ms ease; /* Apply the transition you want */
+  transform: translateY(-4px);
+  transition: transform 400ms ease;
 color:azure;
-  background-color: yellow; /* Background color */
+  background-color: yellow;
 
+}
+.hovered-link:hover + .hovered-link {
+  color: #555d50;
 }
 
 
 @keyframes onAutoFillStart { from {} to {} }
 @keyframes onAutoFillCancel { from {} to {} }
 
-/* global.css */
 
-/* Targeting WebKit browsers (Chrome, Safari) for autofill */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #262626  inset !important; /* slate-900 */
-  -webkit-text-fill-color: white !important;
+  -webkit-box-shadow: 0 0 0px 1000px #262626  inset !important;
   caret-color: white !important;
    animation-name: onAutoFillStart;
   animation-duration: 1s;
 }
 
-/* Targeting Firefox - Firefox's support for styling autofill might be limited */
 input:-moz-ui-autofill,
 input:-moz-ui-autofill:hover,
 input:-moz-ui-autofill:focus,
 input:-moz-ui-autofill:active {
-  background: #262626 !important; /* slate-900 */
+  background: #262626 !important;
   color: white !important;
    animation-name: onAutoFillStart;
   animation-duration: 1s;
@@ -146,7 +143,6 @@ input:not(:-webkit-autofill) {
   background-color: rgb(156, 201, 166) !important;
   scale: 1.1 !important
 }
-/* Add this to your CSS file */
 .glow-on-hover:hover {
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); /* Adjust the color and spread to fit your design */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
 }

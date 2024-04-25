@@ -38,17 +38,17 @@ const Footer = () => {
                   <h3 className="font-semibold text-amber-50">
                     Become a seller
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
+                  <span className="mt-2 text-sm text-muted-foreground">
                     If you&apos;d like to sell high-quality digital products,
-                    you can do so in minutes.
-                    <Link
-                      href="login?as=seller"
-                      className="text-sm font-medium   text-[#c9af3d]  hover:text-orange-400"
-                    >
-                      Get Started
-                      <span className="animate-pulse">&rarr;</span>{' '}
-                    </Link>
-                  </p>
+                    you can do so in minutes.{' '}
+                      <Link
+                        href="login?as=seller"
+                        className="text-sm font-medium text-[#c9af3d]  hover:text-orange-400"
+                      >
+                        Get Started
+                        <span className="animate-pulse">&rarr;</span>{' '}
+                      </Link>
+                  </span>
                 </div>
               </div>
             </div>

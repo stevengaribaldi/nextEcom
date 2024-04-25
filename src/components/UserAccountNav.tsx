@@ -73,7 +73,7 @@ const UserAccountNav = ({ user }: { user: User }) => {
         <DropdownMenuItem onClick={logOut} className="cursor-pointer">
           <LogOut></LogOut>
           <div className="flex items-center justify-start gap-2 p-2">
-            <div className="flex  space-y-0.5 leading-none">Log out</div>
+            <div className="flex  space-y-0.5 leading-none">Log Out</div>
           </div>
         </DropdownMenuItem>
       </DropdownMenuContent>

@@ -1,9 +1,8 @@
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
 
 type NavItem = {
-  name: string | JSX.Element;
+  name?: string | JSX.Element;
   link: string | JSX.Element;
   icon?: JSX.Element;
 };
@@ -16,7 +15,6 @@ type FloatingNavProps = {
 const FloatingNav: React.FC<FloatingNavProps> = ({ navItems, className }) => {
   return (
     <div
-
       className={`flex max-w-screen-sm h-max bg-custom-black shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] py-2 px-8 space-x-8 items-center justify-center mx-auto ${className}`}
     >
       {navItems.map((navItem, idx) =>

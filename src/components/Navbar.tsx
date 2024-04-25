@@ -35,7 +35,7 @@ const Navbar = ({ user }: NavbarProps) => {
       <header className="relative bg-custom-black  ">
         <MaxWidthWrapper>
           <div className=" ">
-            <MobileNavbar />
+            <MobileNavbar user={user} />
             <div className="flex items-center">
               <div
                 className={`ml-0 flex lg:ml-0 ${isRotating ? 'continuous-step-spin' : ''}`}
@@ -102,7 +102,6 @@ const Navbar = ({ user }: NavbarProps) => {
       </header>
 
       <section className="border-t border-[#6c516c] "></section>
-
     </div>
   );
 };

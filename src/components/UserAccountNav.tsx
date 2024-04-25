@@ -19,6 +19,7 @@ const UserAccountNav = ({ user }: { user: User }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { logOut } = useAuth();
+  
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger

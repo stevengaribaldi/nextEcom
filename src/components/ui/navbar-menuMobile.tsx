@@ -138,27 +138,51 @@ export const ProductItem = ({
     </div>
   );
 };
-export const HoveredLink = ({
+
+type HoveredLinkProps = {
+  onHover: () => void;
+  onLeave: () => void;
+  children: React.ReactNode;
+  href?: string;
+  onClick?: () => void;
+  style: React.CSSProperties;
+};
+
+export const HoveredLink: React.FC<HoveredLinkProps> = ({
   onHover,
   onLeave,
   children,
   href,
+  onClick,
   style,
-}: {
-  onHover: () => void;
-  onLeave: () => void;
-  children: React.ReactNode;
-  href: string;
-  style: React.CSSProperties;
 }) => {
-  return (
-    <Link
-      href={href}
-      onMouseEnter={onHover}
-      onMouseLeave={onLeave}
-      className="text-amber-100 justify-center items-center -mt-6"
-      style={style}
-    >
-      {children}
-    </Link>
-  );};
+  if (onClick) {
+    return (
+      <button
+        onMouseEnter={onHover}
+        onMouseLeave={onLeave}
+        onClick={onClick}
+        className="text-amber-100 justify-center items-center -mt-6 cursor-pointer"
+        style={style}
+      >
+        {children}
+      </button>
+    );
+  } else {
+    if (!href)
+      throw new Error(
+        'Href must be provided for HoveredLink when used as a link',
+      );
+    return (
+      <Link
+        href={href}
+        onMouseEnter={onHover}
+        onMouseLeave={onLeave}
+        className="text-amber-100 justify-center items-center -mt-6"
+        style={style}
+      >
+        {children}
+      </Link>
+    );
+  }
+};

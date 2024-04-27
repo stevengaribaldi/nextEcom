@@ -34,9 +34,7 @@ const MobileNavbar = ({ user }: NavbarProps) => {
     },
     user
       ? {
-          link: (
-            <AccountIconMobile className=" text-white dark:text-white" />
-          ),
+          link: <AccountIconMobile className=" text-[#bdeade] " />,
         }
       : {
           name: 'Account',

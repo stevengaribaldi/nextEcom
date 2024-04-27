@@ -20,7 +20,6 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
 
   const { user } = await getServerSideUser(nextCookies);
   const payload = await getPayloadClient();
-  // console.log(payload);
 
   const { docs: orders } = await payload.find({
     collection: 'orders',
@@ -51,7 +50,6 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
       <div>
         <div className="mx-auto max-w-7xl px-4 py-16 sm:py-24 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:py-32 xl:gap-x-24">
           {/* <!-- <div className="lg:col-start-2 space-y-6"> --> */}
-          {/* Left column for order details */}
           <div className="space-y-6 flex flex-col">
             <p className=" text-6xl text-[#3dc9af] ">Thank you</p>
 
@@ -116,7 +114,6 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
                         >
                           <h1 className="text-sky-400 ">Download</h1>
                           <ArrowDownToLine className="w-5 h-5 " />{' '}
-                          {/* Adjust size as needed */}
                         </a>
                       ) : null}
                     </div>

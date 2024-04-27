@@ -6,6 +6,7 @@ import { getPayloadClient } from './get-payload';
 import { Product } from './payload-types';
 import { Resend } from 'resend';
 import { ReceiptEmailHtml } from './components/emails/ReceiptEmail';
+import { tr } from 'date-fns/locale';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -40,7 +41,13 @@ export const stripeWebhookHandler = async (
     return res.status(400).send(`Webhook Error: No user present in metadata`);
   }
 
-  if (event.type === 'checkout.session.completed') {
+  if (
+    event.type === 'checkout.session.completed' ||
+    event.type === 'payment_intent.succeeded' ||
+    event.type === 'charge.succeeded' ||
+    event.type === 'charge.updated' ||
+    event.type === 'payment_intent.payment_failed'
+  ) {
     const payload = await getPayloadClient();
 
     const { docs: users } = await payload.find({

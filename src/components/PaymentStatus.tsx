@@ -33,7 +33,7 @@ const PaymentStatus = ({ orderEmail, orderId, isPaid }: PaymentStatusProps) => {
       </div>
       <div className="mt-2">
         <p className="font-medium">Order Status</p>
-        <p>{isPaid ? 'Payment Successful' : 'Pending Payent'}</p>
+        <p>{isPaid ? 'Payment Successful' : 'Pending Payment'}</p>
       </div>
     </div>
   );

@@ -36,14 +36,13 @@ export const MenuItem = ({
         >
           <div className="flex   flex-col items-center ">
             <div className="-mb-1  ml-1.5">{icon}</div>{' '}
-            {/* Negative margin to move closer */}
-            <span className="text-sm  text-[#effaf7]">{item}</span>
+            <span className="text-sm  text-pink-200">{item}</span>
           </div>
         </motion.div>
       ) : (
         <motion.p
           transition={{ duration: 0.3 }}
-          className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white "
+          className="cursor-pointer  hover:opacity-[0.9]  "
         >
           {item}
         </motion.p>

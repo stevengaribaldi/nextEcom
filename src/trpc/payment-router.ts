@@ -11,7 +11,9 @@ export const paymentRouter = router({
     .input(z.object({ productIds: z.array(z.string().min(1)).min(1) }))
     .mutation(async ({ ctx, input }) => {
       const { user } = ctx;
-      const { productIds } = input;
+      // eslint-disable-next-line prefer-const
+      let { productIds } = input;
+
       if (productIds.length === 0) {
         throw new TRPCError({
           code: 'BAD_REQUEST',
@@ -23,23 +25,26 @@ export const paymentRouter = router({
       const { docs: products } = await payload.find({
         collection: 'products',
         where: {
-          id: { in: productIds },
+          id: {
+            in: productIds,
+          },
         },
       });
 
-      const filterProducts = products.filter((prod) => Boolean(prod.priceId));
+      const filteredProducts = products.filter((prod) => Boolean(prod.priceId));
+
       const order = await payload.create({
         collection: 'orders',
         data: {
           _isPaid: false,
-          products: filterProducts.map((prod) => prod.id),
+          products: filteredProducts.map((prod) => prod.id),
           user: user.id,
         },
       });
 
       const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
 
-      filterProducts.forEach((products) => {
+      filteredProducts.forEach((products) => {
         line_items.push({
           price: products.priceId!,
           quantity: 1,
@@ -53,7 +58,7 @@ export const paymentRouter = router({
         },
       });
       try {
-        const idempotencyKey = `checkout_${order.id}`;
+        // const idempotencyKey = `checkout_${order.id}`;
 
         const stripeSession = await stripe.checkout.sessions.create(
           {
@@ -69,9 +74,9 @@ export const paymentRouter = router({
             },
             line_items,
           },
-          {
-            idempotencyKey,
-          },
+          // {
+          //   // idempotencyKey,
+          // },
         );
         return { url: stripeSession.url };
       } catch (err) {

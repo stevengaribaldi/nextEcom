@@ -31,17 +31,7 @@ export type WebhookRequest = IncomingMessage & {
 };
 
 const start = async () => {
-  // const generalLimiter = rateLimit({
-  //   windowMs: 15 * 60 * 1000, // 15 minutes
-  //   max: 100,
-  // });
 
-  // const apiLimiter = rateLimit({
-  //   windowMs: 15 * 60 * 1000,
-  //   max: 50,
-  //   message:
-  //     'Too many requests from this IP, please try again after 15 minutes',
-  // });
 
   const webhookMiddleware = bodyParser.json({
     verify: (req: WebhookRequest, _, buffer) => {

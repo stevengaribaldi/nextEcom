@@ -25,7 +25,7 @@ const AccountIconMobile = ({ className }: { className?: string }) => {
         <MenuItem
           setActive={setActive}
           active={active}
-          icon={<IconUser className="h-4/5 w-4/5 text-white" />}
+          icon={<IconUser className="h-4/5 w-4/5 text-pink-200" />}
           item="Account"
         >
           <div className="text-sm grid grid-cols-3 gap-10 p-4">

@@ -12,7 +12,6 @@ import {
 import { Separator } from './ui/separator';
 import { formatPrice } from '@/lib/utils';
 import Link from 'next/link';
-import { TextGenerateEffect } from './ui/TextGenerateEffect';
 import Image from 'next/image';
 import { useCart } from '@/hooks/use-cart';
 import { ScrollArea, ScrollBar } from './ui/scroll-area';
@@ -111,8 +110,7 @@ const Cart = () => {
                   <Separator className="bg-[#fad6a5] text-[#fad6a5]" />
                   <div className="space-y-1.5 text-sm">
                     <div className="flex">
-                      {/* <span className="flex-1">Shipping</span>
-                      <span>Free</span> */}
+
                     </div>
                   </div>
                   <div className="space-y-1.5  text-[#fad6a5]text-sm">

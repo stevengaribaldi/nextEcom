@@ -99,8 +99,8 @@ const CartMobile = () => {
 
             <span
               style={itemCountStyle}
-              className="text-xs absolute -top-2 right-3  rounded-full text-[#81c336] font-semibold flex items-center justify-center
-                   transition-transform duration-2500 ease-linear scale-75"
+              className="text-sm absolute -top-2.5 right-3  rounded-full text-[#81c336] font-semibold flex items-center justify-center
+                   transition-transform duration-2500 ease-linear scale-150 "
             >
               {isMounted ? itemCount : 0}
             </span>

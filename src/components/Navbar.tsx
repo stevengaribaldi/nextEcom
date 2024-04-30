@@ -54,7 +54,7 @@ const Navbar = ({ user }: NavbarProps) => {
               </div>
               {/* <div className="hidden z-50 -md:ml-15  lg:ml-8 md:block lgr:ml-8 lg:block lg:self-stretch"> */}
               {/* <NavItems /> */}
-              <div className="mr-auto  flex  items-center">
+              <div className="sm:-mr-10 sm:-ml-10 lg:-ml-0 lg:-mr-0 flex  items-center">
                 <div className="hidden md:pr-5 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 md:flex md:flex-1 md:items-center md:justify-end -md:space-x-4">
                   <Link
                     href="/"

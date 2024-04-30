@@ -1,6 +1,6 @@
 export const PRODUCT_CATEGORIES = [
   {
-    label: 'Ui-kit',
+    label: 'UI-kit',
     value: 'single' as const,
     featured: [
       {

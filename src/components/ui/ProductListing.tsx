@@ -43,7 +43,7 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
         >
           <div className="flex flex-col w-full">
             <ImageSlider urls={validUrls} />
-            <h3 className="mt-4 font-medium text-sm text-champagne-b">
+            <h3 className="mt-3 font-medium text-sm text-champagne-b">
               {product.name}
             </h3>
             <p className="mt-1 text-sm text-champagne-b">{label} </p>

@@ -61,7 +61,7 @@ const Page = async ({ params }: PageProps) => {
       <div className="bg-custom-black">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:max-w-lg lg:self-end">
-            <ol className="flex items-center space-x-2">
+            <ol className="flex sm:-mt-5 items-center space-x-2">
               {BREADCRUMBS.map((breadcrumb, i) => (
                 <li key={breadcrumb.href}>
                   <div className="flex items-center text-sm">
@@ -85,17 +85,17 @@ const Page = async ({ params }: PageProps) => {
                 </li>
               ))}
             </ol>
-            <div className="mt-4 text-[#faebd7]">
+            <div className="mt-3 text-[#faebd7]">
               <h1 className=" text-3xl font-bold tracking-tight sm:text-4xl text-champagne-b   ">
                 {product.name}
               </h1>
             </div>
-            <div className="mt-10 mt lg:col-start-2 lg:row-span-2 lg:mt-10 lg:self-center">
-              <div className="aspect-square rounded-lg">
+            <div className="mt-2 self-center lg:col-start-2 lg:row-span-1 lg:mt-10 lg:self-center">
+              <div className="aspect-square w-[340px] sm:w-full justify-center items-center  rounded-lg">
                 <ImageSlider urls={validUrls} />
               </div>
             </div>
-            <section className="mt-6">
+            <section className="mt-3">
               <div className="flex items-center ">
                 <p className="font-medium text-champagne-b ">
                   {formatPrice(product.price)}
@@ -110,10 +110,10 @@ const Page = async ({ params }: PageProps) => {
                   {product.description}
                 </p>
               </div>
-              <div className="mt-6 flex items-center">
+              <div className="mt-6  flex items-center">
                 <Check
                   aria-hidden="true"
-                  className="h-5 w-5 flex-shrink-0 text-lime-300"
+                  className="h-5 w-5  flex-shrink-0 text-lime-300"
                 ></Check>
                 <p className="ml-2 text-sm text-muted-foreground">
                   Instant Delivery
@@ -127,7 +127,7 @@ const Page = async ({ params }: PageProps) => {
                 <AddToCartButton product={product}></AddToCartButton>
               </div>
             </div>
-            <div className="mt-10 text-center">
+            <div className=" mt-5 sm:mt-10 text-center">
               <div className="group inline-flex text-sm text-medium">
                 <Shield
                   //   aria-hidden="true"
@@ -141,7 +141,7 @@ const Page = async ({ params }: PageProps) => {
           </div>
         </div>
       </div>
-      <div className="">
+      <div className="mb-10 -mt-10">
         <ProductReel
           href="/products"
           query={{ category: product.category, limit: 4 }}

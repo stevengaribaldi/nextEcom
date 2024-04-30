@@ -73,7 +73,7 @@ const Navbar = ({ user }: NavbarProps) => {
                        px-8 py-2 rounded-md text-pink-200 bg-custom-black  font-extralight text-lg  transition duration-200 ease-linear inline-flex items-center justify-center space-x-2 gap-2"
                   >
                     {/* <IconShoppingBag /> */}
-                    Product
+                    Products
                   </Link>
                   {/* </div> */}
                 </div>

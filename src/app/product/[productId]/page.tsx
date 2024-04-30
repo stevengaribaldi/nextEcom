@@ -106,7 +106,7 @@ const Page = async ({ params }: PageProps) => {
                 </div>
               </div>
               <div className="mt-1 space-y-6 ">
-                <p className="text-base  text-champagne-b ">
+                <p className="text-base  text-white ">
                   {product.description}
                 </p>
               </div>

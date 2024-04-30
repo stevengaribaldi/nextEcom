@@ -46,7 +46,7 @@ const ProductListing = ({ product, index }: ProductListingProps) => {
             <h3 className="mt-3 font-medium text-sm text-champagne-b">
               {product.name}
             </h3>
-            <p className="mt-1 text-sm text-champagne-b">{label} </p>
+            <p className="mt-1 text-sm  text-[#82796a]">{label} </p>
             <p className="mt-1 font-medium text-sm text-champagne-b">
               {formatPrice(product.price)}
             </p>

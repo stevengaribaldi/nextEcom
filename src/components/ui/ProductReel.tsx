@@ -44,7 +44,7 @@ const ProductReel = (props: ProductReelProps) => {
             </h1>
           ) : null}
           {subtitle ? (
-            <h2 className=" text-[#b1b8b6] text-sm ">{subtitle}</h2>
+            <h2 className=" text-[#b1b8b6]  text-sm ">{subtitle}</h2>
           ) : null}
         </div>
         {href ? (

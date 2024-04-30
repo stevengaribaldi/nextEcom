@@ -66,7 +66,7 @@ export default function Home() {
                         Digital Assets
                       </span>
                     </h1>
-                    <p className="mt-6  max-w-prose text-[#110022] text-2xl">
+                    <p className="mt-6  max-w-prose font-semibold text-[#110022] text-2xl">
                       Yehfedra Digital™{' '}
                     </p>
                     <div className="flex flex-col sm:flow-row gap-4 mt-6 ">

@@ -8,9 +8,9 @@ const Footer = () => {
   const pathsToMinimize = [' /verify-email', '/login', '/create-account'];
 
   return (
-    <footer className="bg-custom-black flex-grow-0">
+    <footer className="bg-custom-black -mt-10 flex-grow-0">
       <MaxWidthWrapper>
-        <div className="border-t mt-10 border-[#6c516c]">
+        <div className="border-t  border-[#6c516c]">
           {pathsToMinimize.includes(pathname) ? null : (
             <div className="pb-8 pt-16">
               <div className="flex justify-center">
@@ -19,7 +19,7 @@ const Footer = () => {
                   alt={''}
                   width={90}
                   height={90}
-                  className="h-12 w-auto "
+                  className="h-12 -mt-10 w-auto "
                 />{' '}
               </div>
             </div>
@@ -27,14 +27,14 @@ const Footer = () => {
 
           {pathsToMinimize.includes(pathname) ? null : (
             <div>
-              <div className="relative flex items-center px-6 py-6 sm:py-8 lg:mt-0">
+              <div className="relative flex  items-center px-6 py-6 sm:py-8 lg:mt-0">
                 <div className="absolute inset-0 overflow-hidden rounded-lg">
                   <div
                     aria-hidden="true"
                     className="absolute bg-custom-black inset-0 bg-gradient-to-br bg-opacity-10"
                   />
                 </div>
-                <div className="text-center relative mx-auto max-w-sm">
+                <div className="text-center -mt-10 relative mx-auto max-w-sm">
                   <h3 className="font-semibold text-amber-50">
                     Become a seller
                   </h3>
@@ -54,7 +54,7 @@ const Footer = () => {
             </div>
           )}
         </div>
-        <div className="py-10 md:flex md:items-center md:justify-between">
+        <div className="py-10 md:flex md:items-center -mt-10 md:justify-between">
           <div className="text-center md:text-left">
             <p className="text-sm text-muted-foreground">
               &copy; {new Date().getFullYear()} All Rights Reserved

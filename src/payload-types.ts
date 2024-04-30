@@ -50,7 +50,16 @@ export interface Product {
   name: string;
   description?: string | null;
   price: number;
-  category: 'single' | 'art' | 'icons';
+  category:
+    | 'ui-kits'
+    | 'ui-kit bundle'
+    | 'bundle'
+    | 'animations'
+    | 'animation bundle'
+    | 'art'
+    | 'art bundle'
+    | 'icons'
+    | 'icon bundle';
   product_files: string | ProductFile;
   approvedForSale?: ('pending' | 'approved' | 'denied') | null;
   priceId?: string | null;

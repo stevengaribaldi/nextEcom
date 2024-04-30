@@ -1,7 +1,7 @@
 export const PRODUCT_CATEGORIES = [
   {
     label: 'UI-kits',
-    value: 'single' as const,
+    value: 'ui-kits' as const,
     featured: [
       {
         name: 'Editor picks',
@@ -22,7 +22,7 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     label: 'UI-kit Bundle',
-    value: 'single' as const,
+    value: 'ui-kit bundle' as const,
     featured: [
       {
         name: 'Editor picks',
@@ -43,7 +43,7 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     label: 'Bundle',
-    value: 'single' as const,
+    value: 'bundle' as const,
     featured: [
       {
         name: 'Editor picks',
@@ -64,7 +64,7 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     label: 'Animations',
-    value: 'single' as const,
+    value: 'animations' as const,
     featured: [
       {
         name: 'Editor picks',
@@ -85,7 +85,7 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     label: 'Animation Bundle',
-    value: 'single' as const,
+    value: 'animation bundle' as const,
     featured: [
       {
         name: 'Editor picks',
@@ -127,7 +127,7 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     label: 'Art Bundle',
-    value: 'art' as const,
+    value: 'art bundle' as const,
     featured: [
       {
         name: 'Editor picks',
@@ -170,7 +170,7 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     label: 'Icon Bundle',
-    value: 'icons' as const,
+    value: 'icon bundle' as const,
     featured: [
       {
         name: 'Fravorite Icon Picks',

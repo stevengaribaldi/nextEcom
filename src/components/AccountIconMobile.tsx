@@ -18,14 +18,13 @@ const AccountIconMobile = ({ className }: { className?: string }) => {
   const handleLeave = () => {
     setHovered(null);
   };
-
   return (
     <div className={className}>
       <Menu setActive={setActive}>
         <MenuItem
           setActive={setActive}
           active={active}
-          icon={<IconUser className="h-4/5 w-4/5 text-pink-200" />}
+          icon={<IconUser className="h-4/5 w-4/5 text-pink-300" />}
           item="Account"
         >
           <div className="text-sm grid grid-cols-3 gap-10 p-4">

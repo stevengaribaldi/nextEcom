@@ -24,15 +24,15 @@ const CartMobile = () => {
 
   const getRightPosition = () => {
     if (itemCount === 0) {
-      return 'calc(0.59rem - 0.21rem)';
+      return 'calc(0.59rem - 0.25rem)';
     } else if (itemCount === 1) {
-      return 'calc(0.64rem - 0.28rem)';
+      return 'calc(0.64rem - 0.23rem)';
     } else if (itemCount <= 9 && itemCount > 1) {
       return 'calc(0.62rem - 0.28rem)';
     } else if (itemCount === 10) {
       return 'calc(0.24rem - 0.07rem)';
     } else if (itemCount === 11) {
-      return 'calc(0.63rem - 0.48rem)';
+      return 'calc(0.63rem - 0.36rem)';
     } else if (itemCount < 20 && itemCount >= 11) {
       return 'calc(0.63rem - 0.46rem)';
     } else if (itemCount >= 20 && itemCount < 100) {
@@ -75,9 +75,9 @@ const CartMobile = () => {
     if (isOpen) document.body.classList.add('overflow-hidden');
     else document.body.classList.remove('overflow-hidden');
   }, [isOpen]);
- const handleClickInside = (event: { stopPropagation: () => void; }) => {
-   event.stopPropagation();
- };
+  const handleClickInside = (event: { stopPropagation: () => void }) => {
+    event.stopPropagation();
+  };
   if (!isOpen)
     return (
       <button
@@ -99,7 +99,7 @@ const CartMobile = () => {
 
             <span
               style={itemCountStyle}
-              className="text-xs absolute -top-2 right-3  rounded-full text-[#81c336] font-bold flex items-center justify-center
+              className="text-xs absolute -top-2 right-3  rounded-full text-[#81c336] font-semibold flex items-center justify-center
                    transition-transform duration-2500 ease-linear scale-75"
             >
               {isMounted ? itemCount : 0}
@@ -134,7 +134,7 @@ const CartMobile = () => {
             </div>
             <Link href="/cart">
               <button className=" no-underline items-center  cursor-pointer justify-center  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
-                <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] text-center items-center justify-center glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear flex flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
+                <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] text-center items-center justify-center glow-on-hover ring-1 ring-[#b4bfa6] ring-opacity-10 bg-[#d3bdd2ca]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear flex flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
                   <span>Proceed to checkout</span>
                   <svg
                     className="animate-pulse text-pink-100 duration-3000"

@@ -22,14 +22,16 @@ const ProductsPage = ({ searchParams }: ProductsPageProps) => {
 
   return (
     <MaxWidthWrapper>
-      <ProductReel
-        title={label ?? 'Browse high-quality assets'}
-        query={{
-          category,
-          limit: 40,
-          sort: sort === 'desc' || sort === 'asc' ? sort : undefined,
-        }}
-      />
+      <div className='mt-6'>
+        <ProductReel
+          title={label ?? 'Browse high-quality assets'}
+          query={{
+            category,
+            limit: 40,
+            sort: sort === 'desc' || sort === 'asc' ? sort : undefined,
+          }}
+        />
+      </div>
     </MaxWidthWrapper>
   );
 };

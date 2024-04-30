@@ -17,7 +17,6 @@ import { useCart } from '@/hooks/use-cart';
 import { ScrollArea, ScrollBar } from './ui/scroll-area';
 import CartItem from './CartItem';
 
-
 const Cart = () => {
   const { items } = useCart();
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -30,29 +29,29 @@ const Cart = () => {
     0,
   );
 
-    const getRightPosition = () => {
-      if (itemCount === 0) {
-        return 'calc(0.59rem + 1.3rem)';
-      } else if (itemCount === 1) {
-        return 'calc(0.64rem + 1.28rem)';
-      } else if (itemCount <= 9 && itemCount > 1) {
-        return 'calc(0.62rem + 1.28rem)';
-      } else if (itemCount === 10) {
-        return 'calc(0.64rem + 1.34rem)';
-      } else if (itemCount === 11) {
-        return 'calc(0.64rem + 1.34rem)';
-      } else if (itemCount < 20 && itemCount >= 11) {
-        return 'calc(0.64rem + 1.26rem)';
-      } else if (itemCount >= 20 && itemCount < 100) {
-        return 'calc(0.64rem + 1.28rem)';
-      } else {
-        return 'calc(0.64rem + 1.28rem)';
-      }
-    };
+  const getRightPosition = () => {
+    if (itemCount === 0) {
+      return 'calc(0.59rem + 1.3rem)';
+    } else if (itemCount === 1) {
+      return 'calc(0.64rem + 1.28rem)';
+    } else if (itemCount <= 9 && itemCount > 1) {
+      return 'calc(0.62rem + 1.28rem)';
+    } else if (itemCount === 10) {
+      return 'calc(0.64rem + 1.34rem)';
+    } else if (itemCount === 11) {
+      return 'calc(0.64rem + 1.34rem)';
+    } else if (itemCount < 20 && itemCount >= 11) {
+      return 'calc(0.64rem + 1.26rem)';
+    } else if (itemCount >= 20 && itemCount < 100) {
+      return 'calc(0.64rem + 1.28rem)';
+    } else {
+      return 'calc(0.64rem + 1.28rem)';
+    }
+  };
 
-    const itemCountStyle = {
-      right: getRightPosition(),
-    };
+  const itemCountStyle = {
+    right: getRightPosition(),
+  };
   const fee: number = itemCount <= 0 ? 0 : 1;
   return (
     <>
@@ -93,7 +92,7 @@ const Cart = () => {
               </div>
             </div>
           </SheetTrigger>
-          <SheetContent className="flex flex-col bg-[#09120e] w-full pr-0 sm:max-w-lg text-[#fad6a5] ">
+          <SheetContent className="flex flex-col bg-[#09120e] w-[400px] sm:w-[340px] pr-0 sm:max-w-lg text-[#fad6a5] ">
             <SheetHeader className="space-y-2.5 items-center pr-6 text-[#fad6a5] ">
               <SheetTitle className="text-[#fad6a5] ">
                 {' '}
@@ -109,9 +108,7 @@ const Cart = () => {
                 <div className="space-y-4 pr-6">
                   <Separator className="bg-[#fad6a5] text-[#fad6a5]" />
                   <div className="space-y-1.5 text-sm">
-                    <div className="flex">
-
-                    </div>
+                    <div className="flex"></div>
                   </div>
                   <div className="space-y-1.5  text-[#fad6a5]text-sm">
                     <div className="flex text-[#fad6a5]">

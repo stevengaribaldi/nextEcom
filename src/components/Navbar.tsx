@@ -8,7 +8,9 @@ import Cart from './Cart';
 import MobileNavbar from './MobilNavbar';
 import UserAccountNav from './UserAccountNav';
 import { User } from '@/payload-types';
-
+import { Product } from '../payload-types';
+import Home from '../app/page';
+import { IconHome, IconShoppingBag } from '@tabler/icons-react';
 interface NavbarProps {
   user: User | null;
 }
@@ -50,8 +52,34 @@ const Navbar = ({ user }: NavbarProps) => {
                   />
                 </Link>
               </div>
-              <div className="hidden z-50 -md:ml-15  lg:ml-8 md:block lgr:ml-8 lg:block lg:self-stretch">
-                <NavItems />
+              {/* <div className="hidden z-50 -md:ml-15  lg:ml-8 md:block lgr:ml-8 lg:block lg:self-stretch"> */}
+              {/* <NavItems /> */}
+              <div className="mr-auto  flex  items-center">
+                <div className="hidden md:pr-5 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 md:flex md:flex-1 md:items-center md:justify-end -md:space-x-4">
+                  <Link
+                    href="/"
+                    className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                  hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
+                       px-8 py-2 rounded-md text-pink-200 bg-custom-black  font-extralight text-lg  transition duration-200 ease-linear inline-flex items-center justify-center space-x-2 gap-2"
+                  >
+                    {/* <IconHome /> */}
+                    Home
+                  </Link>
+ <span
+                      className="h-5 w-0.1 bg-pink-100"
+                      aria-hidden="true"
+                    />
+                  <Link
+                    href="/products"
+                    className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
+                  hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
+                       px-8 py-2 rounded-md text-pink-200 bg-custom-black  font-extralight text-lg  transition duration-200 ease-linear inline-flex items-center justify-center space-x-2 gap-2"
+                  >
+                    {/* <IconShoppingBag /> */}
+                    Product
+                  </Link>
+                  {/* </div> */}
+                </div>
               </div>
               <div className="ml-auto  flex  items-center">
                 <div className="hidden md:pr-5 lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 md:flex md:flex-1 md:items-center md:justify-end -md:space-x-4">
@@ -66,7 +94,10 @@ const Navbar = ({ user }: NavbarProps) => {
                     </Link>
                   )}
                   {user ? null : (
-                    <span className="h-6 w-px bg-pink-100" aria-hidden="true" />
+                    <span
+                      className="h-5 w-0.1 bg-pink-100"
+                      aria-hidden="true"
+                    />
                   )}
                   {user ? (
                     <UserAccountNav user={user} />
@@ -81,12 +112,12 @@ const Navbar = ({ user }: NavbarProps) => {
                     </Link>
                   )}
                   {user ? (
-                    <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                    <span className="h-5 w-px bg-pink-100" aria-hidden="true" />
                   ) : null}
                   {user ? null : (
                     <div className="flex lg:ml-6">
                       <span
-                        className="h-6 w-px bg-gray-300"
+                        className="h-5 w-px bg-pink-100"
                         aria-hidden="true"
                       />
                     </div>

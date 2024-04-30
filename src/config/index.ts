@@ -21,28 +21,25 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
 
-
-
-
-  // {
-  //   label: 'Icons',
-  //   value: 'icons' as const,
-  //   featured: [
-  //     {
-  //       name: 'Fravorite Icon Picks',
-  //       href: `/products?category=icons`,
-  //       imageSrc: '/nav/icons/picks.jpg',
-  //     },
-  //     {
-  //       name: 'New Arrivals',
-  //       href: '/products?category=icons&sort=desc',
-  //       imageSrc: '/nav/icons/new.jpg',
-  //     },
-  //     {
-  //       name: 'Bestseller Icons',
-  //       href: '/products?category=icons',
-  //       imageSrc: '/nav/icons/bestsellers.jpg',
-  //     },
-  //   ],
-  // },
+  {
+    label: 'Icons',
+    value: 'icons' as const,
+    featured: [
+      {
+        name: 'Fravorite Icon Picks',
+        href: `/products?category=icons`,
+        imageSrc: '/nav/icons/picks.jpg',
+      },
+      {
+        name: 'New Arrivals',
+        href: '/products?category=icons&sort=desc',
+        imageSrc: '/nav/icons/new.jpg',
+      },
+      {
+        name: 'Bestseller Icons',
+        href: '/products?category=icons',
+        imageSrc: '/nav/icons/bestsellers.jpg',
+      },
+    ],
+  },
 ];

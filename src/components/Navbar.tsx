@@ -65,10 +65,7 @@ const Navbar = ({ user }: NavbarProps) => {
                     {/* <IconHome /> */}
                     Home
                   </Link>
- <span
-                      className="h-5 w-0.1 bg-pink-100"
-                      aria-hidden="true"
-                    />
+                  <span className="h-5 w-0.1 bg-pink-100" aria-hidden="true" />
                   <Link
                     href="/products"
                     className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
@@ -112,12 +109,12 @@ const Navbar = ({ user }: NavbarProps) => {
                     </Link>
                   )}
                   {user ? (
-                    <span className="h-5 w-px bg-pink-100" aria-hidden="true" />
+                    <span className="h-5 w-0.1 bg-pink-100" aria-hidden="true" />
                   ) : null}
                   {user ? null : (
                     <div className="flex lg:ml-6">
                       <span
-                        className="h-5 w-px bg-pink-100"
+                        className="h-5 w-0.1 bg-pink-100"
                         aria-hidden="true"
                       />
                     </div>

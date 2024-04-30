@@ -86,12 +86,12 @@ const Page = async ({ params }: PageProps) => {
               ))}
             </ol>
             <div className="mt-3 text-[#faebd7]">
-              <h1 className=" text-3xl font-bold tracking-tight sm:text-4xl text-champagne-b   ">
+              <h1 className=" text-2xl font-bold tracking-tight sm:text-4xl text-champagne-b   ">
                 {product.name}
               </h1>
             </div>
-            <div className="mt-2 self-center lg:col-start-2 lg:row-span-1 lg:mt-10 lg:self-center">
-              <div className="aspect-square w-[340px] sm:w-full justify-center items-center  rounded-lg">
+            <div className="mt-2 lg:col-start-2 lg:row-span-1 lg:mt-10 lg:self-center">
+              <div className="aspect-square  sm:w-full justify-center items-center  rounded-lg">
                 <ImageSlider urls={validUrls} />
               </div>
             </div>

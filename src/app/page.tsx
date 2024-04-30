@@ -66,7 +66,7 @@ export default function Home() {
                         Digital Assets
                       </span>
                     </h1>
-                    <p className="mt-6  max-w-prose text-[#a67a5b] text-lg">
+                    <p className="mt-6  max-w-prose text-[#110022] text-2xl">
                       Yehfedra Digital™{' '}
                     </p>
                     <div className="flex flex-col sm:flow-row gap-4 mt-6 ">
@@ -88,7 +88,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className='-mt-28'>
+                <div className="-mt-28">
                   <ProductReel
                     query={{ sort: 'desc', limit: 4 }}
                     title="New Arrivals"
@@ -116,7 +116,7 @@ export default function Home() {
                 </div>
                 <div className="mt-6 md:ml-4 md:mt-0 lg:ml-0 lg:mt-6">
                   <h3 className="text-base  text-[#a8ac92]">{perk.name}</h3>
-                  <p className="mt-3 text-sm  text-[#769484]">
+                  <p className="mt-3 text-sm  text-[#8aa79d]">
                     {perk.description}
                   </p>
                 </div>

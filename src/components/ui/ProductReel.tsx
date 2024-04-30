@@ -37,14 +37,14 @@ const ProductReel = (props: ProductReelProps) => {
   return (
     <section className="py-12">
       <div className=" flex md:items-center md:justify-between mb-4">
-        <div className=" flex-1 max-w-2xl -ml-4 md:ml-1  px-4 lg:max-w-4xl sm:text-base lg:px-0">
+        <div className=" flex-1 max-w-2xl  -ml-4 md:ml-1  px-4 lg:max-w-4xl sm:text-base lg:px-0">
           {title ? (
-            <h1 className="text-lg m font-bold text-[#8fb8d3] sm:text-xl md:text-3xl">
+            <h1 className="text-[17px] mt-2 font-semibold text-[#effaf7] sm:text-xl md:text-3xl">
               {title}
             </h1>
           ) : null}
           {subtitle ? (
-            <h2 className=" text-[#bdeade] text-sm ">{subtitle}</h2>
+            <h2 className=" text-[#b1b8b6] text-sm ">{subtitle}</h2>
           ) : null}
         </div>
         {href ? (
@@ -85,7 +85,7 @@ const ProductReel = (props: ProductReelProps) => {
       </div>
       <div className="relative">
         <div className="mt-3 flex items-center w-full">
-          <div className=" w-full  grid grid-cols-3 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8">
+          <div className=" w-full  grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-10 lg:gap-x-8">
             {map.map((product, i) => (
               <ProductListing
                 key={`product-${i}`}

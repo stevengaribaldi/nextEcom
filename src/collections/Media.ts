@@ -62,11 +62,14 @@ export const Media: CollectionConfig = {
     ],
     //CHANGE THIS TO ALLOW GIFS OR THREEJS FILES
     mimeTypes: [
-      'image/*, image/jpeg',
+      'image/*',
+      'image/jpeg',
       'image/png',
       'image/gif',
+      'image/webp',
       'application/octet-stream',
       'application/postscript',
+      'application/riv',
     ],
   },
   fields: [

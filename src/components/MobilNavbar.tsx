@@ -38,12 +38,12 @@ const MobileNavbar = ({ user }: NavbarProps) => {
         }
       : {
           name: 'Account',
-          link: '/login', // Login page for non-logged users
+          link: '/login', 
           icon: <IconUser className="h-4 w-4 text-white dark:text-white" />,
         },
     {
       name: 'Cart',
-      link: <CartMobile />,
+      link: <CartMobile user={user} />,
     },
   ];
 

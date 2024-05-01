@@ -3,14 +3,19 @@ import React, { useEffect, useState, useRef } from 'react';
 
 import Image from 'next/image';
 
-import { LogInIcon, UserPlus } from 'lucide-react';
+import { Home, LogInIcon, UserPlus } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ScrollArea } from './ui/scroll-area';
 import { useCart } from '@/hooks/use-cart';
 import CartItem from './CartItem';
+import { User } from '@/payload-types';
 
-const CartMobile = () => {
+interface NavbarProps {
+  user: User | null;
+}
+
+const CartMobile = ({ user }: NavbarProps) => {
   const { items } = useCart();
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -163,36 +168,52 @@ const CartMobile = () => {
                 ))}
               </ScrollArea>
             </div>
-
-            <div className="space-y-6 border-t   border-[#fad6a5] px-4 py-6">
+            {user ? (
               <div className="flow-root rounded-2xl ">
                 <Link
                   onClick={() => closeOnCurrent('/login')}
-                  href="/login"
+                  href="/"
                   className="-m-2 block p-2 rounded-xl hover:text-[#09120e] font-medium hover:bg-slate-50 text-amber-100"
                 >
                   <div className="flex items-center justify-start gap-2 ">
-                    <LogInIcon />
-                    <div className="flex  space-y-0.5 leading-none">Log In</div>
+                    <Home />
+                    <div className="flex  space-y-0.5 leading-none">home</div>
                   </div>
                 </Link>
               </div>
-              <div className="flow-root">
-                <Link
-                  onClick={() => closeOnCurrent('/create-account')}
-                  href="/create-account"
-                  className="-m-2 block p-2 rounded-xl hover:text-[#09120e] font-medium hover:bg-slate-50 text-amber-100"
-                >
-                  <div className="flex items-center justify-start gap-2 ">
-                    <UserPlus />
-                    <div className="flex  space-y-0.5 leading-none">
-                      {' '}
-                      Create Account
+            ) : (
+              <div className="space-y-6  border-t   border-[#fad6a5] px-4 py-6">
+                <div className="flow-root rounded-2xl ">
+                  <Link
+                    onClick={() => closeOnCurrent('/login')}
+                    href="/login"
+                    className="-m-2 block p-2 rounded-xl hover:text-[#09120e] font-medium hover:bg-slate-50 text-amber-100"
+                  >
+                    <div className="flex items-center justify-start gap-2 ">
+                      <LogInIcon />
+                      <div className="flex  space-y-0.5 leading-none">
+                        Log In
+                      </div>
                     </div>
-                  </div>{' '}
-                </Link>
+                  </Link>
+                </div>
+                <div className="flow-root">
+                  <Link
+                    onClick={() => closeOnCurrent('/create-account')}
+                    href="/create-account"
+                    className="-m-2 block p-2 rounded-xl hover:text-[#09120e] font-medium hover:bg-slate-50 text-amber-100"
+                  >
+                    <div className="flex items-center justify-start gap-2 ">
+                      <UserPlus />
+                      <div className="flex  space-y-0.5 leading-none">
+                        {' '}
+                        Create Account
+                      </div>
+                    </div>{' '}
+                  </Link>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

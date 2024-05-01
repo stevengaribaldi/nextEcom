@@ -48,11 +48,11 @@ const ProductReel = (props: ProductReelProps) => {
           ) : null}
         </div>
         {href ? (
-          <div className="-mr-7">
+          <div className="mr-0">
             <Link
               href={href}
               className="mt-6  bg-custom-black no-underline group cursor-pointer  items-center relative w-full rounded-full p-px text-lx font-semibold leading-9  text-gray-300 hover:text-white inline-block"
-              style={{ width: 'auto', marginRight: '20px' }}
+              style={{ width: 'auto', marginRight: '0px' }}
             >
               <span className="absolute inset-0 overflow-hidden rounded-full flex justify-center">
                 <span

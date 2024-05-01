@@ -29,7 +29,7 @@ export function constructMetadata({
   title = 'Yehfedra - The go to for verified digital goods.',
   description = ' Yehfedra is an open-source marketplace The go to for verified digital goods.',
   image = '/thumbnail.png',
-  icons = '/favicon.ico',
+  icons = '/public/favicon.ico',
   noIndex = false,
 }: {
   title?: string;

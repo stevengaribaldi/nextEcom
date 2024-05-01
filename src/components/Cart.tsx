@@ -105,65 +105,59 @@ const Cart = () => {
                   Cart Items
                 </div>
 
-                <div className="space-y-4 pr-6">
-                  <Separator className="bg-[#fad6a5] text-[#fad6a5]" />
-                  <div className="space-y-1.5 text-sm">
-                    <div className="flex"></div>
-                  </div>
-                  <div className="space-y-1.5  text-[#fad6a5]text-sm">
-                    <div className="flex text-[#fad6a5]">
-                      <span className="flex-1 text-[#fad6a5]">
-                        Transaction Fee
-                      </span>
-                      <span>{formatPrice(fee)}</span>
-                    </div>
-                    <div className="flex text-[#fad6a5]">
-                      <span className="flex-1 text-[#fad6a5]">Subtotal</span>
-                      <span>{formatPrice(cartTotal)}</span>
-                    </div>
-                    <div className="flex text-[#fad6a5]">
-                      <span className="flex-1 text-[#fad6a5] ">Total</span>
-                      <span>{formatPrice(cartTotal + fee)}</span>
-                    </div>
-                  </div>
-                  <SheetFooter>
-                    <div></div>
-                    <SheetTrigger
-                      asChild
-                      className="w-full items-center flex justify-center"
-                    >
-                      <Link href="/cart">
-                        <button className=" no-underline items-center  cursor-pointer justify-center  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
-                          <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] text-center items-center justify-center glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear flex flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
-                            <span>Proceed to checkout</span>
-                            <svg
-                              className="animate-pulse text-pink-100 duration-3000"
-                              fill="none"
-                              height="18"
-                              viewBox="0 0 10 10"
-                              width="18"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M10.75 8.75L14.25 12L10.75 15.25"
-                                stroke="currentColor"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="1.5"
-                              />
-                            </svg>
-                          </div>
-                          <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r  transition-opacity duration-500 group-hover:opacity-30" />
-                        </button>
-                      </Link>
-                    </SheetTrigger>
-                  </SheetFooter>
-                  <ScrollArea>
-                    {items.map(({ product }) => (
-                      <CartItem product={product} key={product.id} />
-                    ))}
-                  </ScrollArea>
+                {/* <div className=" pr-6"> */}
+                <Separator className="bg-[#fad6a5] text-[#fad6a5]" />
+                <div className="space-y-1.5 text-sm">
+                  <div className="flex"></div>
                 </div>
+                <div className="space-y-1.5 pr-6 text-[#fad6a5]text-sm">
+                  <div className="flex  text-[#fad6a5]">
+                    <span className="flex-1 text-[#fad6a5]">
+                      Transaction Fee
+                    </span>
+                    <span>{formatPrice(fee)}</span>
+                  </div>
+                  <div className="flex text-[#fad6a5]">
+                    <span className="flex-1 text-[#fad6a5]">Subtotal</span>
+                    <span>{formatPrice(cartTotal)}</span>
+                  </div>
+                  <div className="flex text-[#fad6a5]">
+                    <span className="flex-1 text-[#fad6a5] ">Total</span>
+                    <span>{formatPrice(cartTotal + fee)}</span>
+                  </div>
+                </div>
+
+                <Link href="/cart">
+                  <button className=" no-underline items-center  pr-6  cursor-pointer justify-center  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
+                    <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] text-center items-center justify-center glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear flex flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
+                      <span>Proceed to checkout</span>
+                      <svg
+                        className="animate-pulse text-pink-100 duration-3000"
+                        fill="none"
+                        height="18"
+                        viewBox="0 0 10 10"
+                        width="18"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.75 8.75L14.25 12L10.75 15.25"
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1.5"
+                        />
+                      </svg>
+                    </div>
+                    <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r  transition-opacity duration-500 group-hover:opacity-30" />
+                  </button>
+                </Link>
+
+                <ScrollArea>
+                  {items.map(({ product }) => (
+                    <CartItem product={product} key={product.id} />
+                  ))}
+                </ScrollArea>
+                {/* </div> */}
               </>
             ) : (
               <div className="flex h-full flex-col items-center justify-center space-y-1">

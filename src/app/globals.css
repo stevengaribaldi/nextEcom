@@ -88,10 +88,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #f2f6f9  inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #c6c9d8  inset !important;
   caret-color: white !important;
-  color: rgb(255, 255, 255) ;
-
+  color: white !important;
    animation-name: onAutoFillStart;
   animation-duration: 1s;
 }
@@ -100,7 +99,7 @@ input:-moz-ui-autofill,
 input:-moz-ui-autofill:hover,
 input:-moz-ui-autofill:focus,
 input:-moz-ui-autofill:active {
-  background: #36454f !important;
+  background: #1d4a69 !important;
   color: white !important;
 
    animation-name: onAutoFillStart;
@@ -111,7 +110,9 @@ input:-moz-ui-autofill:active {
 input:not(:-webkit-autofill) {
   animation-name: onAutoFillCancel;
   animation-duration: 1s;
-  color: rgb(255, 255, 255);
+    caret-color: aqua !important;
+
+  color: rgb(255, 255, 255) !important;
     background: #36454f !important;
 }
 

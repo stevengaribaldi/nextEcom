@@ -63,7 +63,7 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
-    label: 'Animations',
+    label: 'UI Animations',
     value: 'animations' as const,
     featured: [
       {
@@ -84,7 +84,7 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
-    label: 'Animation Bundle',
+    label: 'UI Animation Bundle',
     value: 'animation bundle' as const,
     featured: [
       {
@@ -105,7 +105,7 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
-    label: 'Art',
+    label: 'Art Animation',
     value: 'art' as const,
     featured: [
       {
@@ -126,7 +126,7 @@ export const PRODUCT_CATEGORIES = [
     ],
   },
   {
-    label: 'Art Bundle',
+    label: 'Art Animation Bundle',
     value: 'art bundle' as const,
     featured: [
       {

@@ -22,7 +22,7 @@ const ProductsPage = ({ searchParams }: ProductsPageProps) => {
 
   return (
     <MaxWidthWrapper>
-      <div className='mt-6'>
+      <div className='mt-2'>
         <ProductReel
           title={label ?? 'Browse high-quality assets'}
           query={{

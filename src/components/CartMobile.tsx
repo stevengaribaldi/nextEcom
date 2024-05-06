@@ -29,19 +29,19 @@ const CartMobile = ({ user }: NavbarProps) => {
 
   const getRightPosition = () => {
     if (itemCount === 0) {
-      return 'calc(0.59rem - 0.25rem)';
+      return 'calc(0.59rem - 0.12rem)';
     } else if (itemCount === 1) {
-      return 'calc(0.64rem - 0.23rem)';
+      return 'calc(0.64rem - 0.16rem)';
     } else if (itemCount <= 9 && itemCount > 1) {
-      return 'calc(0.62rem - 0.28rem)';
+      return 'calc(0.62rem - 0.19rem)';
     } else if (itemCount === 10) {
-      return 'calc(0.24rem - 0.07rem)';
+      return 'calc(0.24rem - 0.00rem)';
     } else if (itemCount === 11) {
-      return 'calc(0.63rem - 0.36rem)';
+      return 'calc(0.63rem - 0.411rem)';
     } else if (itemCount < 20 && itemCount >= 11) {
-      return 'calc(0.63rem - 0.46rem)';
+      return 'calc(0.63rem - 0.37rem)';
     } else if (itemCount >= 20 && itemCount < 100) {
-      return 'calc(0.63rem - 0.49rem) ';
+      return 'calc(0.63rem - 0.44rem) ';
     } else {
       return 'calc(0.59rem - 0.6rem)';
     }
@@ -88,7 +88,7 @@ const CartMobile = ({ user }: NavbarProps) => {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="lg:hidden relative -m-3 -mt-2.5 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+        className="lg:hidden relative -m-3 -mt-0.5 -mb-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
       >
         <div className="relative flex transform   text-pink-200  ">
           <div>
@@ -96,15 +96,15 @@ const CartMobile = ({ user }: NavbarProps) => {
               <Image
                 src="/cart.svg"
                 alt=""
-                width={22}
+                width={32}
                 height={20}
-                className="mb-1 w-6"
+                className=" mb-1.5 -mt-3 -top-1 w-18"
               />
             </div>
 
             <span
               style={itemCountStyle}
-              className="text-sm absolute -top-2.5 right-3  rounded-full text-[#81c336] font-semibold flex items-center justify-center
+              className="text-base absolute -top-[20px]   rounded-full text-[#81c336] font-normal flex items-center justify-center
                    transition-transform duration-2500 ease-linear scale-150 "
             >
               {isMounted ? itemCount : 0}

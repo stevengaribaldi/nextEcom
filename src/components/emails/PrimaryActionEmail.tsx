@@ -31,12 +31,12 @@ export const EmailTemplate = ({
       <Preview>The marketplace for high-quality digital assets.</Preview>
       <Body style={main}>
         <Container style={container}>
+
           {/* <Img
             src={`${process.env.NEXT_PUBLIC_SERVER_URL}/8wheel.png`}
             width="150"
             height="150"
             alt="8wheel logo"
-            style={logo}
           /> */}
           <Text style={paragraph}>Hi there,</Text>
           <Text style={paragraph}>

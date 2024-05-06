@@ -1,5 +1,4 @@
 import express from 'express';
-import rateLimit from 'express-rate-limit';
 import { getPayloadClient } from './get-payload';
 import { nextApp, nextHandler } from './next-utils';
 import * as trpcExpress from '@trpc/server/adapters/express';

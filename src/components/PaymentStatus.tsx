@@ -3,6 +3,7 @@
 import { trpc } from '@/trpc/client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useCart } from '@/hooks/use-cart';
 
 interface PaymentStatusProps {
   orderEmail: string;
@@ -16,14 +17,16 @@ const PaymentStatus = ({ orderEmail, orderId, isPaid }: PaymentStatusProps) => {
   const { data } = trpc.payment.pollOrderStatus.useQuery(
     { orderId },
     {
-      enabled: isPaid === false,
+      enabled: !isPaid,
       refetchInterval: (data) => (data?.isPaid ? false : 1000),
     },
   );
+  const { clearCart } = useCart();
 
   useEffect(() => {
     if (data?.isPaid) router.refresh();
-  }, [data?.isPaid, router]);
+    clearCart();
+  }, [data?.isPaid, router, clearCart]);
 
   return (
     <div className="mt-16 grid grid-col-2 gapx-x4 text-sm text-orange-50 ">

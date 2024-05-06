@@ -220,7 +220,7 @@ const Page = () => {
                 disabled={itemsCount === 0 || isLoading || !isMounted}
                 onClick={() => createCheckoutSession({ productIds })}
                 className={cn(
-                  'relative group/btn w-full justify-center items-center  rounded-md h-10 font-medium  ]',
+                  'relative flex  group/btn w-full justify-center  items-center  rounded-md h-10 font-medium  ]',
                   itemsCount > 0 && isMounted
                     ? 'shadow-[0_6px_20px_rgba(209,192,208,50%)] glow-on-hover ring-1 ring-[#d5e2c4] ring-opacity-10 bg-[#d1c0d0a0] hover:bg-[#d1c0d0a0] text-white px-10 py-2 rounded-md font-normal transition duration-200 ease-linear lg:flex lg:flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-lg  hover:ring-0'
                     : null,
@@ -233,7 +233,7 @@ const Page = () => {
                     alt={''}
                     width={60}
                     height={60}
-                    className="animate-spin mt-1 text-muted-foreground"
+                    className="animate-spin -ml-10"
                   />
                 ) : null}
                 {/* // '  hover:shadow-[0_6px_20px_rgba(209,192,208,30%)] hover:-translate-y-0.3 bg-slate-950 bg-gradient-to-r from-slate-800/0 via-slate-800/90  hover:via-stone-800/90 to-slate-800/0 transition-opacity duration-500 group-hover:opacity-40   hover:ring-2 hover:ring-opacity-30 hover:ring-slate-800' */}
@@ -242,7 +242,7 @@ const Page = () => {
                   words="Checkout"
                   textColor="#fae8ff"
                   isValid={isMounted}
-                  className="font-bold justify-center items-center -mt-1 text-lg"
+                  className="font-bold justify-center self-center items-center -mt-1 text-lg"
                 />
                 {/* {itemsCount > 0 && isMounted ? <BottomGradient /> : null} */}
               </button>

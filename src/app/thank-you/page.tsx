@@ -165,3 +165,4 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
 };
 
 export default ThankyouPage;
+

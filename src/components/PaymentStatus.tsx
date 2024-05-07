@@ -24,7 +24,8 @@ const PaymentStatus = ({ orderEmail, orderId, isPaid }: PaymentStatusProps) => {
   const { clearCart } = useCart();
 
   useEffect(() => {
-    if (data?.isPaid) router.refresh();
+    if (data?.isPaid)
+      router.refresh();
     clearCart();
   }, [data?.isPaid, router, clearCart]);
 

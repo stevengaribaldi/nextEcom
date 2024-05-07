@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { IconUser } from '@tabler/icons-react';
+
 import { useAuth } from '@/hooks/use-auth';
 
 import { HoveredLink, Menu, MenuItem } from './ui/navbar-menuMobile';
@@ -24,7 +25,7 @@ const AccountIconMobile = ({ className }: { className?: string }) => {
         <MenuItem
           setActive={setActive}
           active={active}
-          icon={<IconUser className="h-4/5 w-4/5 text-pink-300" />}
+          icon={<IconUser className="h-6 w-6  text-pink-300" />}
           item="Account"
         >
           <div className="text-sm grid grid-cols-3 gap-10 p-4">

@@ -1,8 +1,10 @@
 import { Product } from '@/payload-types';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
+import { v4 as uuidv4 } from 'uuid';
 
 export type CartItem = {
+  id: string;
   product: Product;
 };
 
@@ -19,11 +21,11 @@ export const useCart = create<CartState>()(
       items: [],
       addItem: (product) =>
         set((state) => ({
-          items: [...state.items, { product }],
+          items: [...state.items, { id: uuidv4(), product }],
         })),
-      removeItem: (id) =>
+      removeItem: (cartItemId) =>
         set((state) => ({
-          items: state.items.filter((item) => item.product.id !== id),
+          items: state.items.filter((item) => item.id !== cartItemId),
         })),
       clearCart: () => set({ items: [] }),
     }),
@@ -33,5 +35,3 @@ export const useCart = create<CartState>()(
     },
   ),
 );
-
-

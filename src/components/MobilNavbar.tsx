@@ -20,17 +20,17 @@ const MobileNavbar = ({ user }: NavbarProps) => {
     {
       name: 'Home',
       link: '/',
-      icon: <IconHome className="h-4 w-4 text-white dark:text-white" />,
+      icon: <IconHome className="h-5 w-5 text-white dark:text-white" />,
     },
     {
       name: 'Products',
       link: '/products',
-      icon: <IconShoppingBag className="h-4 w-4 text-white dark:text-white" />,
+      icon: <IconShoppingBag className="h-5 w-5 text-white dark:text-white" />,
     },
     {
       name: 'Sell',
       link: '/sell',
-      icon: <IconTag className="h-4 w-4 text-white dark:text-white" />,
+      icon: <IconTag className="h-5 w-5 text-white dark:text-white" />,
     },
     user
       ? {
@@ -39,7 +39,7 @@ const MobileNavbar = ({ user }: NavbarProps) => {
       : {
           name: 'Account',
           link: '/login',
-          icon: <IconUser className="h-4 w-4 text-white dark:text-white" />,
+          icon: <IconUser className="h-5 w-5 text-white dark:text-white" />,
         },
     {
       name: 'Cart',

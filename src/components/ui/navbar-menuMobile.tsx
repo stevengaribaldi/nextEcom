@@ -28,7 +28,7 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item || '')} className="relative">
+    <div onMouseEnter={() => setActive(item || '')} className="flex">
       {icon ? (
         <motion.div
           transition={{ duration: 0.3 }}

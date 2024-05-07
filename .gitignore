@@ -40,3 +40,7 @@ next-env.d.ts
 
 #media files
 src/media/
+
+# secert testing code
+/secerttestcode.ts
+secerttestcode.ts

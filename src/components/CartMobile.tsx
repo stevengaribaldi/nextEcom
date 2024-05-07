@@ -88,7 +88,7 @@ const CartMobile = ({ user }: NavbarProps) => {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="lg:hidden relative -m-3 -mt-0.5 -mb-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+        className="lg:hidden relative -m-3.5 -mt-4 -mb-4 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
       >
         <div className="relative flex transform   text-pink-200  ">
           <div>
@@ -98,13 +98,13 @@ const CartMobile = ({ user }: NavbarProps) => {
                 alt=""
                 width={32}
                 height={20}
-                className=" mb-1.5 -mt-3 -top-1 w-18"
+                className=" mb-2  mt-1 w-18"
               />
             </div>
 
             <span
               style={itemCountStyle}
-              className="text-base absolute -top-[20px]   rounded-full text-[#81c336] font-normal flex items-center justify-center
+              className="text-base absolute -top-[6.5px]   rounded-full text-[#81c336] font-normal flex items-center justify-center
                    transition-transform duration-2500 ease-linear scale-150 "
             >
               {isMounted ? itemCount : 0}

@@ -19,14 +19,12 @@ const UserAccountNav = ({ user }: { user: User }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { logOut } = useAuth();
-  
+
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger
         asChild
-        className="overflow-visible "
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
+
       >
         <div
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10

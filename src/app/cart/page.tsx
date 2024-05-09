@@ -79,7 +79,7 @@ const Page = () => {
               })}
             >
               {isMounted &&
-                items.map(({ product }) => {
+                items.map(({ product, id }) => {
                   const label = PRODUCT_CATEGORIES.find(
                     (c) => c.value === product.category,
                   )?.label;
@@ -136,7 +136,7 @@ const Page = () => {
                           <div className="mt-3 text-sm px-1 text-muted-foreground">
                             <div className="absolute right-0 top-0">
                               <button
-                                onClick={() => removeItem(product.id)}
+                                onClick={() => removeItem(id)}
                                 className="flex items-center sm:justify-end bg-[#3c0006] hover:text-gray-600   justify-end rounded text-xs font-medium px-2 py-1 "
                               >
                                 <X className="w-3.5 h-3.5" />

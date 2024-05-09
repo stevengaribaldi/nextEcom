@@ -11,7 +11,7 @@ export type CartItem = {
 type CartState = {
   items: CartItem[];
   addItem: (product: Product) => void;
-  removeItem: (productId: string) => void;
+  removeItem: (id: string) => void;
   clearCart: () => void;
 };
 
@@ -23,10 +23,14 @@ export const useCart = create<CartState>()(
         set((state) => ({
           items: [...state.items, { id: uuidv4(), product }],
         })),
-      removeItem: (cartItemId) =>
-        set((state) => ({
-          items: state.items.filter((item) => item.id !== cartItemId),
-        })),
+      removeItem: (cartItemId) => {
+        set((state) => {
+          const newItems = state.items.filter((item) => {
+            return item.id !== cartItemId;
+          });
+          return { items: newItems };
+        });
+      },
       clearCart: () => set({ items: [] }),
     }),
     {
@@ -35,3 +39,4 @@ export const useCart = create<CartState>()(
     },
   ),
 );
+

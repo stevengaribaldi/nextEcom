@@ -8,7 +8,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ScrollArea } from './ui/scroll-area';
 import { useCart } from '@/hooks/use-cart';
+import { Separator } from './ui/separator';
+
 import CartItem from './CartItem';
+import { formatPrice } from '@/lib/utils';
+
 import { User } from '@/payload-types';
 
 interface NavbarProps {
@@ -52,6 +56,11 @@ const CartMobile = ({ user }: NavbarProps) => {
     transform: isOpen ? 'scale(1.0)' : 'scale(0.75)',
     transition: 'transform 250ms ease-in-out',
   };
+  const cartTotal = items.reduce(
+    (total, { product }) => total + product.price,
+    0,
+  );
+  const fee: number = itemCount <= 0 ? 0 : 1;
 
   useEffect(() => {
     setIsOpen(false);
@@ -137,37 +146,128 @@ const CartMobile = ({ user }: NavbarProps) => {
                 className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
               ></button>
             </div>
-            <Link href="/cart">
-              <button className=" no-underline items-center  cursor-pointer justify-center  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
-                <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] text-center items-center justify-center glow-on-hover ring-1 ring-[#b4bfa6] ring-opacity-10 bg-[#d3bdd2ca]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear flex flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
-                  <span>Proceed to checkout</span>
-                  <svg
-                    className="animate-pulse text-pink-100 duration-3000"
-                    fill="none"
-                    height="18"
-                    viewBox="0 0 10 10"
-                    width="18"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10.75 8.75L14.25 12L10.75 15.25"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
-                </div>
-                <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r  transition-opacity duration-500 group-hover:opacity-30" />
-              </button>
-            </Link>
-            <div className="mt-2 mr-8">
-              <ScrollArea>
-                {items.map(({ product }) => (
-                  <CartItem product={product} key={product.id} />
-                ))}
-              </ScrollArea>
+
+            {itemCount > 0 ? (
+              <Link href="/cart">
+                <button className=" no-underline items-center  cursor-pointer justify-center  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
+                  <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] text-center items-center justify-center glow-on-hover ring-1 ring-[#b4bfa6] ring-opacity-10 bg-[#d3bdd2ca]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear flex flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
+                    <span>Proceed to checkout</span>
+                    <svg
+                      className="animate-pulse text-pink-100 duration-3000"
+                      fill="none"
+                      height="18"
+                      viewBox="0 0 10 10"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.75 8.75L14.25 12L10.75 15.25"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  </div>
+                  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r  transition-opacity duration-500 group-hover:opacity-30" />
+                </button>
+              </Link>
+            ) : (
+              <Link href="/products">
+                <button className=" no-underline items-center  cursor-pointer justify-center  relative w-full rounded-full p-px text-lx font-semibold leading-9 text-white hover:text-sky-100 inline-block">
+                  <div className="shadow-[0_6px_20px_rgba(209,192,208,50%)] text-center items-center justify-center glow-on-hover ring-1 ring-[#b4bfa6] ring-opacity-10 bg-[#d3bdd2ca]  py-0.5  hover:bg-[#d1c0d0a0]  text-white  rounded-md font-normal transition duration-200 ease-linear flex flex-1  hover:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_0px_1px_0px_var(--zinc-800)_inset]  text-xl  hover:ring-0">
+                    <span>Browser Products</span>
+                    <svg
+                      className="animate-pulse text-pink-100 duration-3000"
+                      fill="none"
+                      height="18"
+                      viewBox="0 0 10 10"
+                      width="18"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.75 8.75L14.25 12L10.75 15.25"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                      />
+                    </svg>
+                  </div>
+                  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r  transition-opacity duration-500 group-hover:opacity-30" />
+                </button>
+              </Link>
+            )}
+
+            <div className="space-y-2.5 items-center pr-6 text-[#fad6a5] ">
+              <div className="text-[#fad6a5] ">
+                {' '}
+                Cart({isMounted ? itemCount : 0})
+              </div>
             </div>
+            {itemCount > 0 ? (
+              <>
+                {/* <div className="flex  text-[#fad6a5] w-full flex-col pr-6">
+                  Cart Items
+                </div> */}
+
+                {/* <div className=" pr-6"> */}
+                <Separator className="bg-[#fad6a5] text-[#fad6a5]" />
+                <div className=" text-sm">
+                  <div className="flex"></div>
+                </div>
+                <div className=" text-[#fad6a5]text-sm">
+                  <div className="flex  text-[#fad6a5]">
+                    <span className="flex-1 text-[#fad6a5]">
+                      Processing Fee
+                    </span>
+                    <span className="pr-0.5">{formatPrice(fee)}</span>
+                  </div>
+                  <div className="flex text-[#fad6a5]">
+                    <span className="flex-1 text-[#fad6a5]">Subtotal</span>
+                    <span className="pr-0.5">{formatPrice(cartTotal)}</span>
+                  </div>
+                  <div className="flex text-[#fad6a5]">
+                    <span className="flex-1 text-[#fad6a5] ">Total</span>
+                    <span className="pr-0.5">{formatPrice(cartTotal + fee)}</span>
+                  </div>
+                </div>
+                <div className="mt-2 mr-1">
+                  <ScrollArea>
+                    {items.map(({ product, id }) => (
+                      <CartItem
+                        product={product}
+                        key={product.id}
+                        cartItemId={id}
+                      />
+                    ))}
+                  </ScrollArea>
+                </div>
+              </>
+            ) : (
+              <div className="flex h-full flex-col items-center justify-center space-y-1">
+                {/* <div
+                  // aria-hidden="true"
+                  className="flex content-center w-full flex-col items-center justify-center"
+                > */}
+                <div className="mt-[-400px] relative  text-muted-foreground justify-center content-center inset-0 flex-col flex h-full bg-slate-950 rounded-lg mb-1 ">
+                  <h1 className=" items-center justify-center px-1 flex-row  text-[#fad6a5] rounded-md text-2xl">
+                    Your Cart is empty.
+                    <h2 className=" items-center justify-center px-1  text-[#fad6a5] rounded-md  flex-row mt-2 text-sm">
+                      Check your Saved for later items below or{' '}
+                      <Link
+                        href="/products"
+                        className="text-blue-500  hover:text-blue-600"
+                      >
+                        {' '}
+                        continue shopping.
+                      </Link>
+                    </h2>
+                  </h1>
+                  {/* </div> */}
+                </div>
+              </div>
+            )}
             {user ? (
               <div className="flow-root rounded-2xl ">
                 <Link

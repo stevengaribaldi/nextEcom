@@ -114,7 +114,7 @@ const Cart = () => {
                 <div className="space-y-1.5 pr-6 text-[#fad6a5]text-sm">
                   <div className="flex  text-[#fad6a5]">
                     <span className="flex-1 text-[#fad6a5]">
-                      Transaction Fee
+                      Processing Fee
                     </span>
                     <span>{formatPrice(fee)}</span>
                   </div>
@@ -155,8 +155,12 @@ const Cart = () => {
                 </SheetTrigger>
 
                 <ScrollArea>
-                  {items.map(({ product }) => (
-                    <CartItem product={product} key={product.id} />
+                  {items.map(({ product, id }) => (
+                    <CartItem
+                      product={product}
+                      key={product.id}
+                      cartItemId={id}
+                    />
                   ))}
                 </ScrollArea>
                 {/* </div> */}

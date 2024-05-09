@@ -140,7 +140,7 @@ export const ReceiptEmail = ({
                 paddingTop: 20,
               }}
             >
-              <Text style={productTitle}>Transaction Fee</Text>
+              <Text style={productTitle}>Processing Fee</Text>
             </Column>
 
             <Column style={productPriceWrapper} align="right">

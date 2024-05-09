@@ -7,7 +7,13 @@ import { ImageIcon, X } from 'lucide-react';
 import Image from 'next/image';
 import { Separator } from './ui/separator';
 
-const CartItem = ({ product }: { product: Product }) => {
+const CartItem = ({
+  product,
+  cartItemId,
+}: {
+  product: Product;
+  cartItemId: string;
+}) => {
   const { image } = product.images[0];
 
   const { removeItem } = useCart();
@@ -40,7 +46,7 @@ const CartItem = ({ product }: { product: Product }) => {
             <div className="mt-2 text-sm px-1 text-muted-foreground">
               <div className="  bg-[#3c0006] inline-block rounded  ">
                 <button
-                  onClick={() => removeItem(product.id)}
+                  onClick={() => removeItem(cartItemId)}
                   className="flex items-center sm:justify-end  hover:text-gray-600  justify-end rounded text-xs font-medium px-2 py-1 "
                 >
                   <X className="w-3.5 h-3.5" />
@@ -58,8 +64,8 @@ const CartItem = ({ product }: { product: Product }) => {
             </span> */}
           </div>
         </div>
-        <div className="flex flex-col space-y-1 pr-6 text-[#fad6a5] font-medium">
-          <span className="ml-auto line-clamp-1  text-[#fad6a5] text-base">
+        <div className="flex flex-col space-y-3  sm:pr-6 text-[#fad6a5] font-medium">
+          <span className="ml-auto line-clamp-1 text-[#fad6a5] text-base">
             {formatPrice(product.price)}
           </span>
         </div>

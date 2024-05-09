@@ -135,7 +135,7 @@ const ThankyouPage = async ({ searchParams }: PageProps) => {
             </div>
 
             <div className=" text-slate-50 flex justify-between">
-              <p> Transaction Fee</p>
+              <p>Processing  Fee</p>
               <p>{formatPrice(1)}</p>
             </div>
 

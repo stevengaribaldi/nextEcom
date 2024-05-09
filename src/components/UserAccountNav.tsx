@@ -22,10 +22,7 @@ const UserAccountNav = ({ user }: { user: User }) => {
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-      <DropdownMenuTrigger
-        asChild
-
-      >
+      <DropdownMenuTrigger asChild className="overflow-visible">
         <div
           className="hover:ring-1 ring-pink-300 hover:ring-opacity-10
                       hover:shadow-[0_6px_20px_rgba(209,192,208,50%)]
@@ -34,7 +31,6 @@ const UserAccountNav = ({ user }: { user: User }) => {
           <div className="flex ">
             <UserIcon
               className="cursor-pointer"
-              onMouseEnter={() => setIsOpen(true)}
             ></UserIcon>
             <span className=" space-y-0.5 cursor-pointer  px-1 py-1 leading-none">
               My Account
